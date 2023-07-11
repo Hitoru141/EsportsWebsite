@@ -2,7 +2,6 @@ import "../Styles/players.css";
 
 import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
-// import { BsTwitter } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
 
 const Playercard = () => {
