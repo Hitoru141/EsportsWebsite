@@ -5,8 +5,8 @@ import ValorantTeam from "./Views/ValorantTeam";
 import ContentCreators from "./Views/ContentCreators";
 import Errorpage from "./Views/Errorpage";
 import Playerpage from "./Views/Playerpage";
-import AdminSignIn from "./Views/AdminSignIn";
-import Admindash from "./Views/Admindash";
+import AdminSignIn from "./Views/Admin/AdminSignIn";
+import Admindash from "./Views/Admin/Admindash";
 
 function App() {
   return (
