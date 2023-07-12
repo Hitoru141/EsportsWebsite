@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
     width: 100vw;
     height: 100vh;
 }
@@ -61,14 +62,16 @@
     margin: 8px 0 14px 0;
   }
   
-  .forgot a,.signup a {
+  .forgot .a5,.signup .a5 {
     color: rgba(243, 244, 246, 1);
     text-decoration: none;
     font-size: 14px;
   }
   
-  .forgot a:hover, .signup a:hover {
+  .forgot .a5:hover, .signup .a5:hover {
+    cursor: pointer;
     text-decoration: underline rgba(167, 139, 250, 1);
+
   }
   
   .sign {
