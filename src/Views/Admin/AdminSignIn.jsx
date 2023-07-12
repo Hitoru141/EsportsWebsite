@@ -15,15 +15,17 @@ const Admin = () => {
     const newUser = { ...info };
     newUser[e.target.id] = e.target.value;
     setInfo(newUser);
+    console.log(info);
   };
 
-  const handleSubmit = async () => {
-    console.log(info);
-    const data = await axios.get(
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = await axios.post(
       "https://esportsbackend-ugit.onrender.com/api/auth/signin",
-      { email: info.email, password: info.password }
+      info
     );
-    nav("/astraadmin787/dashboard", data);
+    // nav("/astraadmin787/dashboard", data);
   };
 
   return (
