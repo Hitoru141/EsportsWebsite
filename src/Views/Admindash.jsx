@@ -1,11 +1,5 @@
-import Navbar from "../Components/Navbar";
-
 const Admindash = () => {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+  return <div>Admindash</div>;
 };
 
 export default Admindash;
