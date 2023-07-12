@@ -85,8 +85,9 @@
   font-size: 3rem;
   cursor: pointer;
 }
-
-
+.socials-btn:hover{
+  color: blueviolet;
+}
 .hover-content {
   position: absolute;
   display: flex;

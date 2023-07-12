@@ -143,7 +143,7 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: #43056a;
+    background-color: #150121;
 }
   .adbtn {
     margin: 2rem 2rem;
@@ -330,4 +330,15 @@
 		bottom: -25px;
 		left: -25px;
 	}
+}
+.optionsview-cont{
+    width: 90vw;
+    height: 700px;
+    display: flex;
+    z-index: 10;
+    margin-top: 15rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(16, 14, 14);
 }
