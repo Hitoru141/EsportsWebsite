@@ -1,8 +1,16 @@
 import "../../Styles/admin.css";
 import { Link } from "react-router-dom";
 import AdTeam from "./AdTeam";
+import { useState } from "react";
+import AdCarousel from "./AdCarousel";
 const Admindash = (data) => {
   console.log(data);
+
+  const [activeComponent, setActiveComponent] = useState("carousel");
+
+  const handleButtonClick = (component) => {
+    setActiveComponent(component);
+  };
   return (
     <div className="Adminwrapper2">
       <nav className="nav">
@@ -33,11 +41,22 @@ const Admindash = (data) => {
         </div>
       </nav>
       <div className="adbtn-wrapper">
-        <button className="adbtn">ADD TEAM</button>
-        <button className="adbtn">ADD TEAM</button>
+        <button
+          className={activeComponent === "carousel" ? "adbtn active" : "adbtn"}
+          onClick={() => handleButtonClick("carousel")}
+        >
+          Carousel
+        </button>
+        <button
+          className={activeComponent === "team" ? "adbtn active" : "adbtn"}
+          onClick={() => handleButtonClick("team")}
+        >
+          Add Team
+        </button>
       </div>
       <div className="optionsview-cont">
-        <AdTeam />
+        {activeComponent === "carousel" && <AdCarousel />}
+        {activeComponent === "team" && <AdTeam />}
       </div>
     </div>
   );
