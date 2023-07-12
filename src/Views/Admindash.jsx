@@ -1,4 +1,5 @@
-const Admindash = () => {
+const Admindash = (data) => {
+  console.log(data);
   return <div>Admindash</div>;
 };
 

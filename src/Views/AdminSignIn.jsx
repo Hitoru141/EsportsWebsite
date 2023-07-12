@@ -1,7 +1,31 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/admin.css";
+import axios from "axios";
 
 const Admin = () => {
+  const [info, setInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const nav = useNavigate();
+
+  const onChangeHandle = (e) => {
+    const newUser = { ...info };
+    newUser[e.target.id] = e.target.value;
+    setInfo(newUser);
+  };
+
+  const handleSubmit = async () => {
+    console.log(info);
+    const data = await axios.get(
+      "https://esportsbackend-ugit.onrender.com/api/auth/signin",
+      { email: info.email, password: info.password }
+    );
+    nav("/astraadmin787/dashboard", data);
+  };
+
   return (
     <div className="Adminwrapper">
       <div className="form-container">
@@ -11,7 +35,15 @@ const Admin = () => {
             <label htmlFor="username" className="signin-p">
               Username
             </label>
-            <input type="text" name="username" id="username" placeholder="" />
+            <input
+              type="text"
+              name="username"
+              id="email"
+              placeholder=""
+              onChange={(e) => {
+                onChangeHandle(e);
+              }}
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password" className="signin-p">
@@ -23,14 +55,19 @@ const Admin = () => {
               id="password"
               className="password"
               placeholder=""
+              onChange={(e) => {
+                onChangeHandle(e);
+              }}
             />
             <div className="forgot">
               <a className="a5">Forgot Password ?</a>
             </div>
           </div>
-          <Link to="/astraadmin787/dashboard">
-            <button className="sign">Sign in</button>
-          </Link>
+          {/* <Link to="/astraadmin787/dashboard"> */}
+          <button className="sign" onClick={handleSubmit}>
+            Sign in
+          </button>
+          {/* </Link> */}
         </form>
         <div className="social-message">
           <div className="line"></div>
