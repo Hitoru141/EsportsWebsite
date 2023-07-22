@@ -9,7 +9,7 @@ import { BiChevronLeftCircle } from "react-icons/bi";
 
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const images = [samplehero, samplehero2, samplehero3];
+  const [images, setImages] = useState([samplehero, samplehero2, samplehero3]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,6 +20,16 @@ const Carousel = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  useEffect(() => {
+    fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
+      .then((response) => response.json())
+      .then((data) => {
+        const imageLinks = data.map((item) => item.img_link);
+        setImages(imageLinks);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>

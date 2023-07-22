@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CarouselCards from "./CarouselCards";
 
 const AdCarousel = () => {
@@ -13,8 +13,18 @@ const AdCarousel = () => {
       selectedImages.push(URL.createObjectURL(fileList[i]));
     }
 
-    setImages(selectedImages);
+    setImages((prevImages) => [...selectedImages, ...prevImages]);
   };
+
+  useEffect(() => {
+    fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
+      .then((response) => response.json())
+      .then((data) => {
+        const imageLinks = data.map((item) => item.img_link);
+        setImages(imageLinks);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className="adcarousel-wrap">
