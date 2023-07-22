@@ -3,11 +3,14 @@ import CarouselCards from "./CarouselCards";
 import uploadHandler from "./carouselHandler/uploadHandler";
 
 const AdCarousel = () => {
-  const { setImageUpload, uploadFile, isLoading } = uploadHandler();
-
+  const { setImageUpload, setIsLoading, uploadFile, isLoading } =
+    uploadHandler();
   const [images, setImages] = useState([]);
+  const [fileCheck, setFileCheck] = useState(false);
+  const [carouselLength, setCarouselLength] = useState(0);
 
   const handleFileChange = (event) => {
+    setFileCheck(true);
     const file = event.target.files[0];
     const selectedImage = {
       img_link: URL.createObjectURL(file),
@@ -24,6 +27,8 @@ const AdCarousel = () => {
       .then((response) => response.json())
       .then((data) => {
         setImages(data);
+        setIsLoading(data.length > 4);
+        setCarouselLength(data.length);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -37,7 +42,11 @@ const AdCarousel = () => {
         <p className="form-paragraph">File should be an image</p>
         <label htmlFor="file-input" className="drop-container">
           <span className="drop-title">
-            {isLoading ? "Uploading..." : "Drop files here"}
+            {carouselLength > 4
+              ? "Carousel Full"
+              : isLoading
+              ? "Uploading..."
+              : "Drop Files Here"}
           </span>
           {/* or */}
           <input
@@ -49,8 +58,16 @@ const AdCarousel = () => {
             disabled={isLoading}
           />
         </label>
-        <button onClick={uploadFile} disabled={isLoading}>
-          {isLoading ? "Uploading" : "Submit"}
+        <button
+          onClick={uploadFile}
+          disabled={isLoading || !fileCheck}
+          style={{ border: "2px solid #084cdf", margin: "10px" }}
+        >
+          {carouselLength > 4
+            ? "Max of 5 Images"
+            : isLoading
+            ? "Uploading"
+            : "Upload"}
         </button>
       </form>
       <div className="previmg-wrap" style={{ overflowX: "hidden" }}>

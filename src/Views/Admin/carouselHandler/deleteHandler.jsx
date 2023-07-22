@@ -1,6 +1,9 @@
 import axios from "axios";
 
 const deleteCarousel = (id) => {
+  if (!id) {
+    return alert("Upload the image first before deleting.");
+  }
   axios
     .delete(
       `https://astraeus-firebase-endpoints.onrender.com/delCarousel/${id}`
@@ -10,7 +13,7 @@ const deleteCarousel = (id) => {
       window.location.reload();
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     });
 };
 
