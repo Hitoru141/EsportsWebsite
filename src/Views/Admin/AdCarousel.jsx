@@ -1,27 +1,29 @@
 import { useState, useEffect } from "react";
 import CarouselCards from "./CarouselCards";
+import uploadHandler from "./carouselHandler/uploadHandler";
 
 const AdCarousel = () => {
+  const { setImageUpload, uploadFile, isLoading } = uploadHandler();
+
   const [images, setImages] = useState([]);
 
   const handleFileChange = (event) => {
-    const fileList = event.target.files;
-    const selectedImages = [];
+    const file = event.target.files[0];
+    const selectedImage = {
+      img_link: URL.createObjectURL(file),
+    };
 
-    // Loop through the uploaded files and push them to the selectedImages array
-    for (let i = 0; i < fileList.length; i++) {
-      selectedImages.push(URL.createObjectURL(fileList[i]));
-    }
+    setImages((prevImages) => [selectedImage, ...prevImages]);
 
-    setImages((prevImages) => [...selectedImages, ...prevImages]);
+    setImageUpload(file);
   };
 
+  // FETCHES THE CAROUSEL IMAGES FROM DB
   useEffect(() => {
     fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
       .then((response) => response.json())
       .then((data) => {
-        const imageLinks = data.map((item) => item.img_link);
-        setImages(imageLinks);
+        setImages(data);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -34,19 +36,24 @@ const AdCarousel = () => {
         </span>
         <p className="form-paragraph">File should be an image</p>
         <label htmlFor="file-input" className="drop-container">
-          <span className="drop-title">Drop files here</span>
-          or
+          <span className="drop-title">
+            {isLoading ? "Uploading..." : "Drop files here"}
+          </span>
+          {/* or */}
           <input
             type="file"
             accept="image/*"
             required
             id="file-input"
-            multiple
             onChange={handleFileChange}
+            disabled={isLoading}
           />
         </label>
+        <button onClick={uploadFile} disabled={isLoading}>
+          {isLoading ? "Uploading" : "Submit"}
+        </button>
       </form>
-      <div className="previmg-wrap">
+      <div className="previmg-wrap" style={{ overflowX: "hidden" }}>
         {[...Array(images.length)].map((_, index) => (
           <CarouselCards key={index} carsel={images[index] || null} />
         ))}
