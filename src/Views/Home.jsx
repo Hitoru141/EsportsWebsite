@@ -1,7 +1,7 @@
 import "../Styles/main.css";
 
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/footer";
+// import Footer from "../Components/footer";
 import Carousel from "../Components/Carousel";
 import ContCreatorsCard from "../Components/ContCreatorsCard";
 import TeamCard from "../Components/TeamCard";
@@ -24,7 +24,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
