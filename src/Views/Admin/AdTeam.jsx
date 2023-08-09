@@ -1,5 +1,5 @@
 const AdTeam = () => {
-  return <div>AdTeam</div>;
+  return <div className="adcarousel-wrap">AdTeam</div>;
 };
 
 export default AdTeam;
