@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "../Styles/hero.css";
 
+import samplehero from "../assets/samplehero.jpg";
+import samplehero2 from "../assets/samplehero2.jpg";
+import samplehero3 from "../assets/samplehero3.jpg";
+
 import { BiChevronRightCircle } from "react-icons/bi";
 import { BiChevronLeftCircle } from "react-icons/bi";
 
