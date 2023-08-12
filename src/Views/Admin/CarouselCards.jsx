@@ -1,4 +1,5 @@
 import "../../Styles/admin.css";
+import deleteCarousel from "./carouselHandler/deleteHandler";
 
 // eslint-disable-next-line react/prop-types
 const CarouselCards = ({ carsel }) => {
@@ -9,13 +10,13 @@ const CarouselCards = ({ carsel }) => {
     );
     if (confirmDelete) {
       console.log("Delete button clicked!");
-      // You can add your delete logic here
+      deleteCarousel(carsel.id);
     }
   };
 
   return (
     <div className="carousel-card">
-      <img src={carsel} className="carousel-card" />
+      <img src={carsel.img_link} className="carousel-card" />
       <button className="delete-button" onClick={handleDelete}>
         Delete
       </button>

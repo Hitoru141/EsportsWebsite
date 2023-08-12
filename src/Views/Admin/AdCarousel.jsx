@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CarouselCards from "./CarouselCards";
+import uploadHandler from "./carouselHandler/uploadHandler";
 
 const AdCarousel = () => {
+  const { setImageUpload, setIsLoading, uploadFile, isLoading } =
+    uploadHandler();
   const [images, setImages] = useState([]);
+  const [fileCheck, setFileCheck] = useState(false);
+  const [carouselLength, setCarouselLength] = useState(0);
 
   const handleFileChange = (event) => {
-    const fileList = event.target.files;
-    const selectedImages = [];
+    setFileCheck(true);
+    const file = event.target.files[0];
+    const selectedImage = {
+      img_link: URL.createObjectURL(file),
+    };
 
-    // Loop through the uploaded files and push them to the selectedImages array
-    for (let i = 0; i < fileList.length; i++) {
-      selectedImages.push(URL.createObjectURL(fileList[i]));
-    }
+    setImages((prevImages) => [selectedImage, ...prevImages]);
 
-    setImages(selectedImages);
+    setImageUpload(file);
   };
+
+  // FETCHES THE CAROUSEL IMAGES FROM DB
+  useEffect(() => {
+    fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
+      .then((response) => response.json())
+      .then((data) => {
+        setImages(data);
+        setIsLoading(data.length > 4);
+        setCarouselLength(data.length);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className="adcarousel-wrap">
@@ -24,19 +41,36 @@ const AdCarousel = () => {
         </span>
         <p className="form-paragraph">File should be an image</p>
         <label htmlFor="file-input" className="drop-container">
-          <span className="drop-title">Drop files here</span>
-          or
+          <span className="drop-title">
+            {carouselLength > 4
+              ? "Carousel Full"
+              : isLoading
+              ? "Uploading..."
+              : "Drop Files Here"}
+          </span>
+          {/* or */}
           <input
             type="file"
             accept="image/*"
             required
             id="file-input"
-            multiple
             onChange={handleFileChange}
+            disabled={isLoading}
           />
         </label>
+        <button
+          onClick={uploadFile}
+          disabled={isLoading || !fileCheck}
+          style={{ border: "2px solid #084cdf", margin: "10px" }}
+        >
+          {carouselLength > 4
+            ? "Max of 5 Images"
+            : isLoading
+            ? "Uploading"
+            : "Upload"}
+        </button>
       </form>
-      <div className="previmg-wrap">
+      <div className="previmg-wrap" style={{ overflowX: "hidden" }}>
         {[...Array(images.length)].map((_, index) => (
           <CarouselCards key={index} carsel={images[index] || null} />
         ))}
