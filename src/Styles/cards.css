@@ -99,3 +99,23 @@
     opacity: 0.6;
     transform: rotateX(7deg) translateY(-6px) scale(1.05);
   }
+  /* ADMIN CARDS */
+.adteam_card{
+  position: relative;
+  margin: 0.6rem;
+  width: 320px;
+  height: 254px;
+  border-radius: 10px;
+  color: aliceblue;
+  background-position: no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+  background-color: #58066e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.adteam_name{
+  font-size: 1.5rem;
+}
