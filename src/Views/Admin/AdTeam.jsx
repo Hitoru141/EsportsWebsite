@@ -95,7 +95,7 @@ const AdTeam = () => {
                 </>
               ) : (
                 <button className="add-button">
-                  <label htmlFor="imageInput">Add Team Logo</label>
+                  <label htmlFor="imageInput">Upload Team Logo</label>
                   <input
                     id="imageInput"
                     type="file"
@@ -122,6 +122,9 @@ const AdTeam = () => {
               alt={`${team.name} Logo`}
             />
             <p className="adteam_name">{team.name}</p>
+            <button className="adteamcard_delbtn">Delete</button>
+            <button className="adteamcard_updtbtn">Update</button>
+            <button className="adteamcard_playerbtn">Add Players</button>
           </div>
         ))}
       </div>
