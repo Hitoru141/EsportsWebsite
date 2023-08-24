@@ -10,6 +10,13 @@ import tbanner from "../assets/Astraeus.jpg";
 import { Link } from "react-router-dom";
 
 const ValorantTeam = () => {
+  const teamData = [
+    { logo: millen, name: "Millennia" },
+    { logo: sol, name: "Sol" },
+    { logo: hlx, name: "Helix" },
+    { logo: prs, name: "Polaris" },
+  ];
+
   return (
     <div className="Vwrapper">
       <Navbar banner={tbanner} />
@@ -18,12 +25,11 @@ const ValorantTeam = () => {
       </div>
       <div className="cardswrapper">
         <div className="l-container">
-          <Astrateamcards teamlogo={millen} tname="Millennia" />
-          <Link to="/team">
-            <Astrateamcards teamlogo={sol} tname="Millennia" />
-          </Link>
-          <Astrateamcards teamlogo={hlx} tname="Millennia" />
-          <Astrateamcards teamlogo={prs} tname="Millennia" />
+          {teamData.map((team, index) => (
+            <Link key={index} to="/team">
+              <Astrateamcards teamlogo={team.logo} tname={team.name} />
+            </Link>
+          ))}
         </div>
       </div>
       <Footer />
