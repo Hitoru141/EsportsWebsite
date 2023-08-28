@@ -124,7 +124,7 @@ const AdTeam = () => {
             <p className="adteam_name">{team.name}</p>
             <button className="adteamcard_delbtn">Delete</button>
             <button className="adteamcard_updtbtn">Update</button>
-            <button className="adteamcard_playerbtn">Add Players</button>
+            <button className="adteamcard_playerbtn">Manage team</button>
           </div>
         ))}
       </div>
