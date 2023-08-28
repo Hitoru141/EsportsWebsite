@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Astrateamcards from "../Components/Astrateamcards";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/footer";
@@ -8,8 +9,22 @@ import hlx from "../assets/helix.png";
 import prs from "../assets/polaris.png";
 import tbanner from "../assets/Astraeus.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ValorantTeam = () => {
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    const group = async () => {
+      const data = await axios.get("http://localhost:4000/api/teams");
+      console.log(data);
+      setTeams(data.data);
+    };
+    group();
+  }, []);
+
+  console.log(teams);
+
   return (
     <div className="Vwrapper">
       <Navbar banner={tbanner} />
@@ -17,14 +32,13 @@ const ValorantTeam = () => {
         <p className="team-header"> AST TEAMS</p>
       </div>
       <div className="cardswrapper">
-        <div className="l-container">
-          <Astrateamcards teamlogo={millen} tname="Millennia" />
-          <Link to="/team">
-            <Astrateamcards teamlogo={sol} tname="Millennia" />
-          </Link>
-          <Astrateamcards teamlogo={hlx} tname="Millennia" />
-          <Astrateamcards teamlogo={prs} tname="Millennia" />
-        </div>
+        {teams.map((team) => (
+          <div className="l-container" key={team.teamLogo}>
+            <Link to="/team">
+              <Astrateamcards teamlogo={team.teamLogo} tname="Millennia" />
+            </Link>
+          </div>
+        ))}
       </div>
       <Footer />
     </div>
