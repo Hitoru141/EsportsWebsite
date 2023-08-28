@@ -491,6 +491,7 @@
     right: 50rem;
     width: 100px;
     height: 40px;
+    color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
