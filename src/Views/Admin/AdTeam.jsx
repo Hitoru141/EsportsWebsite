@@ -3,7 +3,8 @@ import "../../Styles/cards.css";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [teamData, setTeamData] = useState([]); // Step 1: Team data state
+  const [teamData, setTeamData] = useState([]);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -11,9 +12,8 @@ const AdTeam = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setUpdateModalStates(false);
   };
-
-  const [imagePreview, setImagePreview] = useState(null);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -33,9 +33,28 @@ const AdTeam = () => {
         name: teamNameInput.value,
         logo: imagePreview,
       };
-      setTeamData([...teamData, newTeam]); // Update team data state
-      closeModal(); // Close the modal
+      setTeamData([...teamData, newTeam]);
+      closeModal();
     }
+  };
+
+  const handleDeleteTeam = (index) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this team?"
+    );
+    if (confirmDelete) {
+      const updatedTeamData = teamData.filter((team, i) => i !== index);
+      setTeamData(updatedTeamData);
+    }
+  };
+
+  const [updateModalStates, setUpdateModalStates] = useState({}); // Update modal states for each team
+
+  const toggleUpdateModal = (index) => {
+    setUpdateModalStates((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
   };
 
   return (
@@ -113,7 +132,6 @@ const AdTeam = () => {
         </div>
       )}
       <div className="adteamcard_wrap">
-        {/*  Render Team Cards */}
         {teamData.map((team, index) => (
           <div key={index} className="adteam_card">
             <img
@@ -122,14 +140,19 @@ const AdTeam = () => {
               alt={`${team.name} Logo`}
             />
             <p className="adteam_name">{team.name}</p>
-            <button className="adteamcard_delbtn">Delete</button>
-
-            {/* FOR UPDATE TEAM DETAILS */}
-
-            <button className="adteamcard_updtbtn" onClick={toggleModal}>
+            <button
+              className="adteamcard_delbtn"
+              onClick={() => handleDeleteTeam(index)}
+            >
+              Delete
+            </button>
+            <button
+              className="adteamcard_updtbtn"
+              onClick={() => toggleUpdateModal(index)}
+            >
               Update
             </button>
-            {isModalOpen && (
+            {updateModalStates[index] && (
               <div className="adtmodal-overlay">
                 <div className="adtmodal">
                   <div className="adtX" onClick={closeModal}>
