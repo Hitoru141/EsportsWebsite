@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../Styles/hero.css";
+
 import samplehero from "../assets/samplehero.jpg";
 import samplehero2 from "../assets/samplehero2.jpg";
 import samplehero3 from "../assets/samplehero3.jpg";

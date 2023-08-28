@@ -194,7 +194,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(68, 1, 255);
+  background-color: rgb(0, 0, 0);
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -340,6 +340,178 @@
   border-radius: 5px;
   cursor: pointer;
 }
+/* ADD TEAM */
+.adtbutton {
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  top: 15.5rem;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+}
+
+.adtbutton, .adtbutton__icon, .adtbutton__text {
+  transition: all 0.3s;
+}
+
+.adtbutton .adtbutton__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.adtbutton .adtbutton__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adtbutton .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.adtbutton:hover {
+  background: #34974d;
+}
+
+.adtbutton:hover .adtbutton__text {
+  color: transparent;
+}
+
+.adtbutton:hover .adtbutton__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.adtbutton:active .adtbutton__icon {
+  background-color: #2e8644;
+}
+
+.adtbutton:active {
+  border: 1px solid #2e8644;
+}
+.adtmodal-overlay{
+  position: fixed;
+  background-color: #434242c5;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adtmodal {
+  width: 800px;
+  height: 450px;
+  background-color: rgb(11, 10, 10);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.adtmodal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.adtinput {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 200px;
+  outline: 0;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+.adt-h2{
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+}
+.adtX{
+  cursor: pointer;
+  width: 50p;
+  font-size: 3rem;
+  color: rgb(250, 3, 3);
+  background-color: #00000000;
+  margin-left: 25em;
+}
+
+.adt-img {
+  position: relative;
+  width:200px;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin: 1rem;
+  overflow: hidden; /* Ensure the image stays within the div */
+}
+
+.add-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-button input[type="file"] {
+  display: none;
+}
+
+.adtimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio while covering the div */
+}
+.adtsavebtn{
+    position: absolute;
+    top: 67rem;
+    right: 50rem;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #14910c;
+    justify-content: center;
+  }
+  .adtsavebtn:hover{
+    background-color: #16bd0a;
+  }
+  .adteamcard_wrap{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 80%;
+  
+  }
+  
+
 
 
 

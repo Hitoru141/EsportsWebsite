@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ValorantTeam = () => {
+
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
@@ -23,8 +24,6 @@ const ValorantTeam = () => {
     group();
   }, []);
 
-  console.log(teams);
-
   return (
     <div className="Vwrapper">
       <Navbar banner={tbanner} />
@@ -32,6 +31,7 @@ const ValorantTeam = () => {
         <p className="team-header"> AST TEAMS</p>
       </div>
       <div className="cardswrapper">
+
         {teams.map((team) => (
           <div className="l-container" key={team.teamLogo}>
             <Link to="/team">
@@ -39,6 +39,7 @@ const ValorantTeam = () => {
             </Link>
           </div>
         ))}
+
       </div>
       <Footer />
     </div>
