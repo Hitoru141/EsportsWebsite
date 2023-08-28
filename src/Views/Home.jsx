@@ -17,11 +17,10 @@ const Home = () => {
           ASTRAEUS <span className="h-esport">ESPORTS</span>
         </p>
         <p className="sub-header">Meet our team</p>
-        <div className="team-category">
-          <div className="page-content">
-            <TeamCard />
-            <ContCreatorsCard />
-          </div>
+
+        <div className="page-content">
+          <TeamCard />
+          <ContCreatorsCard />
         </div>
       </section>
       <Footer />

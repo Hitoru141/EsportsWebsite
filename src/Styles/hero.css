@@ -8,13 +8,33 @@
 
 .carousel {
   position: relative;
-  width: 120rem;
-  height: 70rem;
+  width: 70vw;
+  height: 80vh;
   margin: 1em;
   border-radius: 10px;
   overflow: hidden;
+  background-color: #fff;
 }
-
+@media  (max-width: 1024px)  {
+  .carousel {
+    height: 50vh;
+  }
+}
+@media  (max-width: 768px)  {
+  .carousel {
+    height: 40vh;
+  } 
+}
+@media  (max-width: 425px)  {
+  .carousel {
+    height: 30vh;
+  }
+}
+@media  (max-width: 320px)  {
+  .carousel {
+    height: 25vh;
+  }
+}
 .carousel-image {
   position: absolute;
   top: 0;
@@ -65,40 +85,26 @@
   flex-direction: column;
   margin: 2em;
 }
-.team-category{
-    width: 90%;
-    height: 50rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .page-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5rem;
     gap: 2rem;
     padding: 1rem;
   }
-  @media (min-width: 600px) {
-    .page-content {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 800px) {
-    .page-content {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
+
 .card {
     position: relative;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     overflow: hidden;
     padding: 1rem;
     width: 50rem;
     text-align: center;
     color: whitesmoke;
-    
     border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
   }
@@ -107,6 +113,7 @@
       height: 350px;
     }
   }
+  
   .card:before {
     content: "";
     position: absolute;
@@ -142,15 +149,14 @@
     background-position: center;
    
   }
-
-  
   .content {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 1rem;
+    margin: 1rem;
+ 
     transition: transform var(--d) var(--e);
     z-index: 1;
   }
@@ -159,11 +165,47 @@
   }
   
   .title {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1.5;
   }
-  
+  @media   (max-width: 1222px) {
+    .content{
+      margin: 10rem;
+    }
+    .card {
+      width: 30rem;
+      
+    }
+    .card:before{
+      height: 80%;
+    }
+    .card:after{
+      height: 160%;
+    }
+   
+  }
+  @media   (max-width: 860px) {
+    .page-content{
+      flex-direction: column;
+    }
+    .team-header{
+      font-size: 4em;
+  }
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    .team-header{
+      font-size: 2em;
+  }
+  .card {
+    width: 20rem;
+  }
+  .card:before{
+    height: 50%;
+  }
+   
+}
   .copy {
     font-family: var(--font-serif);
     font-size: 1.125rem;
@@ -188,9 +230,6 @@
     background-color: #fff;
     color: red;
   }
-  /* .btn:focus {
-    border-color: red;
-  } */
   
   @media (hover: hover) and (min-width: 600px) {
     .card:after {
