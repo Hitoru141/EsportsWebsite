@@ -53,7 +53,9 @@ const Navbar = ({ banner }) => {
           <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
               <li>
-                <a href="#">About</a>
+                <Link to="/about">
+                  <a href="#">About</a>
+                </Link>
               </li>
               <li>
                 <a href="#">Community</a>

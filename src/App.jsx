@@ -7,12 +7,14 @@ import Errorpage from "./Views/Errorpage";
 import Playerpage from "./Views/Playerpage";
 import AdminSignIn from "./Views/Admin/AdminSignIn";
 import Admindash from "./Views/Admin/Admindash";
+import About from "./Views/About";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/valoteam" element={<ValorantTeam />} />
         <Route path="/contentcreators" element={<ContentCreators />} />
         <Route path="/team" element={<Playerpage />} />
