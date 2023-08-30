@@ -28,6 +28,7 @@ const uploadHandler = () => {
           .post("https://astraeus-firebase-endpoints.onrender.com/carousel", {
             img_link: url,
             name: getCurrentDateTime(),
+            path: imageRef.fullPath,
           })
           .then(() => {
             alert("Added to Firebase Firestore/Storage successfully!");
