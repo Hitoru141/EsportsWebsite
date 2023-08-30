@@ -23,7 +23,7 @@ const Carousel = () => {
   }, [images.length]);
 
   useEffect(() => {
-    fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
+    fetch("https://astraeus-firebase-endpoints.onrender.com/carousel")
       .then((response) => response.json())
       .then((data) => {
         const imageLinks = data.map((item) => item.img_link);

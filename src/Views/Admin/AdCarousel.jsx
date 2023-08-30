@@ -23,7 +23,7 @@ const AdCarousel = () => {
 
   // FETCHES THE CAROUSEL IMAGES FROM DB
   useEffect(() => {
-    fetch("https://astraeus-firebase-endpoints.onrender.com/getCarousel")
+    fetch("https://astraeus-firebase-endpoints.onrender.com/carousel")
       .then((response) => response.json())
       .then((data) => {
         setImages(data);
