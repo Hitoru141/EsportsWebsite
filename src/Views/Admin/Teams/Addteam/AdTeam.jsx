@@ -103,40 +103,26 @@ const AdTeam = () => {
               {/* This code is conditionally rendering either a "Reupload Team Banner" button and an
               image preview of the uploaded banner, or an "Upload Team Banner" button, based on
               whether `bannerImagePreview` has a value or not.  */}
-              {bannerImagePreview ? (
-                <>
-                  <button className="add-button">
-                    <label htmlFor="bannerImageInput">
-                      Reupload Team Banner
-                    </label>
-                    <input
-                      id="bannerImageInput"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleBannerImageUpload}
-                    />
-                  </button>
-
-                  <img
-                    src={bannerImagePreview}
-                    alt="Uploaded Team Banner"
-                    className="adtbanner_container"
-                  />
-                </>
-              ) : (
-                <>
-                  <button className="add-button">
-                    <label htmlFor="bannerImageInput">Upload Team Banner</label>
-                    <input
-                      id="bannerImageInput"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleBannerImageUpload}
-                    />
-                  </button>
-                </>
+              {bannerImagePreview && (
+                <img
+                  src={bannerImagePreview}
+                  alt="Upload Team Banner"
+                  className="adtbanner_container"
+                />
               )}
+              <button className="add-button">
+                <label htmlFor="bannerImageInput">
+                  {bannerImagePreview ? "Reupload" : "Upload"} Team Banner
+                </label>
+                <input
+                  id="bannerImageInput"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleBannerImageUpload}
+                />
+              </button>
             </div>
+            <button className="btn_uploadfile">Upload Banner</button>
             <div className="adt-img">
               {/* This code is conditionally rendering either a "Reupload Team Logo" button and an image
              preview of the uploaded logo, or an "Upload Team Logo" button, based on whether
@@ -174,7 +160,7 @@ const AdTeam = () => {
                 </button>
               )}
             </div>
-
+            <button className="btn_uploadfile">Upload Logo</button>
             <div className="adtsavebtn" onClick={handleAddTeam}>
               <p className="adtp1"> Add</p>
             </div>

@@ -145,6 +145,18 @@
     height: 100vh;
     background-color: #150121;
 }
+.btn_uploadfile {
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgb(11, 17, 171);
+  border: none;
+}
   .adbtn {
     margin: 2rem 2rem;
     font-size: 1.2rem;
@@ -419,14 +431,15 @@
   justify-content: center;
 }
 .addteam-modal {
-  width: 1200px;
-  height: 700px;
+  width: 900px;
+  height: 750px;
   background-color: rgb(6, 6, 6);
   display: flex;
   align-items: center;
+  padding: 2rem;
   flex-direction: column;
   border-radius: 10px;
-
+  margin-bottom: 12rem;
 }
 .adtbanner_container{
     display: flex;
@@ -482,7 +495,7 @@
 
 .add-button {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.7);
@@ -496,6 +509,7 @@
   cursor: pointer;
 }
 
+
 .add-button input[type="file"] {
   display: none;
 }
@@ -507,7 +521,7 @@
 }
 .adtsavebtn{
     position: relative;
-  
+    margin-top: 1rem;
     width: 60px;
     height: 40px;
     color: white;
@@ -523,7 +537,7 @@
   }
 .adtp1{
   font-size: 1.5rem;
-
+ 
 }
   .adteamcard_wrap{
     flex-direction: row;
