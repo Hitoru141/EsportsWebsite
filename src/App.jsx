@@ -8,7 +8,7 @@ import Playerpage from "./Views/Playerpage";
 import AdminSignIn from "./Views/Admin/AdminSignIn";
 import Admindash from "./Views/Admin/Admindash";
 import About from "./Views/About";
-import ManageMmbrs from "./Views/Admin/ManageMmbrs";
+import ManageMmbrs from "./Views/Admin/AddTeamComponents/ManageMmbrs";
 
 function App() {
   return (

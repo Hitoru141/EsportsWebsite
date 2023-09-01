@@ -410,8 +410,8 @@
   justify-content: center;
 }
 .adtmodal {
-  width: 800px;
-  height: 460px;
+  width: 1200px;
+  height: 700px;
   background-color: rgb(6, 6, 6);
   display: flex;
   align-items: center;
@@ -419,7 +419,17 @@
   border-radius: 10px;
 
 }
-
+.adtbanner_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  800px;
+    height: 200px;
+    background-position: center;
+    background-color: rgba(137, 43, 226, 0.507);
+	  background-size:cover;
+    border-radius: 10px;
+}
 .adtmodal-content {
   background-color: white;
   padding: 20px;
@@ -537,6 +547,12 @@
     background-color: rgba(137, 43, 226, 0.507);
 	  background-size:cover;
 }
+.adt_teambanner-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 .cssbuttons-io-button {
   display: flex;
   align-items: center;
