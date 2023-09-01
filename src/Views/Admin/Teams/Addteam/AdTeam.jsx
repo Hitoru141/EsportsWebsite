@@ -128,37 +128,27 @@ const AdTeam = () => {
              preview of the uploaded logo, or an "Upload Team Logo" button, based on whether
              `imagePreview` has a value or not.  */}
 
-              {imagePreview ? (
-                <>
-                  <button className="add-button">
-                    <label htmlFor="imageInput">Reupload Team Logo</label>
-                    <input
-                      id="imageInput"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                    />
-                  </button>
-
-                  <div className="image-preview">
-                    <img
-                      src={imagePreview}
-                      alt="Uploaded Team Logo"
-                      className="adtimg"
-                    />
-                  </div>
-                </>
-              ) : (
-                <button className="add-button">
-                  <label htmlFor="imageInput">Upload Team Logo</label>
-                  <input
-                    id="imageInput"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
+              {imagePreview && (
+                <div className="image-preview">
+                  <img
+                    src={imagePreview}
+                    alt="Uploaded Team Logo"
+                    className="adtimg"
                   />
-                </button>
+                </div>
               )}
+
+              <button className="add-button">
+                <label htmlFor="imageInput">
+                  {imagePreview ? "Reupload" : "Upload"} Team Logo
+                </label>
+                <input
+                  id="imageInput"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+              </button>
             </div>
             <button className="btn_uploadfile">Upload Logo</button>
             <div className="adtsavebtn" onClick={handleAddTeam}>
