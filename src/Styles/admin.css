@@ -525,7 +525,7 @@
     height: 80%;
   
   }
-  /* MANAGE MEMBERS MODAL */
+  /* MANAGE MEMBERS  */
   .mteam_wrapper {
     display: flex;
     align-items: center;
@@ -553,33 +553,7 @@
   border-radius: 10px;
 }
 
-.cssbuttons-io-button {
-  display: flex;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 17px;
-  padding: 0.8em 1.5em 0.8em 1.2em;
-  color: white;
-  background: #ad5389;
-  background: linear-gradient(0deg, rgb(120, 47, 255) 0%, rgb(185, 132, 255) 100%);
-  border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em rgb(184, 146, 255);
-  letter-spacing: 0.05em;
-  border-radius: 20em;
-}
 
-.cssbuttons-io-button svg {
-  margin-right: 8px;
-}
-
-.cssbuttons-io-button:hover {
-  box-shadow: 0 0.5em 1.5em -0.5em rgb(149, 91, 255);
-}
-
-.cssbuttons-io-button:active {
-  box-shadow: 0 0.3em 1em -0.5em rgb(160, 109, 255);
-}
 .adt_addplayerwrap{
   display: grid;
   grid-template-columns: repeat(3, minmax( 0, 1fr));
@@ -641,9 +615,56 @@
   100% {
   }
 }
-
-  
-
-
+.addmember-modal_overlay{
+  position: fixed;
+  z-index: 9999;
+  width: 700px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.addmember-modal-form{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(67, 0, 100, 0.752);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 35rem;
+}
+.exit_modal{
+  cursor: pointer;
+  width: 50px; 
+  font-size: 5rem;
+  color: rgb(250, 3, 3);
+  background-color: #00000000;
+  margin-left: 68rem;
+}
+input{
+  margin: 0.7rem;
+}
+.circle {
+	line-height: 0;		/* remove line-height */ 
+	display: inline-block;	/* circle wraps image */
+	margin: 5px;
+  border: 4px solid rgba(200,200,200,0.4);
+	border-radius: 50%;	/* relative value */
+	/*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
+	transition: linear 0.25s;
+  height: 128px;
+  width: 128px;
+}
+.circle img {
+	border-radius: 50%;	/* relative value for
+				   adjustable image size */
+}
+.circle:hover {
+	transition: ease-out 0.2s;
+  border: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: ease-out 0.2s;
+}
 
 
