@@ -25,13 +25,11 @@ const uploadHandler = () => {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         axios
-          .post(
-            "https://astraeus-firebase-endpoints.onrender.com/addCarousel",
-            {
-              img_link: url,
-              name: getCurrentDateTime(),
-            }
-          )
+          .post("https://astraeus-firebase-endpoints.onrender.com/carousel", {
+            img_link: url,
+            name: getCurrentDateTime(),
+            path: imageRef.fullPath,
+          })
           .then(() => {
             alert("Added to Firebase Firestore/Storage successfully!");
             setIsLoading(false);

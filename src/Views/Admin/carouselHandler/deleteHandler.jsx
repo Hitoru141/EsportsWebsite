@@ -5,9 +5,7 @@ const deleteCarousel = (id) => {
     return alert("Upload the image first before deleting.");
   }
   axios
-    .delete(
-      `https://astraeus-firebase-endpoints.onrender.com/delCarousel/${id}`
-    )
+    .delete(`https://astraeus-firebase-endpoints.onrender.com/carousel/${id}`)
     .then((response) => {
       alert("Deleted from Firebase Firestore/Storage successfully!");
       window.location.reload();
