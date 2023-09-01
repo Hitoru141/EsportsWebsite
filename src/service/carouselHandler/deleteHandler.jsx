@@ -1,11 +1,12 @@
 import axios from "axios";
+import { appSettings } from "../../Appdata/appdata";
 
 const deleteCarousel = (id) => {
   if (!id) {
     return alert("Upload the image first before deleting.");
   }
   axios
-    .delete(`https://astraeus-firebase-endpoints.onrender.com/carousel/${id}`)
+    .delete(`${appSettings.carousel}/${id}`)
     .then((response) => {
       alert("Deleted from Firebase Firestore/Storage successfully!");
       window.location.reload();
