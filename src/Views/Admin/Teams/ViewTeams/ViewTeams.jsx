@@ -13,7 +13,7 @@ const ViewTeams = () => {
   }, []);
 
   return (
-    <div>
+    <div className="adteamcard_wrap">
       {teams.map((team, index) => (
         <div key={index} className="adteam_card">
           <img
@@ -22,18 +22,8 @@ const ViewTeams = () => {
             alt={`${team.name} Logo`}
           />
           <p className="adteam_name">{team.teamName}</p>
-          <button
-            className="adteamcard_delbtn"
-            onClick={() => handleDeleteTeam(index)}
-          >
-            Delete
-          </button>
-          <button
-            className="adteamcard_updtbtn"
-            onClick={() => handleUpdateTeam(team)}
-          >
-            Update
-          </button>
+          <button className="adteamcard_delbtn">Delete</button>
+          <button className="adteamcard_updtbtn">Update</button>
 
           <button className="adteamcard_playerbtn">Manage Members</button>
         </div>
