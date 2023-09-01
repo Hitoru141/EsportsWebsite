@@ -399,7 +399,7 @@
 .adtbutton:active {
   border: 1px solid #2e8644;
 }
-.adtmodal-overlay{
+.addteam-modal-overlay{
   position: fixed;
   background-color: #5f5d5d4d;
   z-index: 9999;
@@ -409,7 +409,7 @@
   align-items: center;
   justify-content: center;
 }
-.adtmodal {
+.addteam-modal {
   width: 1200px;
   height: 700px;
   background-color: rgb(6, 6, 6);

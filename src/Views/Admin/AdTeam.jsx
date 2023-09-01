@@ -94,8 +94,8 @@ const AdTeam = () => {
         </span>
       </div>
       {isModalOpen && (
-        <div className="adtmodal-overlay">
-          <div className="adtmodal">
+        <div className="addteam-modal-overlay">
+          <div className="addteam-modal ">
             <div className="adtX" onClick={closeModal}>
               &times;
             </div>
