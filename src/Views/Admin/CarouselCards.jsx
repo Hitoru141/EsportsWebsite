@@ -1,5 +1,5 @@
 import "../../Styles/admin.css";
-import deleteCarousel from "./carouselHandler/deleteHandler";
+import deleteCarousel from "../../service/carouselHandler/deleteHandler";
 
 // eslint-disable-next-line react/prop-types
 const CarouselCards = ({ carsel }) => {

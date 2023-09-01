@@ -8,6 +8,8 @@ import samplehero3 from "../assets/samplehero3.jpg";
 import { BiChevronRightCircle } from "react-icons/bi";
 import { BiChevronLeftCircle } from "react-icons/bi";
 
+import { appSettings } from "../Appdata/appdata";
+
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [images, setImages] = useState([samplehero, samplehero2, samplehero3]);
@@ -23,7 +25,7 @@ const Carousel = () => {
   }, [images.length]);
 
   useEffect(() => {
-    fetch("https://astraeus-firebase-endpoints.onrender.com/carousel")
+    fetch(appSettings.carousel)
       .then((response) => response.json())
       .then((data) => {
         const imageLinks = data.map((item) => item.img_link);
