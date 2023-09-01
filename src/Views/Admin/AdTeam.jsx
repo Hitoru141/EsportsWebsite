@@ -199,11 +199,10 @@ const AdTeam = () => {
                       </button>
                     )}
                   </div>
+                  <div className="adtsavebtn" onClick={handleAddTeam}>
+                    Update
+                  </div>
                 </div>
-                <div className="adtsavebtn" onClick={handleAddTeam}>
-                  Update
-                </div>
-                {/* Handle Add Team */}
               </div>
             )}
             <button className="adteamcard_playerbtn">Manage Members</button>
