@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { appSettings } from "../../../../Appdata/appdata";
+import { useQuery } from "@tanstack/react-query";
 
 const ViewTeams = () => {
   const [teams, setTeams] = useState([]);
+
+  const fetchTeams = async () => {
+    const data = await axios.get(appSettings.teams);
+    return data.data;
+  };
+
+  const query = useQuery({ queryKey: ["teams"], queryFn: fetchTeams });
+
   useEffect(() => {
-    const getTeams = async () => {
-      const data = await axios.get(appSettings.teams);
-      setTeams(data.data);
-    };
-    getTeams();
-  }, []);
+    if (query.data) {
+      setTeams(query.data);
+    }
+  }, [query.data]);
 
   return (
     <div className="adteamcard_wrap">
