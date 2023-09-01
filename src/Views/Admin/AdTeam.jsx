@@ -127,11 +127,10 @@ const AdTeam = () => {
                 </button>
               )}
             </div>
+            <div className="adtsavebtn" onClick={handleAddTeam}>
+              <p className="adtp1"> Add</p>
+            </div>
           </div>
-          <div className="adtsavebtn" onClick={handleAddTeam}>
-            Add
-          </div>
-          {/* Handle Add Team */}
         </div>
       )}
       <div className="adteamcard_wrap">

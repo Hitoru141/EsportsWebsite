@@ -411,12 +411,13 @@
 }
 .adtmodal {
   width: 800px;
-  height: 450px;
-  background-color: rgb(11, 10, 10);
+  height: 460px;
+  background-color: rgb(6, 6, 6);
   display: flex;
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
+
 }
 
 .adtmodal-content {
@@ -486,10 +487,9 @@
   object-fit: cover; /* Maintain aspect ratio while covering the div */
 }
 .adtsavebtn{
-    position: absolute;
-    top: 67rem;
-    right: 50rem;
-    width: 100px;
+    position: relative;
+  
+    width: 60px;
     height: 40px;
     color: white;
     cursor: pointer;
@@ -502,6 +502,10 @@
   .adtsavebtn:hover{
     background-color: #16bd0a;
   }
+.adtp1{
+  font-size: 1.5rem;
+
+}
   .adteamcard_wrap{
     flex-direction: row;
     display: flex;
