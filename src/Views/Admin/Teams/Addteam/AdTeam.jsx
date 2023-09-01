@@ -1,13 +1,19 @@
 import { useState } from "react";
 import "../../../../Styles/cards.css";
 import ViewTeams from "../ViewTeams/ViewTeams";
+import bannerUploadHandler from "../../../../service/bannerHandler/bannerUploadHandler";
+import logoUploadHandler from "../../../../service/logoHandler/logoUploadHandler";
+import submitTeam from "./postTeam";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
+  const [teamName, setTeamName] = useState("");
 
   const [imagePreview, setImagePreview] = useState(null);
   const [bannerImagePreview, setBannerImagePreview] = useState(null);
+
+  const [teamAdding, setTeamAdding] = useState(false);
 
   /**
    * The above code defines two functions, `toggleModal` and `closeModal`, which are used to control the
@@ -25,6 +31,15 @@ const AdTeam = () => {
    * The above code defines two functions, handleImageUpload and handleBannerImageUpload, which handle
    * the upload of an image file and set the image preview accordingly.
    */
+
+  const { setImageUpload, uploadFile, isLoading, bannerURL } =
+    bannerUploadHandler();
+  /** Code Above is the Handler for Banner Uploads.  It will return the Image File's downloadURL and put it into bannerURL.*/
+
+  const { LOGO_setImageUpload, LOGO_uploadFile, LOGO_isLoading, logoURL } =
+    logoUploadHandler();
+  /** Code Above is the Handler for Logo Uploads. It will return the Image File's downloadURL and put it into logoURL. */
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -34,6 +49,7 @@ const AdTeam = () => {
       };
       reader.readAsDataURL(file);
     }
+    LOGO_setImageUpload(file);
   };
 
   const handleBannerImageUpload = (event) => {
@@ -44,6 +60,7 @@ const AdTeam = () => {
         setBannerImagePreview(e.target.result);
       };
       reader.readAsDataURL(file);
+      setImageUpload(file);
     }
   };
 
@@ -61,6 +78,15 @@ const AdTeam = () => {
       };
       setTeamData([...teamData, newTeam]);
       closeModal();
+    }
+  };
+
+  // FUNCTION BELOW WILL AXIOS.POST THE TEAM DATA TO THE DATABASE
+  const submitTeamData = () => {
+    if (teamName && bannerURL && logoURL) {
+      submitTeam(teamName, bannerURL, logoURL);
+    } else {
+      window.alert("Please fill all the fields");
     }
   };
 
@@ -98,6 +124,8 @@ const AdTeam = () => {
               type="text"
               required=""
               className="adtinput"
+              value={teamName}
+              onChange={(e) => setTeamName(e.target.value)}
             />
             <div className="adtbanner_container">
               {/* This code is conditionally rendering either a "Reupload Team Banner" button and an
@@ -112,7 +140,7 @@ const AdTeam = () => {
               )}
               <button className="add-button">
                 <label htmlFor="bannerImageInput">
-                  {bannerImagePreview ? "Reupload" : "Upload"} Team Banner
+                  {bannerImagePreview ? "Replace file" : "Choose file"}
                 </label>
                 <input
                   id="bannerImageInput"
@@ -122,7 +150,9 @@ const AdTeam = () => {
                 />
               </button>
             </div>
-            <button className="btn_uploadfile">Upload Banner</button>
+            <button className="btn_uploadfile" onClick={uploadFile}>
+              {isLoading ? "Uploading..." : bannerURL ? "Resubmit" : "Submit"}
+            </button>
             <div className="adt-img">
               {/* This code is conditionally rendering either a "Reupload Team Logo" button and an image
              preview of the uploaded logo, or an "Upload Team Logo" button, based on whether
@@ -140,7 +170,7 @@ const AdTeam = () => {
 
               <button className="add-button">
                 <label htmlFor="imageInput">
-                  {imagePreview ? "Reupload" : "Upload"} Team Logo
+                  {imagePreview ? "Replace file" : "Choose file"}
                 </label>
                 <input
                   id="imageInput"
@@ -150,8 +180,14 @@ const AdTeam = () => {
                 />
               </button>
             </div>
-            <button className="btn_uploadfile">Upload Logo</button>
-            <div className="adtsavebtn" onClick={handleAddTeam}>
+            <button className="btn_uploadfile" onClick={LOGO_uploadFile}>
+              {LOGO_isLoading
+                ? "Uploading..."
+                : logoURL
+                ? "Resubmit"
+                : "Submit"}
+            </button>
+            <div className="adtsavebtn" onClick={submitTeamData}>
               <p className="adtp1"> Add</p>
             </div>
           </div>
