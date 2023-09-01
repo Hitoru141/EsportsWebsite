@@ -1,28 +1,13 @@
 import { useState } from "react";
 import "../../../../Styles/cards.css";
-import UpdateTeamModal from "../../AddTeamComponents/UpdateTeamModal"; // Update the path accordingly
 import ViewTeams from "../ViewTeams/ViewTeams";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
 
-  /* The code `const [imagePreview, setImagePreview] = useState(null);` and `const [bannerImagePreview,
-  setBannerImagePreview] = useState(null);` are using the `useState` hook in React to create state
-  variables `imagePreview` and `bannerImagePreview` with initial values of `null`. These variables
-  are used to store the preview of an uploaded image file before it is added to the team data. The
-  `setImagePreview` and `setBannerImagePreview` functions are used to update the values of these
-  state variables. */
   const [imagePreview, setImagePreview] = useState(null);
   const [bannerImagePreview, setBannerImagePreview] = useState(null);
-  //For Update Modal
-  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [selectedTeamForUpdate, setSelectedTeamForUpdate] = useState(null);
-
-  const handleUpdateTeam = (team) => {
-    setSelectedTeamForUpdate(team);
-    setIsUpdateModalOpen(true);
-  };
 
   /**
    * The above code defines two functions, `toggleModal` and `closeModal`, which are used to control the
@@ -76,20 +61,6 @@ const AdTeam = () => {
       };
       setTeamData([...teamData, newTeam]);
       closeModal();
-    }
-  };
-
-  /**
-   * The function `handleDeleteTeam` prompts the user to confirm the deletion of a team and updates the
-   * team data accordingly.
-   */
-  const handleDeleteTeam = (index) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this team?"
-    );
-    if (confirmDelete) {
-      const updatedTeamData = teamData.filter((team, i) => i !== index);
-      setTeamData(updatedTeamData);
     }
   };
 
@@ -210,16 +181,7 @@ const AdTeam = () => {
           </div>
         </div>
       )}
-      <div className="adteamcard_wrap">
-        <ViewTeams />
-      </div>
-      {isUpdateModalOpen && (
-        <UpdateTeamModal
-          team={selectedTeamForUpdate}
-          // onUpdate={handleTeamUpdate} // Implement the handleTeamUpdate function to update the team data
-          onClose={() => setIsUpdateModalOpen(false)}
-        />
-      )}
+      <ViewTeams />
     </div>
   );
 };
