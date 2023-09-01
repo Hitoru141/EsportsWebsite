@@ -401,7 +401,7 @@
 }
 .adtmodal-overlay{
   position: fixed;
-  background-color: #ffffffc5;
+  background-color: #5f5d5d4d;
   z-index: 9999;
   width: 100%;
   height: 100%;

@@ -5,14 +5,17 @@ const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
   const [imagePreview, setImagePreview] = useState(null);
+  const [manageMembersModal, setManageMembersModal] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+    setManageMembersModal(!manageMembersModal);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setUpdateModalStates(false);
+    setManageMembersModal(false);
   };
 
   const handleImageUpload = (event) => {
@@ -48,7 +51,7 @@ const AdTeam = () => {
     }
   };
 
-  const [updateModalStates, setUpdateModalStates] = useState({}); // Update modal states for each team
+  const [updateModalStates, setUpdateModalStates] = useState({});
 
   const toggleUpdateModal = (index) => {
     setUpdateModalStates((prevState) => ({
@@ -204,7 +207,7 @@ const AdTeam = () => {
                 {/* Handle Add Team */}
               </div>
             )}
-            <button className="adteamcard_playerbtn">Add Players</button>
+            <button className="adteamcard_playerbtn">Manage Members</button>
           </div>
         ))}
       </div>
