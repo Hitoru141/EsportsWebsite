@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "../../Styles/cards.css";
-import UpdateTeamModal from ".././Admin//AddTeamComponents/UpdateTeamModal"; // Update the path accordingly
+import "../../../../Styles/cards.css";
+import UpdateTeamModal from "../../AddTeamComponents/UpdateTeamModal"; // Update the path accordingly
+import ViewTeams from "../ViewTeams/ViewTeams";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -210,30 +211,7 @@ const AdTeam = () => {
         </div>
       )}
       <div className="adteamcard_wrap">
-        {teamData.map((team, index) => (
-          <div key={index} className="adteam_card">
-            <img
-              src={team.logo}
-              className="adteam_card"
-              alt={`${team.name} Logo`}
-            />
-            <p className="adteam_name">{team.name}</p>
-            <button
-              className="adteamcard_delbtn"
-              onClick={() => handleDeleteTeam(index)}
-            >
-              Delete
-            </button>
-            <button
-              className="adteamcard_updtbtn"
-              onClick={() => handleUpdateTeam(team)}
-            >
-              Update
-            </button>
-
-            <button className="adteamcard_playerbtn">Manage Members</button>
-          </div>
-        ))}
+        <ViewTeams />
       </div>
       {isUpdateModalOpen && (
         <UpdateTeamModal
