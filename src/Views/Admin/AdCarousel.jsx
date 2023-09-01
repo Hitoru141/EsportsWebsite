@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CarouselCards from "./CarouselCards";
-import uploadHandler from "./carouselHandler/uploadHandler";
+import uploadHandler from "../../service/carouselHandler/uploadHandler";
+import { appSettings } from "../../Appdata/appdata";
 
 const AdCarousel = () => {
   const { setImageUpload, setIsLoading, uploadFile, isLoading } =
@@ -23,7 +24,7 @@ const AdCarousel = () => {
 
   // FETCHES THE CAROUSEL IMAGES FROM DB
   useEffect(() => {
-    fetch("https://astraeus-firebase-endpoints.onrender.com/carousel")
+    fetch(appSettings.carousel)
       .then((response) => response.json())
       .then((data) => {
         setImages(data);
