@@ -1,11 +1,20 @@
 import { useState } from "react";
 import "../../Styles/cards.css";
+import UpdateTeamModal from ".././Admin//AddTeamComponents/UpdateTeamModal"; // Update the path accordingly
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
   const [imagePreview, setImagePreview] = useState(null);
   const [bannerImagePreview, setBannerImagePreview] = useState(null);
+
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [selectedTeamForUpdate, setSelectedTeamForUpdate] = useState(null);
+
+  const handleUpdateTeam = (team) => {
+    setSelectedTeamForUpdate(team);
+    setIsUpdateModalOpen(true);
+  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -203,12 +212,24 @@ const AdTeam = () => {
             >
               Delete
             </button>
-            <button className="adteamcard_updtbtn">Update</button>
+            <button
+              className="adteamcard_updtbtn"
+              onClick={() => handleUpdateTeam(team)}
+            >
+              Update
+            </button>
 
             <button className="adteamcard_playerbtn">Manage Members</button>
           </div>
         ))}
       </div>
+      {isUpdateModalOpen && (
+        <UpdateTeamModal
+          team={selectedTeamForUpdate}
+          // onUpdate={handleTeamUpdate} // Implement the handleTeamUpdate function to update the team data
+          onClose={() => setIsUpdateModalOpen(false)}
+        />
+      )}
     </div>
   );
 };
