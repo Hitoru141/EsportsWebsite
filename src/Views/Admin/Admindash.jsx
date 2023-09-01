@@ -1,6 +1,6 @@
 import "../../Styles/admin.css";
 import { Link } from "react-router-dom";
-import AdTeam from "./AdTeam";
+import AdTeam from "./Teams/AddTeam";
 import { useState } from "react";
 import AdCarousel from "./AdCarousel";
 const Admindash = (data) => {

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import "../../Styles/cards.css";
+import "../../../../Styles/cards.css";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
   const [imagePreview, setImagePreview] = useState(null);
   const [manageMembersModal, setManageMembersModal] = useState(false);
+  const [updateModalStates, setUpdateModalStates] = useState({});
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -41,24 +42,24 @@ const AdTeam = () => {
     }
   };
 
-  const handleDeleteTeam = (index) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this team?"
-    );
-    if (confirmDelete) {
-      const updatedTeamData = teamData.filter((team, i) => i !== index);
-      setTeamData(updatedTeamData);
-    }
-  };
+  // const handleDeleteTeam = (index) => {
+  //   const confirmDelete = window.confirm(
+  //     "Are you sure you want to delete this team?"
+  //   );
+  //   if (confirmDelete) {
+  //     const updatedTeamData = teamData.filter((team, i) => i !== index);
+  //     setTeamData(updatedTeamData);
+  //   }
+  // };
 
-  const [updateModalStates, setUpdateModalStates] = useState({});
+  // const toggleUpdateModal = (index) => {
+  //   setUpdateModalStates((prevState) => ({
+  //     ...prevState,
+  //     [index]: !prevState[index],
+  //   }));
+  // };
 
-  const toggleUpdateModal = (index) => {
-    setUpdateModalStates((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }));
-  };
+  console.log(teamData);
 
   return (
     <div className="adcarousel-wrap">
@@ -82,6 +83,8 @@ const AdTeam = () => {
           </svg>
         </span>
       </div>
+
+      {/* This is the modal for creating the team */}
       {isModalOpen && (
         <div className="adtmodal-overlay">
           <div className="adtmodal">
@@ -133,28 +136,30 @@ const AdTeam = () => {
           </div>
         </div>
       )}
+
       <div className="adteamcard_wrap">
-        {teamData.map((team, index) => (
+        {/* {teamData.map((team, index) => (
           <div key={index} className="adteam_card">
             <img
               src={team.logo}
               className="adteam_card"
               alt={`${team.name} Logo`}
             />
-            <p className="adteam_name">{team.name}</p>
-            <button
+            <p className="adteam_name">{team.name}</p> */}
+        {/* <button
               className="adteamcard_delbtn"
               onClick={() => handleDeleteTeam(index)}
             >
               Delete
-            </button>
-            <button
+            </button> */}
+        {/* <button
               className="adteamcard_updtbtn"
               onClick={() => toggleUpdateModal(index)}
             >
               Update
-            </button>
-            {updateModalStates[index] && (
+            </button> */}
+
+        {/* {updateModalStates[index] && (
               <div className="adtmodal-overlay">
                 <div className="adtmodal">
                   <div className="adtX" onClick={closeModal}>
@@ -204,10 +209,11 @@ const AdTeam = () => {
                   </div>
                 </div>
               </div>
-            )}
-            <button className="adteamcard_playerbtn">Manage Members</button>
-          </div>
-        ))}
+            )} */}
+
+        {/* <button className="adteamcard_playerbtn">Manage Members</button> */}
+        {/* </div>
+        ))} */}
       </div>
     </div>
   );
