@@ -288,8 +288,17 @@
   width: 98%;
   height: 50%;
   margin: 2rem 2rem;
-  background-color: white;
+  background-color: rgb(29, 9, 47);
   border-radius: 10px;
+  margin: 3rem;
+
+}
+.carousel_upldbtn{
+  z-index: 99;
+  border: 2px solid #084cdf;
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: #084cdf;
 }
 .carousel-card {
   position: relative;

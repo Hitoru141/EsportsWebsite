@@ -60,9 +60,9 @@ const AdCarousel = () => {
           />
         </label>
         <button
+          className="carousel_upldbtn"
           onClick={uploadFile}
           disabled={isLoading || !fileCheck}
-          style={{ border: "2px solid #084cdf", margin: "10px" }}
         >
           {carouselLength > 4
             ? "Max of 5 Images"
