@@ -10,7 +10,14 @@ const ManageMmbrs = () => {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    if (
+      !isModalOpen ||
+      window.confirm(
+        "Are you sure you want to close? Unsaved changes will be lost."
+      )
+    ) {
+      setIsModalOpen(false);
+    }
   };
 
   return (
