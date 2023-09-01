@@ -5,9 +5,16 @@ import UpdateTeamModal from ".././Admin//AddTeamComponents/UpdateTeamModal"; // 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
+
+  /* The code `const [imagePreview, setImagePreview] = useState(null);` and `const [bannerImagePreview,
+  setBannerImagePreview] = useState(null);` are using the `useState` hook in React to create state
+  variables `imagePreview` and `bannerImagePreview` with initial values of `null`. These variables
+  are used to store the preview of an uploaded image file before it is added to the team data. The
+  `setImagePreview` and `setBannerImagePreview` functions are used to update the values of these
+  state variables. */
   const [imagePreview, setImagePreview] = useState(null);
   const [bannerImagePreview, setBannerImagePreview] = useState(null);
-
+  //For Update Modal
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedTeamForUpdate, setSelectedTeamForUpdate] = useState(null);
 
@@ -16,6 +23,10 @@ const AdTeam = () => {
     setIsUpdateModalOpen(true);
   };
 
+  /**
+   * The above code defines two functions, `toggleModal` and `closeModal`, which are used to control the
+   * state of a modal in a React component.
+   */
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -24,6 +35,10 @@ const AdTeam = () => {
     setIsModalOpen(false);
   };
 
+  /**
+   * The above code defines two functions, handleImageUpload and handleBannerImageUpload, which handle
+   * the upload of an image file and set the image preview accordingly.
+   */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -46,6 +61,10 @@ const AdTeam = () => {
     }
   };
 
+  /**
+   * The function `handleAddTeam` adds a new team to the `teamData` array if the team name input, image
+   * preview, and banner image preview are all provided.
+   */
   const handleAddTeam = () => {
     const teamNameInput = document.querySelector(".adtinput");
     if (teamNameInput.value && imagePreview && bannerImagePreview) {
@@ -59,6 +78,10 @@ const AdTeam = () => {
     }
   };
 
+  /**
+   * The function `handleDeleteTeam` prompts the user to confirm the deletion of a team and updates the
+   * team data accordingly.
+   */
   const handleDeleteTeam = (index) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this team?"
@@ -68,17 +91,6 @@ const AdTeam = () => {
       setTeamData(updatedTeamData);
     }
   };
-
-  // const handleReuploadBanner = () => {
-  //   // Clear the banner image preview
-  //   setBannerImagePreview(null);
-
-  //   // Clear the file input value to allow reupload of the same image
-  //   const bannerImageInput = document.getElementById("bannerImageInput");
-  //   if (bannerImageInput) {
-  //     bannerImageInput.value = null;
-  //   }
-  // };
 
   return (
     <div className="adcarousel-wrap">
