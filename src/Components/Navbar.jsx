@@ -46,22 +46,18 @@ const Navbar = ({ banner }) => {
       <nav className="nav">
         <div className="container">
           <div className="logo">
-            <Link to="/">
-              <a href="#">ASTRAEUS ESPORTS</a>
-            </Link>
+            <Link to="/#">ASTRAEUS ESPORTS</Link>
           </div>
           <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
               <li>
-                <Link to="/about">
-                  <a href="#">About</a>
-                </Link>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <a href="#">Community</a>
+                <Link to="/"> Community</Link>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <Link to="/"> Careers</Link>
               </li>
             </ul>
           </div>

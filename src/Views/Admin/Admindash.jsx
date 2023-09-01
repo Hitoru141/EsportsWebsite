@@ -4,8 +4,6 @@ import AdTeam from "./AdTeam";
 import { useState } from "react";
 import AdCarousel from "./AdCarousel";
 const Admindash = (data) => {
-  console.log(data);
-
   const [activeComponent, setActiveComponent] = useState("carousel");
 
   const handleButtonClick = (component) => {
@@ -16,9 +14,7 @@ const Admindash = (data) => {
       <nav className="nav">
         <div className="container">
           <div className="logo">
-            <Link to="/">
-              <a href="#">ASTRAEUS ESPORTS</a>
-            </Link>
+            <Link to="/#">ASTRAEUS ESPORTS</Link>
           </div>
           <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
