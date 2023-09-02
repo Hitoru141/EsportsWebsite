@@ -10,7 +10,7 @@ const CarouselCards = ({ carsel }) => {
     );
     if (confirmDelete) {
       console.log("Delete button clicked!");
-      deleteCarousel(carsel.id);
+      deleteCarousel(carsel);
     }
   };
 
