@@ -3,7 +3,7 @@ import deleteTeamHandler from "../../../../service/teamasHandler/deleteTeamHandl
 
 const DeleteTeam = ({ team }) => {
   const deleteTeam = () => {
-    deleteTeamHandler(team.teamName);
+    deleteTeamHandler(team);
   };
   return (
     <div>
