@@ -1,5 +1,5 @@
 import React from "react";
-import deleteTeamHandler from "../../../../service/teamasHandler/deleteTeamHandler";
+import deleteTeamHandler from "../../../../service/teamsHandler/deleteTeamHandler";
 
 const DeleteTeam = ({ team }) => {
   const deleteTeam = () => {
