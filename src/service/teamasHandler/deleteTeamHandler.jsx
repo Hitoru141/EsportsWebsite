@@ -4,9 +4,9 @@ import { getStorage, ref, deleteObject } from "firebase/storage";
 import deleteImageHandler from "../deleteImageService";
 
 const deleteTeamHandler = (team) => {
-  const folderName = "teamLogo";
-  const imageName = team.teamLogoURL;
-  //   deleteImageHandler(folderName, imageName);
+  const folderName = "carousel";
+  const imageURL = team.teamLogoURL;
+  deleteImageHandler(folderName, imageURL);
   //   console.log(team.teamBannerURL);
   //   const storage = getStorage();
   //   const deleteImage = ref(storage, team.teamBannerURL);
