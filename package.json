@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.33.0",
+    "@tanstack/react-query-devtools": "^4.33.0",
     "axios": "^1.4.0",
     "firebase": "^10.0.0",
     "flickity": "^3.0.0",
