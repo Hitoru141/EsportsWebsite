@@ -10,15 +10,6 @@ const uploadHandler = () => {
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const getCurrentDateTime = () => {
-    const now = new Date();
-    const formattedDate = `${now.getDate()}:${
-      now.getMonth() + 1
-    }:${now.getFullYear()}`;
-    const formattedTime = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-    return formattedDate + ":" + formattedTime;
-  };
-
   const uploadFile = () => {
     setIsLoading(true);
     if (imageUpload == null) return;
@@ -52,7 +43,6 @@ const uploadHandler = () => {
     description,
     setDescription,
     isLoading,
-    getCurrentDateTime,
     setIsLoading,
   };
 };
