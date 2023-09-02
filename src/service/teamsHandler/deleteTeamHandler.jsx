@@ -2,16 +2,19 @@ import axios from "axios";
 import { appSettings } from "../../Appdata/appdata";
 import deleteImageHandler from "../deleteImageService";
 
-const deleteTeamHandler = (team) => {
-  const { teamLogoURL, teamBannerURL } = team;
+const deleteTeamHandler = async (team) => {
+  const { teamLogoURL, teamBannerURL, teamName } = team;
 
   try {
-    axios.delete(`${appSettings.teams}/${team.teamName}`).then((response) => {
+    axios.delete(`${appSettings.teams}/${teamName}`).then(() => {
       alert("Deleted from Firebase Firestore/Storage successfully!");
-      window.location.reload();
     });
-    deleteImageHandler(teamLogoURL);
-    deleteImageHandler(teamBannerURL);
+    await Promise.all([
+      deleteImageHandler(teamLogoURL),
+      deleteImageHandler(teamBannerURL),
+    ]);
+
+    window.location.reload();
   } catch (err) {
     alert(`Unable to delete Team`);
   }
