@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "../../../../Styles/cards.css";
 import ViewTeams from "../ViewTeams/ViewTeams";
-import bannerUploadHandler from "../../../../service/bannerHandler/bannerUploadHandler";
-import logoUploadHandler from "../../../../service/logoHandler/logoUploadHandler";
+import UploadHandler from "../../../../service/imageUploadService";
 import submitTeam from "./postTeam";
 
 const AdTeam = () => {
@@ -32,15 +31,34 @@ const AdTeam = () => {
    * the upload of an image file and set the image preview accordingly.
    */
 
-  const { setImageUpload, uploadFile, isLoading, bannerURL } =
-    bannerUploadHandler();
   /** Code Above is the Handler for Banner Uploads.  It will return the Image File's downloadURL and put it into bannerURL.*/
 
-  const { LOGO_setImageUpload, LOGO_uploadFile, LOGO_isLoading, logoURL } =
-    logoUploadHandler();
   /** Code Above is the Handler for Logo Uploads. It will return the Image File's downloadURL and put it into logoURL. */
+  const {
+    uploadFile2,
+    logoFile,
+    setLogoFile,
+    bannerFile,
+    setBannerFile,
+    uploading,
+    setUploading,
+  } = UploadHandler();
 
-  const handleImageUpload = (event) => {
+  // Code Above is for handling General File Uploads to Database.
+
+  const handleBannerChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setBannerImagePreview(e.target.result);
+      };
+      reader.readAsDataURL(file);
+      setBannerFile(file);
+    }
+  };
+
+  const handleLogoChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -49,19 +67,7 @@ const AdTeam = () => {
       };
       reader.readAsDataURL(file);
     }
-    LOGO_setImageUpload(file);
-  };
-
-  const handleBannerImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setBannerImagePreview(e.target.result);
-      };
-      reader.readAsDataURL(file);
-      setImageUpload(file);
-    }
+    setLogoFile(file);
   };
 
   /**
@@ -81,12 +87,27 @@ const AdTeam = () => {
     }
   };
 
-  // FUNCTION BELOW WILL AXIOS.POST THE TEAM DATA TO THE DATABASE
-  const submitTeamData = () => {
-    if (teamName && bannerURL && logoURL) {
-      submitTeam(teamName, bannerURL, logoURL);
+  // FUNCTION BELOW WILL WAIT FOR FILE UPLOADS TO RETURN DOWNLOAD URL, THEN AXIOS.POST THE TEAM DATA TO THE DATABASE
+  const submitTeamData = async () => {
+    if (!uploading) {
+      if (bannerFile && logoFile && teamName) {
+        try {
+          setUploading(true);
+          const bannerURL = await uploadFile2(bannerFile, "teamBanner");
+          const logoURL = await uploadFile2(logoFile, "teamLogo");
+
+          submitTeam(teamName, bannerURL, logoURL);
+          setUploading(false);
+          setIsModalOpen(false);
+          //
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        alert("Please fill all the fields");
+      }
     } else {
-      window.alert("Please fill all the fields");
+      alert("Please wait for the images to upload");
     }
   };
 
@@ -146,13 +167,10 @@ const AdTeam = () => {
                   id="bannerImageInput"
                   type="file"
                   accept="image/*"
-                  onChange={handleBannerImageUpload}
+                  onChange={handleBannerChange}
                 />
               </button>
             </div>
-            <button className="btn_uploadfile" onClick={uploadFile}>
-              {isLoading ? "Uploading..." : bannerURL ? "Resubmit" : "Submit"}
-            </button>
             <div className="adt-img">
               {/* This code is conditionally rendering either a "Reupload Team Logo" button and an image
              preview of the uploaded logo, or an "Upload Team Logo" button, based on whether
@@ -176,19 +194,12 @@ const AdTeam = () => {
                   id="imageInput"
                   type="file"
                   accept="image/*"
-                  onChange={handleImageUpload}
+                  onChange={handleLogoChange}
                 />
               </button>
             </div>
-            <button className="btn_uploadfile" onClick={LOGO_uploadFile}>
-              {LOGO_isLoading
-                ? "Uploading..."
-                : logoURL
-                ? "Resubmit"
-                : "Submit"}
-            </button>
             <div className="adtsavebtn" onClick={submitTeamData}>
-              <p className="adtp1"> Add</p>
+              <p className="adtp1"> {uploading ? "Uploading..." : "Add"}</p>
             </div>
           </div>
         </div>
