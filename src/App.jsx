@@ -8,7 +8,7 @@ import Playerpage from "./Views/Playerpage";
 import AdminSignIn from "./Views/Admin/AdminSignIn";
 import Admindash from "./Views/Admin/Admindash";
 import About from "./Views/About";
-import ManageMmbrs from "./Views/Admin/AddTeamComponents/ManageMmbrs";
+import ManageMembers from "./Views/Admin/AddTeamComponents/ManageMembers";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/team" element={<Playerpage />} />
         <Route path="/astraadmin787" element={<AdminSignIn />} />
         <Route path="/astraadmin787/dashboard" element={<Admindash />} />
-        <Route path="/testpage" element={<ManageMmbrs />} />
+        <Route path="/testpage" element={<ManageMembers />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
     </Router>

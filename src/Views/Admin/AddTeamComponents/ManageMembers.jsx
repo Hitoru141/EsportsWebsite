@@ -3,7 +3,7 @@ import sampleBanner from "../../../assets/MLNbanner.jpg";
 import "../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
 
-const ManageMmbrs = () => {
+const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
 
@@ -33,6 +33,17 @@ const ManageMmbrs = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  const membersArray = [
+    {
+      memberName: "TAKERU SATOH",
+      memberProfileType: "PLAYER",
+      memberAddress: "TOKYO, JAPAN",
+      discordLink: "https://discord.com",
+      fbLink: "https://fb.com",
+      twitchLink: "https://twitch.com",
+    },
+  ];
 
   return (
     <>
@@ -123,18 +134,21 @@ const ManageMmbrs = () => {
         )}
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
-          <MembersCard
-            memberName="TAKERU SATOH"
-            memberProfileType="PLAYER"
-            memberAddress="TOKYO, JAPAN"
-            discordLink="https://discord.com"
-            fbLink="https://fb.com"
-            twitchLink="https://twitch.com"
-          />
+          {membersArray.map((member, index) => (
+            <MembersCard
+              key={index}
+              memberName={member.memberName}
+              memberProfileType={member.memberProfileType}
+              memberAddress={member.memberAddress}
+              discordLink={member.discordLink}
+              fbLink={member.fbLink}
+              twitchLink={member.twitchLink}
+            />
+          ))}
         </div>
       </div>
     </>
   );
 };
 
-export default ManageMmbrs;
+export default ManageMembers;
