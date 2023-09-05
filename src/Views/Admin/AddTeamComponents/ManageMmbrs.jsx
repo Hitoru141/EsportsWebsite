@@ -122,6 +122,7 @@ const ManageMmbrs = () => {
             </div>
           </div>
         )}
+        {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
           <MembersCard
             memberName="TAKERU SATOH"
