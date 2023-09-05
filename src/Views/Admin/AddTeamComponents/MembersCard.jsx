@@ -4,8 +4,8 @@ import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
 
 const anchorStyle = {
-  textDecoration: "none", // Remove underline
-  color: "inherit", // Use the default text color
+  textDecoration: "none",
+  color: "inherit",
 };
 
 const MembersCard = ({
