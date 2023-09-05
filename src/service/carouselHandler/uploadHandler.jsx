@@ -4,6 +4,7 @@ import { storage } from "../../../firebase";
 import { v4 } from "uuid";
 import axios from "axios";
 import { appSettings } from "../../Appdata/appdata";
+import { toast } from "react-toastify";
 
 const uploadHandler = () => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -24,9 +25,11 @@ const uploadHandler = () => {
             path: imageRef.fullPath,
           })
           .then(() => {
-            alert("Added to Firebase Firestore/Storage successfully!");
+            toast.success("Image uploaded successfully!");
+            setTimeout(() => {
+              window.location.reload();
+            }, 5000);
             setIsLoading(false);
-            window.location.reload();
           })
           .catch((error) => {
             console.error(error);
