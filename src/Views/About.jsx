@@ -3,9 +3,9 @@ import tbanner from "../assets/Astraeus.jpg";
 
 const About = () => {
   return (
-    <div>
+    <div className="Mainwrapper">
       <Navbar banner={tbanner} />
-      About
+      <div className="about_banner"></div>
     </div>
   );
 };

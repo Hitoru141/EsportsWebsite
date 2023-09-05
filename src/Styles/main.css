@@ -47,10 +47,6 @@ body {
     font-size: 2.5rem;
 }
 
-.nav div.logo a:hover {
-    color: #00E676;
-}
-
 .nav  div.logo a:hover {
     color: blueviolet;
 }
@@ -108,7 +104,7 @@ body {
 }
 
 
-/* Media qurey section */
+/* Media query section */
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
@@ -141,7 +137,6 @@ body {
         left: 0;
         bottom: 0;
         background-color: #111;
-        /*same background color of navbar*/
         background-position: center top;
     }
     .nav div.main_list ul li {
@@ -160,7 +155,6 @@ body {
 }
 
 /* Animation */
-/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
 
 .navTrigger {
     cursor: pointer;
@@ -400,6 +394,16 @@ body {
 }
 .footer-p{
     font-size: 1.5rem;
+}
+
+/* ABOUT */
+
+.about_banner{
+    margin: 2rem;
+    width: 95vw;
+    height: 40vh;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 
