@@ -8,26 +8,19 @@ const anchorStyle = {
   color: "inherit",
 };
 
-const MembersCard = ({
-  memberName,
-  memberProfileType,
-  memberAddress,
-  discordLink,
-  fbLink,
-  twitchLink,
-}) => {
+const MembersCard = ({ member }) => {
   return (
     <div className="memb_mainwrapper">
       <div className="memb_profile-cont">
         <img src={MemberProf} className="memb_profile-cont" />
       </div>
       <div className="memb_lower-info">
-        <p className="mem-p">{memberName}</p>
-        <p className="mem-p">{memberProfileType} </p>
-        <p className="mem-p">{memberAddress}</p>
+        <p className="mem-p">{member.memberName}</p>
+        <p className="mem-p">{member.memberProfileType} </p>
+        <p className="mem-p">{member.memberAddress}</p>
         <div className="mem_social-cont">
           <a
-            href={discordLink}
+            href={member.discordLink}
             target="_blank"
             rel="noopener noreferrer"
             style={anchorStyle}
@@ -35,7 +28,7 @@ const MembersCard = ({
             <BsDiscord className="mem_socials-btn" />
           </a>
           <a
-            href={fbLink}
+            href={member.fbLink}
             target="_blank"
             rel="noopener noreferrer"
             style={anchorStyle}
@@ -43,7 +36,7 @@ const MembersCard = ({
             <BsFacebook className="mem_socials-btn" />
           </a>
           <a
-            href={twitchLink}
+            href={member.twitchLink}
             target="_blank"
             rel="noopener noreferrer"
             style={anchorStyle}

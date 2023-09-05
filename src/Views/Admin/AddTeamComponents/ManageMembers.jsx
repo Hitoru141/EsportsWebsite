@@ -135,15 +135,7 @@ const ManageMembers = () => {
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
           {membersArray.map((member, index) => (
-            <MembersCard
-              key={index}
-              memberName={member.memberName}
-              memberProfileType={member.memberProfileType}
-              memberAddress={member.memberAddress}
-              discordLink={member.discordLink}
-              fbLink={member.fbLink}
-              twitchLink={member.twitchLink}
-            />
+            <MembersCard key={index} member={member} />
           ))}
         </div>
       </div>
