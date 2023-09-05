@@ -5,6 +5,9 @@ import bannerUploadHandler from "../../../../service/bannerHandler/bannerUploadH
 import logoUploadHandler from "../../../../service/logoHandler/logoUploadHandler";
 import submitTeam from "./postTeam";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
@@ -193,6 +196,7 @@ const AdTeam = () => {
           </div>
         </div>
       )}
+      <ToastContainer />
       <ViewTeams />
     </div>
   );

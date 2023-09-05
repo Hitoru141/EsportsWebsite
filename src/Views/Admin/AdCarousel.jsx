@@ -3,6 +3,9 @@ import CarouselCards from "./CarouselCards";
 import uploadHandler from "../../service/carouselHandler/uploadHandler";
 import { appSettings } from "../../Appdata/appdata";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AdCarousel = () => {
   const { setImageUpload, setIsLoading, uploadFile, isLoading } =
     uploadHandler();
@@ -71,6 +74,7 @@ const AdCarousel = () => {
             : "Upload"}
         </button>
       </form>
+      <ToastContainer />
       <div className="previmg-wrap" style={{ overflowX: "hidden" }}>
         {[...Array(images.length)].map((_, index) => (
           <CarouselCards key={index} carsel={images[index] || null} />
