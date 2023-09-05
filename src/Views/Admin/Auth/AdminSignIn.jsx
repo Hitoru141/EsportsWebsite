@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../Styles/admin.css";
+import "../../../Styles/admin.css";
 import axios from "axios";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Admin = () => {
   const [info, setInfo] = useState({
     email: "",
     password: "",
   });
+  const auth = getAuth();
 
   const nav = useNavigate();
 
@@ -20,11 +22,22 @@ const Admin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, info.email, info.password).then(
+        (userInfo) => {
+          const token = userInfo.user.accessToken;
+          sessionStorage.setItem("userToken", token);
+        }
+      );
+      nav("/astraadmin787/dashboard");
+    } catch (err) {
+      console.log(err);
+    }
 
-    const data = await axios.post(
-      "https://esportsbackend-ugit.onrender.com/api/auth/signin",
-      info
-    );
+    // const data = await axios.post(
+    //   "https://esportsbackend-ugit.onrender.com/api/auth/signin",
+    //   info
+    // );
     // nav("/astraadmin787/dashboard", data);
   };
 
