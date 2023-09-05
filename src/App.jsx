@@ -21,7 +21,10 @@ function App() {
         <Route path="/team" element={<Playerpage />} />
         <Route path="/astraadmin787" element={<AdminSignIn />} />
         <Route path="/astraadmin787/dashboard" element={<Admindash />} />
-        <Route path="/testpage" element={<ManageMembers />} />
+        <Route
+          path="/astraadmin787/:teamName/manageTeam"
+          element={<ManageMembers />}
+        />
         <Route path="*" element={<Errorpage />} />
       </Routes>
     </Router>
