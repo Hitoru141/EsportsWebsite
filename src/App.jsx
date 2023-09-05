@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Home from "./Views/Home";
 import ValorantTeam from "./Views/ValorantTeam";
@@ -11,7 +16,6 @@ import About from "./Views/About";
 import ManageMembers from "./Views/Admin/AddTeamComponents/ManageMembers";
 
 const userToken = sessionStorage.getItem("userToken");
-
 function App() {
   return (
     <Router>

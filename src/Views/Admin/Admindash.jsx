@@ -1,14 +1,23 @@
 import "../../Styles/admin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AdTeam from "./Teams/Addteam/AdTeam";
 import { useState } from "react";
 import AdCarousel from "./AdCarousel";
+import { useEffect } from "react";
+
 const Admindash = (data) => {
   const [activeComponent, setActiveComponent] = useState("carousel");
+  const nav = useNavigate();
+  const token = sessionStorage.getItem("userToken");
 
   const handleButtonClick = (component) => {
     setActiveComponent(component);
   };
+  useEffect(() => {
+    if (!token) {
+      nav("/astraadmin787");
+    }
+  }, [activeComponent]);
   return (
     <div className="Adminwrapper2">
       <nav className="nav">
