@@ -402,8 +402,27 @@ body {
     margin: 2rem;
     width: 95vw;
     height: 40vh;
-    background-color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.415), rgba(0, 0, 0, 0.421)),  url("../assets/ASTBanner.jpg") no-repeat center; 
+  
+}
+.about_section{
+    width: 80vw;
+    height: 50vh;
     border-radius: 10px;
+    position: relative;
+    bottom: 8rem;
+    background: rgba(9, 9, 9, 0.607);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.about_p{
+    font-size: 2rem;
+    line-height: normal;
+    text-align: center;
+    margin: 5rem 5rem;
 }
 
 

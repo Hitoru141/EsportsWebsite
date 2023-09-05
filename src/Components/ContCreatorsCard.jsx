@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../Styles/hero.css";
-import { BiSolidChevronsRight } from "react-icons/bi";
+// import { BiSolidChevronsRight } from "react-icons/bi";
 // import esport from "../assets/esports setup.jpg.webp";
 
 const ContCreatorsCard = () => {
@@ -12,14 +12,14 @@ const ContCreatorsCard = () => {
         <Link to="/contentcreators">
           <button className="btn">
             View Team
-            <BiSolidChevronsRight
+            {/* <BiSolidChevronsRight
               style={{
                 fontSize: "2em",
                 position: "absolute",
                 top: "60%",
                 transform: "translateY(-50%)",
               }}
-            />
+            /> */}
           </button>
         </Link>
       </div>
