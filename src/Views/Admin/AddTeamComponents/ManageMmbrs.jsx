@@ -109,9 +109,8 @@ const ManageMmbrs = () => {
               {/* Social Links */}
 
               <label>Social Links</label>
+              <input type="text" placeholder="Discord" name="discord" />
               <input type="text" placeholder="Facebook" name="facebook" />
-              <input type="text" placeholder="Instagram" name="instagram" />
-              <input type="text" placeholder="Twitter" name="twitter" />
               <input type="text" placeholder="Twitch" name="twitch" />
 
               {/* Submit Button */}
