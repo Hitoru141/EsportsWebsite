@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../../Styles/admin.css";
 import axios from "axios";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 const Admin = () => {
   const [info, setInfo] = useState({
@@ -31,18 +32,13 @@ const Admin = () => {
       );
       nav("/astraadmin787/dashboard");
     } catch (err) {
-      console.log(err);
+      toast.error(`Incorrect Email or Password`);
     }
-
-    // const data = await axios.post(
-    //   "https://esportsbackend-ugit.onrender.com/api/auth/signin",
-    //   info
-    // );
-    // nav("/astraadmin787/dashboard", data);
   };
 
   return (
     <div className="Adminwrapper">
+      <ToastContainer />
       <div className="form-container">
         <p className="title">Login</p>
         <form className="form">
