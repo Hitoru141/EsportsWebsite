@@ -490,6 +490,16 @@ body {
     );
     z-index: 3;
   }
+  .spin {
+    animation-duration: 1s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;  
+  } 
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
   
   #app {
     z-index: 2;
@@ -497,12 +507,12 @@ body {
   
   #profiles {
     display: grid;
-    grid-template-columns: repeat(4, minmax( 0, 1fr));
+    grid-template-columns: repeat(3 , minmax( 0, 1fr));
     gap: clamp(10px, 0.8vw, 20px);
     align-items: center;
     justify-content: center;
     margin-left: 80px;
-    width: clamp(600px, 80vw, 1400px);
+    width: clamp(600px, 60vw, 1400px);
   }
   
   #profiles > .profile {

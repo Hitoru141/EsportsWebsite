@@ -9,8 +9,8 @@ const About = () => {
     <div className="Mainwrapper">
       <div id="background">
         <div id="circle">
-          <div id="circle-glow"></div>
-          <div id="circle-inner"></div>
+          <div id="circle-glow" />
+          <div id="circle-inner" className="spin" />
         </div>
       </div>
       <Navbar banner={tbanner} />
@@ -35,6 +35,16 @@ const About = () => {
       </p>
       <div id="app">
         <div id="profiles">
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
           <ManagementCards
             name="Bretog"
             designation="President "
