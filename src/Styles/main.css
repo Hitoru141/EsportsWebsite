@@ -421,9 +421,10 @@ body {
     margin: 2rem;
     width: 95vw;
     height: 40vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.806), rgba(0, 0, 0, 0.421)),  url("../assets/ASTBanner.jpg") no-repeat center; 
-  
+    background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113)),  url("../assets/ASTBanner.jpg") no-repeat center;  
+    opacity: 0.7;
 }
+
 .about_section{
     z-index: 11;
     width: 80vw;
