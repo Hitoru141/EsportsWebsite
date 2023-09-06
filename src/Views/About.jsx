@@ -1,3 +1,4 @@
+import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import tbanner from "../assets/Astraeus.jpg";
 
@@ -24,6 +25,7 @@ const About = () => {
       <p className="team-header">
         ASTRAEUS <span className="h-esport">MANAGEMENT</span>
       </p>
+      <Footer />
     </div>
   );
 };
