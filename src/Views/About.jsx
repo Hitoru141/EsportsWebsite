@@ -38,7 +38,6 @@ const About = () => {
           <ManagementCards />
           <ManagementCards />
           <ManagementCards />
-          <ManagementCards />
         </div>
       </div>
       <Footer />

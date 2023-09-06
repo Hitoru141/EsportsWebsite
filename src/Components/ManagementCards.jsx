@@ -10,6 +10,7 @@ const ManagementCards = () => {
           />
         </div>
         <h3 className="profile-name">OLIVIA</h3>
+        <h3 className="profile-designation">President</h3>
       </div>
     </div>
   );
