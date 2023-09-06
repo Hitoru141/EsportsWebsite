@@ -28,6 +28,15 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+.Mainwrapper-img{
+    width: 100vw;
+    height: 285vh;
+    position: absolute;
+    filter: blur(1.2vh);
+    background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113));
+    
+}
+/* background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113)),  url("../assets/cosmos.gif") no-repeat center;   */
 .navbar{
     z-index: 13;
 }
