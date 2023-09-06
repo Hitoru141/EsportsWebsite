@@ -511,7 +511,7 @@ body {
     gap: clamp(10px, 0.8vw, 20px);
     align-items: center;
     justify-content: center;
-    margin-left: 80px;
+    margin-bottom:10rem ;
     width: clamp(600px, 60vw, 1400px);
   }
   
