@@ -2,6 +2,7 @@ import Footer from "../Components/Footer";
 import ManagementCards from "../Components/ManagementCards";
 import Navbar from "../Components/Navbar";
 import tbanner from "../assets/Astraeus.jpg";
+import Pres from "../assets/PresidentTestPic.jpg";
 
 const About = () => {
   return (
@@ -34,10 +35,26 @@ const About = () => {
       </p>
       <div id="app">
         <div id="profiles">
-          <ManagementCards />
-          <ManagementCards />
-          <ManagementCards />
-          <ManagementCards />
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
+          <ManagementCards
+            name="Bretog"
+            designation="President "
+            imageProf={Pres}
+          />
         </div>
       </div>
       <Footer />
