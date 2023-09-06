@@ -14,9 +14,11 @@ import AdminSignIn from "./Views/Admin/Auth/AdminSignIn";
 import Admindash from "./Views/Admin/Admindash";
 import About from "./Views/About";
 import ManageMembers from "./Views/Admin/AddTeamComponents/ManageMembers";
+import { useRecoilValue } from "recoil";
+import Token from "./Recoil/token";
 
-const userToken = sessionStorage.getItem("userToken");
 function App() {
+  const userToken = useRecoilValue(Token);
   return (
     <Router>
       <Routes>
@@ -27,16 +29,19 @@ function App() {
         <Route path="/team" element={<Playerpage />} />
         <Route path="/astraadmin787" element={<AdminSignIn />} />
 
-        {userToken ? (
+        {userToken && (
           <>
-            <Route path="/astraadmin787/dashboard" element={<Admindash />} />
+            <Route
+              path="/astraadmin787/dashboard"
+              element={<Admindash />}
+              key="/astraadmin787/dashboard"
+            />
             <Route
               path="/astraadmin787/:teamName/manageTeam"
               element={<ManageMembers />}
+              key="/astraadmin787/:teamName/manageTeam"
             />
           </>
-        ) : (
-          <Route path="/astraadmin787" element={<AdminSignIn />} />
         )}
 
         <Route path="*" element={<Errorpage />} />

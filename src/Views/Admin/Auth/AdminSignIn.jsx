@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import "../../../Styles/admin.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
+import { useRecoilState } from "recoil";
+import Token from "../../../Recoil/token";
 
 const Admin = () => {
   const [info, setInfo] = useState({
     email: "",
     password: "",
   });
+
+  const [userToken, setUserToken] = useRecoilState(Token);
   const auth = getAuth();
   const nav = useNavigate();
   const onChangeHandle = (e) => {
@@ -20,13 +24,20 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, info.email, info.password).then(
-        (userInfo) => {
-          const token = userInfo.user.accessToken;
-          sessionStorage.setItem("userToken", token);
-        }
+      const data = await signInWithEmailAndPassword(
+        auth,
+        info.email,
+        info.password
       );
-      nav("/astraadmin787/dashboard");
+
+      const token = await data.user.accessToken;
+      if (token) {
+        setUserToken(token);
+        sessionStorage.setItem("userToken", token);
+        nav("/astraadmin787/dashboard");
+      } else {
+        toast.error(`Missing token`);
+      }
     } catch (err) {
       toast.error(`Incorrect Email or Password`);
     }
