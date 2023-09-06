@@ -42,7 +42,7 @@ const Navbar = ({ banner }) => {
     };
   }, []);
   return (
-    <div>
+    <div className="navbar">
       <nav className="nav">
         <div className="container">
           <div className="logo">
