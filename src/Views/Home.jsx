@@ -1,7 +1,7 @@
 import "../Styles/main.css";
 
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/footer";
+import Footer from "../Components/Footer";
 import Carousel from "../Components/Carousel";
 import ContCreatorsCard from "../Components/ContCreatorsCard";
 import TeamCard from "../Components/TeamCard";

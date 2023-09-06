@@ -69,6 +69,7 @@
   color: blueviolet;
 }
 .team-header{
+    z-index: 13;
     font-size: 6em;
 }
 .sub-header{

@@ -1,10 +1,17 @@
 import Footer from "../Components/Footer";
+import ManagementCards from "../Components/ManagementCards";
 import Navbar from "../Components/Navbar";
 import tbanner from "../assets/Astraeus.jpg";
 
 const About = () => {
   return (
     <div className="Mainwrapper">
+      <div id="background">
+        <div id="circle">
+          <div id="circle-glow"></div>
+          <div id="circle-inner"></div>
+        </div>
+      </div>
       <Navbar banner={tbanner} />
       <div className="about_banner" />
       <section className="about_section">
@@ -25,6 +32,15 @@ const About = () => {
       <p className="team-header">
         ASTRAEUS <span className="h-esport">MANAGEMENT</span>
       </p>
+      <div id="app">
+        <div id="profiles">
+          <ManagementCards />
+          <ManagementCards />
+          <ManagementCards />
+          <ManagementCards />
+          <ManagementCards />
+        </div>
+      </div>
       <Footer />
     </div>
   );
