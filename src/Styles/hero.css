@@ -76,6 +76,7 @@
 .sub-header{
     margin-top: -2rem;
     font-size: 2em;
+    z-index: 3;
 }
 .h-esport{
     color: blueviolet;
