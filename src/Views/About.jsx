@@ -10,7 +10,7 @@ const About = () => {
       <div id="background">
         <div id="circle">
           <div id="circle-glow" />
-          <div id="circle-inner" className="spin" />
+          <div id="circle-inner" />
         </div>
       </div>
       <Navbar banner={tbanner} />

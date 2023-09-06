@@ -464,6 +464,15 @@ body {
     place-items: center;
     position: relative;
     width: 70vh;
+    /* Rotate Animation */
+    animation-duration: 1s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
   
   #circle-inner {
@@ -491,16 +500,8 @@ body {
     );
     z-index: 3;
   }
-  .spin {
-    animation-duration: 1s;
-    animation-name: spin;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;  
-  } 
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+  
+  
   
   #app {
     z-index: 2;
