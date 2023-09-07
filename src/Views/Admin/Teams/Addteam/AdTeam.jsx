@@ -66,23 +66,6 @@ const AdTeam = () => {
     setLogoFile(file);
   };
 
-  /**
-   * The function `handleAddTeam` adds a new team to the `teamData` array if the team name input, image
-   * preview, and banner image preview are all provided.
-   */
-  const handleAddTeam = () => {
-    const teamNameInput = document.querySelector(".adtinput");
-    if (teamNameInput.value && imagePreview && bannerImagePreview) {
-      const newTeam = {
-        name: teamNameInput.value,
-        logo: imagePreview,
-        banner: bannerImagePreview,
-      };
-      setTeamData([...teamData, newTeam]);
-      closeModal();
-    }
-  };
-
   // FUNCTION BELOW WILL WAIT FOR FILE UPLOADS TO RETURN DOWNLOAD URL, THEN AXIOS.POST THE TEAM DATA TO THE DATABASE
   const submitTeamData = async () => {
     if (!uploading) {

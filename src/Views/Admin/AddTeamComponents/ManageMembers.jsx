@@ -2,10 +2,13 @@ import { useState } from "react";
 import sampleBanner from "../../../assets/MLNbanner.jpg";
 import "../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
+import uploadHandler from "../../../service/carouselHandler/uploadHandler";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
+
+  const [profileFile, setProfileFile] = useState(null);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -31,6 +34,7 @@ const ManageMembers = () => {
         setProfileImage(e.target.result);
       };
       reader.readAsDataURL(file);
+      setProfileFile(file);
     }
   };
 
