@@ -432,7 +432,12 @@ body {
     width: 95vw;
     height: 50vh;
     background:   url("../assets/ASTBanner.jpg") no-repeat center;  
+    background-position: center;
+    background-color: rgba(137, 43, 226, 0.507);
+	background-size:cover;
+    border-radius: 1vw;
     opacity: 0.7;
+    
 }
 
 .about_section{
