@@ -71,6 +71,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-size: 2.5rem;
+    font-weight: 600;
 }
 
 .nav  div.logo a:hover {
@@ -429,8 +430,8 @@ body {
     z-index: 10;
     margin: 2rem;
     width: 95vw;
-    height: 40vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113)),  url("../assets/ASTBanner.jpg") no-repeat center;  
+    height: 50vh;
+    background:   url("../assets/ASTBanner.jpg") no-repeat center;  
     opacity: 0.7;
 }
 
@@ -440,7 +441,7 @@ body {
     height: fit-content;
     border-radius: 10px;
     position: relative;
-    bottom: 8rem;
+    bottom: 6.5rem;
     background: rgba(9, 9, 9, 0.773);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -519,16 +520,17 @@ body {
   #profiles {
     display: grid;
     grid-template-columns: repeat(3 , minmax( 0, 1fr));
-    gap: clamp(10px, 0.8vw, 20px);
+    gap: 5rem;
     align-items: center;
     justify-content: center;
-    margin-bottom:10rem ;
+    /* margin-bottom: 1rem ; */
     width: clamp(600px, 60vw, 1400px);
+  
   }
   
   #profiles > .profile {
     backdrop-filter: blur(0.75vw);
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(92, 52, 202, 0.06);
     border-radius: 1vw;
     cursor: pointer;
     transition: background-color 250ms;
@@ -538,14 +540,14 @@ body {
   
   #profiles > .profile:hover {
     backdrop-filter: blur(1vw);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(53, 5, 92, 0.394);
   }
   
   .profile > .profile-content {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: calc(100% - clamp(8px, 1vw, 12px));
+    height: calc(100% - clamp(10px, 1vw, 12px));
     justify-content: center;
     padding: clamp(8px, 1vw, 12px);
   }
@@ -560,7 +562,7 @@ body {
   }
   
   .profile > .profile-content > .profile-pic > .profile-pic-image {
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(215, 27, 27, 0.06);
     border-radius: 100%;
     height: calc(100% - clamp(10px, 1.5vw, 20px));
     margin: clamp(5px, 0.75vw, 10px);
@@ -570,6 +572,13 @@ body {
   
   .profile > .profile-content > .profile-name {
     color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    margin: 5px;
+    text-align: center;
+  }
+  .profile-nick {
+    color: blueviolet;
     font-family: 'Rubik', sans-serif;
     font-size: 2rem;
     margin: 5px;

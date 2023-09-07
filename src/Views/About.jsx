@@ -3,6 +3,9 @@ import ManagementCards from "../Components/ManagementCards";
 import Navbar from "../Components/Navbar";
 import tbanner from "../assets/Astraeus.jpg";
 import Pres from "../assets/PresidentTestPic.jpg";
+import coo from "../assets/CEOprof.jpg";
+import heo from "../assets/CEOprof1.jpg";
+import ceo from "../assets/CEOprof3.jpg";
 
 const About = () => {
   return (
@@ -36,37 +39,41 @@ const About = () => {
       <div id="app">
         <div id="profiles">
           <ManagementCards
-            name="Bretog"
-            designation="President "
+            name="Breth Mark Villaraza"
+            nickname=" 'Noir' "
+            designation="Owner "
             imageProf={Pres}
           />
           <ManagementCards
-            name="Bretog"
-            designation="President "
-            imageProf={Pres}
+            name="Jannela Cunanan"
+            designation="CEO "
+            imageProf={ceo}
           />
           <ManagementCards
-            name="Bretog"
-            designation="President "
-            imageProf={Pres}
+            name="Luisa Therese"
+            designation="COO "
+            imageProf={coo}
           />
           <ManagementCards
-            name="Bretog"
-            designation="President "
-            imageProf={Pres}
+            name="?????-?????-"
+            designation="Board of Directors "
+            imageProf={ceo}
           />
           <ManagementCards
-            name="Bretog"
-            designation="President "
-            imageProf={Pres}
+            name="Melissa Robin Ramos"
+            designation="Head of Operations "
+            imageProf={heo}
           />
           <ManagementCards
-            name="Bretog"
-            designation="President "
+            name="?????-?????-"
+            designation="Creative Designer "
             imageProf={Pres}
           />
         </div>
       </div>
+      <p className="team-header">
+        OUR <span className="h-esport">SPONSORS</span>
+      </p>
       <Footer />
     </div>
   );
