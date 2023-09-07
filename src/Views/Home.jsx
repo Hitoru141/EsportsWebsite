@@ -1,15 +1,17 @@
 import "../Styles/main.css";
 
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/footer";
+import Footer from "../Components/Footer";
 import Carousel from "../Components/Carousel";
 import ContCreatorsCard from "../Components/ContCreatorsCard";
 import TeamCard from "../Components/TeamCard";
 import tbanner from "../assets/Astraeus.jpg";
+import cosmos from "../assets/cosmos.gif";
 
 const Home = () => {
   return (
     <div className="Mainwrapper">
+      <img src={cosmos} className="Mainwrapper-img" />
       <Navbar banner={tbanner} />
       <Carousel />
       <section className="section-wrap">

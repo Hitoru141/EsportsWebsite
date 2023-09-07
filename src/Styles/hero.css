@@ -55,12 +55,13 @@
   display: flex;
   justify-content: center;
   margin-top: 1em;
+  z-index: 1;
 }
 
 .carousel-control {
  
   padding: 0.5em 1em;
-  font-size: 2.5rem;
+  font-size: 3rem;
   border-radius: 5px;
   cursor: pointer;
   
@@ -69,11 +70,13 @@
   color: blueviolet;
 }
 .team-header{
+    z-index: 13;
     font-size: 6em;
 }
 .sub-header{
     margin-top: -2rem;
     font-size: 2em;
+    z-index: 3;
 }
 .h-esport{
     color: blueviolet;

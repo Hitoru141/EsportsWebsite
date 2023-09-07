@@ -20,6 +20,12 @@
     line-height: 2rem;
     font-weight: 700;
   }
+  #email{
+    width: 380px;
+  }
+  #password{
+    width: 380px;
+  }
   
   .form {
     margin-top: 1.5rem;
@@ -583,6 +589,7 @@
   padding: 2rem 2rem;
   grid-gap: 1em;
   margin: 2em 2em;
+
   width: 90%;
   min-height: 50rem;
 }
@@ -646,7 +653,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
- 
+ z-index: 999;
 }
 .addmember-modal-form{
   width: 100%;
@@ -680,9 +687,10 @@ input{
   height: 128px;
   width: 128px;
 }
-.circle img {
-	border-radius: 50%;	/* relative value for
-				   adjustable image size */
+.circle-img {
+  border-radius: 50%;	
+  height: 128px;
+  width: 128px;
 }
 .circle:hover {
 	transition: ease-out 0.2s;

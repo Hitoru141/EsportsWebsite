@@ -3,6 +3,7 @@ import axios from "axios";
 import { appSettings } from "../../../../Appdata/appdata";
 import { useQuery } from "@tanstack/react-query";
 import DeleteTeam from "../Delete Team/DeleteTeam";
+import { Link } from "react-router-dom";
 
 const ViewTeams = () => {
   const [teams, setTeams] = useState([]);
@@ -33,7 +34,9 @@ const ViewTeams = () => {
           <DeleteTeam team={team} />
           <button className="adteamcard_updtbtn">Update</button>
 
-          <button className="adteamcard_playerbtn">Manage Members</button>
+          <Link to={`/astraadmin787/${team.teamName}/manageTeam`}>
+            <button className="adteamcard_playerbtn">Manage Members</button>
+          </Link>
         </div>
       ))}
     </div>

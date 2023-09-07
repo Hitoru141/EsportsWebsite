@@ -1,5 +1,7 @@
 import "../../Styles/admin.css";
 import deleteCarousel from "../../service/carouselHandler/deleteHandler";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // eslint-disable-next-line react/prop-types
 const CarouselCards = ({ carsel }) => {
@@ -20,6 +22,7 @@ const CarouselCards = ({ carsel }) => {
       <button className="delete-button" onClick={handleDelete}>
         Delete
       </button>
+      <ToastContainer />
     </div>
   );
 };

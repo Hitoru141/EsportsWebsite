@@ -4,6 +4,9 @@ import ViewTeams from "../ViewTeams/ViewTeams";
 import UploadHandler from "../../../../service/imageUploadService";
 import submitTeam from "./postTeam";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [teamData, setTeamData] = useState([]);
@@ -204,6 +207,7 @@ const AdTeam = () => {
           </div>
         </div>
       )}
+      <ToastContainer />
       <ViewTeams />
     </div>
   );

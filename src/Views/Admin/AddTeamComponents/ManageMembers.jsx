@@ -1,9 +1,11 @@
 import { useState } from "react";
 import sampleBanner from "../../../assets/MLNbanner.jpg";
 import "../../../Styles/admin.css";
+import MembersCard from "./MembersCard";
 
-const ManageMmbrs = () => {
+const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -20,11 +22,34 @@ const ManageMmbrs = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfileImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const membersArray = [
+    {
+      memberName: "TAKERU SATOH",
+      memberProfileType: "PLAYER",
+      memberAddress: "TOKYO, JAPAN",
+      discordLink: "https://discord.com",
+      fbLink: "https://fb.com",
+      twitchLink: "https://twitch.com",
+    },
+  ];
+
   return (
     <>
       <div className="mteam_wrapper">
         <div className="adt_teambanner">
-          <img src={sampleBanner} className="adt_teambanner-img" />
+          <img src={sampleBanner} className="adt_teambanner-img" alt="Banner" />
         </div>
         <button className="admemberbtn" onClick={toggleModal}>
           <span className="span">
@@ -56,8 +81,12 @@ const ManageMmbrs = () => {
               {/* File Upload for Profile Image */}
               <div className="circle">
                 <img
-                  src="http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128"
+                  src={
+                    profileImage ||
+                    "http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128"
+                  }
                   alt="Profile Img"
+                  className="circle-img"
                 />
               </div>
               <label htmlFor="profileImage">Profile Image</label>
@@ -66,6 +95,7 @@ const ManageMmbrs = () => {
                 id="profileImage"
                 name="profileImage"
                 accept="image/*"
+                onChange={handleImageChange}
               />
 
               {/* Name Input */}
@@ -90,9 +120,8 @@ const ManageMmbrs = () => {
               {/* Social Links */}
 
               <label>Social Links</label>
+              <input type="text" placeholder="Discord" name="discord" />
               <input type="text" placeholder="Facebook" name="facebook" />
-              <input type="text" placeholder="Instagram" name="instagram" />
-              <input type="text" placeholder="Twitter" name="twitter" />
               <input type="text" placeholder="Twitch" name="twitch" />
 
               {/* Submit Button */}
@@ -103,10 +132,15 @@ const ManageMmbrs = () => {
             </div>
           </div>
         )}
-        <div className="adt_addplayerwrap"></div>
+        {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
+        <div className="adt_addplayerwrap">
+          {membersArray.map((member, index) => (
+            <MembersCard key={index} member={member} />
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
-export default ManageMmbrs;
+export default ManageMembers;
