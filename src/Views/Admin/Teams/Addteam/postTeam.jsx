@@ -13,6 +13,9 @@ function submitTeam(teamName, teamBannerURL, teamLogoURL) {
       if (response.status === 201) {
         // Team Added Successfully
         toast.success("Team Added Successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       }
     })
     .catch((error) => {

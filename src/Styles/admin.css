@@ -528,7 +528,8 @@
 .adtsavebtn{
     position: relative;
     margin-top: 1rem;
-    width: 60px;
+    min-width: 65px;
+    width: fit-content;
     height: 40px;
     color: white;
     cursor: pointer;

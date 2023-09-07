@@ -28,7 +28,7 @@ const uploadHandler = () => {
             toast.success("Image uploaded successfully!");
             setTimeout(() => {
               window.location.reload();
-            }, 5000);
+            }, 3000);
             setIsLoading(false);
           })
           .catch((error) => {

@@ -9,7 +9,7 @@ const deleteCarousel = async (carsel) => {
     toast.success("Deleted image carousel successfully!");
     setTimeout(() => {
       window.location.reload();
-    }, 5000);
+    }, 3000);
   } catch (err) {
     toast.error("Carousel was not deleted, please try again!");
   }
