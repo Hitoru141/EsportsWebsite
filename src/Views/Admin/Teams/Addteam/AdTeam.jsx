@@ -17,6 +17,10 @@ const AdTeam = () => {
 
   const [teamAdding, setTeamAdding] = useState(false);
 
+  const [bannerFile, setBannerFile] = useState(null);
+  const [logoFile, setLogoFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+
   /**
    * The above code defines two functions, `toggleModal` and `closeModal`, which are used to control the
    * state of a modal in a React component.
@@ -35,17 +39,6 @@ const AdTeam = () => {
    */
 
   /** Code Above is the Handler for Banner Uploads.  It will return the Image File's downloadURL and put it into bannerURL.*/
-
-  /** Code Above is the Handler for Logo Uploads. It will return the Image File's downloadURL and put it into logoURL. */
-  const {
-    uploadFile2,
-    logoFile,
-    setLogoFile,
-    bannerFile,
-    setBannerFile,
-    uploading,
-    setUploading,
-  } = UploadHandler();
 
   // Code Above is for handling General File Uploads to Database.
 
@@ -96,8 +89,8 @@ const AdTeam = () => {
       if (bannerFile && logoFile && teamName) {
         try {
           setUploading(true);
-          const bannerURL = await uploadFile2(bannerFile, "teamBanner");
-          const logoURL = await uploadFile2(logoFile, "teamLogo");
+          const bannerURL = await UploadHandler(bannerFile, "teamBanner");
+          const logoURL = await UploadHandler(logoFile, "teamLogo");
 
           submitTeam(teamName, bannerURL, logoURL);
           setUploading(false);
