@@ -9,22 +9,15 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [teamData, setTeamData] = useState([]);
   const [teamName, setTeamName] = useState("");
 
   const [imagePreview, setImagePreview] = useState(null);
   const [bannerImagePreview, setBannerImagePreview] = useState(null);
 
-  const [teamAdding, setTeamAdding] = useState(false);
-
   const [bannerFile, setBannerFile] = useState(null);
   const [logoFile, setLogoFile] = useState(null);
   const [uploading, setUploading] = useState(false);
 
-  /**
-   * The above code defines two functions, `toggleModal` and `closeModal`, which are used to control the
-   * state of a modal in a React component.
-   */
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -32,15 +25,6 @@ const AdTeam = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  /**
-   * The above code defines two functions, handleImageUpload and handleBannerImageUpload, which handle
-   * the upload of an image file and set the image preview accordingly.
-   */
-
-  /** Code Above is the Handler for Banner Uploads.  It will return the Image File's downloadURL and put it into bannerURL.*/
-
-  // Code Above is for handling General File Uploads to Database.
 
   const handleBannerChange = (event) => {
     const file = event.target.files[0];
