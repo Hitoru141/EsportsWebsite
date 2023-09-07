@@ -46,26 +46,31 @@ const About = () => {
           />
           <ManagementCards
             name="Jannela Cunanan"
+            nickname=" 'Noir' "
             designation="CEO "
             imageProf={ceo}
           />
           <ManagementCards
-            name="Luisa Therese"
+            name="Luisa Therese Singson"
+            nickname=" 'Noir' "
             designation="COO "
             imageProf={coo}
           />
           <ManagementCards
             name="?????-?????-"
+            nickname=" 'Noir' "
             designation="Board of Directors "
             imageProf={ceo}
           />
           <ManagementCards
             name="Melissa Robin Ramos"
+            nickname=" 'Noir' "
             designation="Head of Operations "
             imageProf={heo}
           />
           <ManagementCards
             name="?????-?????-"
+            nickname=" 'Noir' "
             designation="Creative Designer "
             imageProf={Pres}
           />

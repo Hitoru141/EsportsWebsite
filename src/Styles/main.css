@@ -432,7 +432,12 @@ body {
     width: 95vw;
     height: 50vh;
     background:   url("../assets/ASTBanner.jpg") no-repeat center;  
+    background-position: center;
+    background-color: rgba(137, 43, 226, 0.507);
+	background-size:cover;
+    border-radius: 1vw;
     opacity: 0.7;
+    
 }
 
 .about_section{
@@ -528,31 +533,30 @@ body {
   
   }
   
-  #profiles > .profile {
-    backdrop-filter: blur(0.75vw);
-    background-color: rgba(92, 52, 202, 0.06);
+.profile {
+    background-color: rgba(52, 8, 109, 0.122);
     border-radius: 1vw;
     cursor: pointer;
     transition: background-color 250ms;
     width: 300px;
-    height:300px;
+    height:350px;
   }
   
-  #profiles > .profile:hover {
+.profile:hover {
     backdrop-filter: blur(1vw);
     background-color: rgba(53, 5, 92, 0.394);
   }
   
-  .profile > .profile-content {
+ .profile-content {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: calc(100% - clamp(10px, 1vw, 12px));
+    height: 300px;
     justify-content: center;
-    padding: clamp(8px, 1vw, 12px);
+    padding: 3rem 2rem;
+ 
   }
-  
-  .profile > .profile-content > .profile-pic {
+ .profile-pic {
     aspect-ratio: 1;
     border: clamp(3px, 0.4vw, 5px) solid white;
     border-radius: 100%;
@@ -561,8 +565,8 @@ body {
     position: relative;
   }
   
-  .profile > .profile-content > .profile-pic > .profile-pic-image {
-    background-color: rgba(215, 27, 27, 0.06);
+ .profile-pic-image {
+    background-color: rgba(215, 27, 27, 0.06);  
     border-radius: 100%;
     height: calc(100% - clamp(10px, 1.5vw, 20px));
     margin: clamp(5px, 0.75vw, 10px);
@@ -570,7 +574,7 @@ body {
     width: calc(100% - clamp(10px, 1.5vw, 20px));
   }
   
-  .profile > .profile-content > .profile-name {
+ .profile-name {
     color: white;
     font-family: 'Rubik', sans-serif;
     font-size: 2rem;
