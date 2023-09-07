@@ -2,6 +2,8 @@ import axios from "axios";
 import { appSettings } from "../../Appdata/appdata";
 import deleteImageHandler from "../deleteImageService";
 
+import { toast } from "react-toastify";
+
 const deleteTeamHandler = async (team) => {
   const { teamLogoURL, teamBannerURL, teamName } = team;
 
@@ -19,8 +21,10 @@ const deleteTeamHandler = async (team) => {
       console.log("Deleted from Firebase Firestore successfully!");
     });
 
-    alert("Deleted from Firestore/Storage successfully!");
-    window.location.reload();
+    toast.success("Deleted from Firestore/Storage successfully!");
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 };
 
