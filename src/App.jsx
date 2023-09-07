@@ -26,7 +26,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/valoteam" element={<ValorantTeam />} />
         <Route path="/contentcreators" element={<ContentCreators />} />
-        <Route path="/team" element={<Playerpage />} />
+        <Route path="/:teamName/team" element={<Playerpage />} />
         <Route path="/astraadmin787" element={<AdminSignIn />} />
 
         {userToken && (
