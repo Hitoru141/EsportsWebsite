@@ -30,17 +30,23 @@ const ValorantTeam = () => {
         <p className="team-header"> AST TEAMS</p>
       </div>
       <div className="cardswrapper">
-        {teams.map((team) => (
+        {/* FOR MAP */}
+        {/* {teams.map((team) => (
           <div className="l-container" key={team.teamLogo}>
             <Link to="/team">
               <Astrateamcards teamlogo={team.teamLogo} tname="Millennia" />
             </Link>
           </div>
-        ))}
+        ))} */}
+
+        {/* FOR UI OUTPUT REFERENCE ONLY */}
+        <Astrateamcards teamlogo={sol} tname="Millennia" />
+        <Astrateamcards teamlogo={millen} tname="Millennia" />
+        <Astrateamcards teamlogo={hlx} tname="Millennia" />
+        <Astrateamcards teamlogo={prs} tname="Millennia" />
       </div>
       <Footer />
     </div>
   );
 };
-
 export default ValorantTeam;
