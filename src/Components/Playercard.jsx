@@ -4,24 +4,49 @@ import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
 
-const Playercard = () => {
+const Playercard = ({ member }) => {
+  const anchorStyle = {
+    textDecoration: "none",
+    color: "inherit",
+  };
+
   return (
     <div className="img-card">
       <img src={samp} className="img-card-prof" />
       <div className="hover-content">
         <div className="text-container">
-          <p className="player-name">HITORU</p>
+          <p className="player-name">{member.memberName}</p>
           <div className="player-type-box">
-            <p className="player-type">PLAYER</p>
+            <p className="player-type">{member.memberProfileType}</p>
           </div>
-
-          <p className="player-type">CEBU, PHL</p>
+          <p className="player-type">{member.memberAddress}</p>
         </div>
 
         <div className="button-container">
-          <BsDiscord className="socials-btn" />
-          <BsFacebook className="socials-btn" />
-          <BsTwitch className="socials-btn" />
+          <a
+            href={member.discordLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={anchorStyle}
+          >
+            <BsDiscord className="socials-btn " />
+          </a>
+          <a
+            href={member.discordLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={anchorStyle}
+          >
+            <BsFacebook className="socials-btn " />
+          </a>
+          <a
+            href={member.discordLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={anchorStyle}
+          >
+            <BsTwitch className="socials-btn " />
+          </a>
         </div>
       </div>
     </div>
