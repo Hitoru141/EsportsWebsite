@@ -10,14 +10,15 @@ import prs from "../assets/polaris.png";
 import tbanner from "../assets/Astraeus.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { appSettings } from "../Appdata/appdata";
 
 const ValorantTeam = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
     const group = async () => {
-      const data = await axios.get("http://localhost:4000/api/teams");
-      console.log(data);
+      const data = await axios.get(`${appSettings.teams}`);
+      // console.log(data.data);
       setTeams(data.data);
     };
     group();
@@ -31,19 +32,19 @@ const ValorantTeam = () => {
       </div>
       <div className="l-container">
         {/* FOR MAP */}
-        {/* {teams.map((team) => (
-          <div className="l-container" key={team.teamLogo}>
+        {teams.map((team) => (
+          <div className="l-container" key={team.teamLogoURL}>
             <Link to="/team">
-              <Astrateamcards teamlogo={team.teamLogo} tname="Millennia" />
+              <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
             </Link>
           </div>
-        ))} */}
+        ))}
 
         {/* FOR UI OUTPUT REFERENCE ONLY */}
-        <Astrateamcards teamlogo={sol} tname="Millennia" />
-        <Astrateamcards teamlogo={millen} tname="Millennia" />
+        {/* <Astrateamcards teamlogo={teams[0].teamLogoURL} tname="Millennia" /> */}
+        {/* <Astrateamcards teamlogo={millen} tname="Millennia" />
         <Astrateamcards teamlogo={hlx} tname="Millennia" />
-        <Astrateamcards teamlogo={prs} tname="Millennia" />
+        <Astrateamcards teamlogo={prs} tname="Millennia" /> */}
       </div>
       <Footer />
     </div>

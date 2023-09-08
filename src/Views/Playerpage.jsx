@@ -2,10 +2,24 @@ import Navbar from "../Components/Navbar";
 import Playercard from "../Components/Playercard";
 import Footer from "../Components/Footer";
 import "../Styles/players.css";
+import { appSettings } from "../Appdata/appdata";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import tbanner from "../assets/SOLbanner.jpg";
 
 const Playerpage = () => {
+  const [members, setMembers] = useState("");
+
+  useEffect(() => {
+    const group = async () => {
+      const data = await axios.get(`${appSettings.member}s`);
+      console.log(data.data);
+      setMembers(data.data);
+    };
+    group();
+  }, []);
+
   const memberInfo = [
     {
       memberName: "JANNELA CUNANAN",
