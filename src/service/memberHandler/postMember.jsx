@@ -1,8 +1,9 @@
 import axios from "axios";
 import { appSettings } from "../../Appdata/appdata";
 import { toast } from "react-toastify";
+import deleteImageHandler from "../deleteImageService";
 
-export default function submitMember(memberData) {
+export default function submitMember(memberData, profileURL) {
   return new Promise((resolve, reject) => {
     axios
       .post(`${appSettings.member}s`, memberData)
@@ -16,13 +17,16 @@ export default function submitMember(memberData) {
           resolve(response.data);
         }
       })
-      .catch((error) => {
-        if (error.response && error.response.status === 409) {
+      .catch(async (error) => {
+        await deleteImageHandler(profileURL);
+        if (error.response && error.response.status === 406) {
           toast.error("Member Name already exists");
         } else if (error.response && error.response.status === 500) {
-          // Internal Server Error
           toast.error("Internal Server Error");
+        } else {
+          toast.error("Failed to add member");
         }
+        console.log(error);
         reject(error);
       });
   });
