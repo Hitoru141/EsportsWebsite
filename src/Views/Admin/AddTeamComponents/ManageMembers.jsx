@@ -5,7 +5,7 @@ import MembersCard from "./MembersCard";
 import addMemberData from "../../../service/memberHandler/MemberHandler";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,9 +81,8 @@ const ManageMembers = () => {
         IGN
       );
 
-      await submitMember(data, profileImageURL).then(() => {
-        setIsLoading(false);
-      });
+      await submitMember(data, profileImageURL);
+      setIsLoading(false);
     } else {
       alert("IGN, Name, Profile Picture, Address are Required");
     }
