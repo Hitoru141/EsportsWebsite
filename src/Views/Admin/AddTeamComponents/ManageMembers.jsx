@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sampleBanner from "../../../assets/MLNbanner.jpg";
 import "../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
-import addMemberData from "../../../service/memberHandler/MemberHandler";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
+import { appSettings } from "../../../Appdata/appdata";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,13 +14,30 @@ const ManageMembers = () => {
 
   const [profileFile, setProfileFile] = useState(null);
 
-  const [name, setName] = useState("");
-  const [IGN, setIGN] = useState("");
-  const [profileType, setProfileType] = useState("player");
-  const [address, setAddress] = useState("");
-  const [discord, setDiscord] = useState("");
-  const [facebook, setFacebook] = useState("");
-  const [twitch, setTwitch] = useState("");
+  const [memberData, setMemberData] = useState({
+    name: "",
+    IGN: "",
+    profileType: "player",
+    address: "",
+    discord: "",
+    facebook: "",
+    twitch: "",
+    profileImageURL: "",
+  });
+
+  const [membersArray, setMembersArray] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${appSettings.member}s`);
+        setMembersArray(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -55,33 +73,19 @@ const ManageMembers = () => {
     }
   };
 
-  const membersArray = [
-    {
-      memberName: "TAKERU SATOH",
-      memberProfileType: "PLAYER",
-      memberAddress: "TOKYO, JAPAN",
-      discordLink: "https://discord.com",
-      fbLink: "https://fb.com",
-      twitchLink: "https://twitch.com",
-    },
-  ];
-
   const submitData = async () => {
-    if (IGN && profileFile && name && address) {
+    if (
+      memberData.IGN &&
+      profileFile &&
+      memberData.name &&
+      memberData.address
+    ) {
       setIsLoading(true);
       const profileImageURL = await UploadHandler(profileFile, "profileImage");
-      const data = addMemberData(
-        name,
-        profileType,
-        address,
-        discord,
-        facebook,
-        twitch,
-        profileImageURL,
-        IGN
-      );
-
-      await submitMember(data, profileImageURL);
+      // IF I setMemberData({...memberData, profileImageURL: profileImageURL})
+      // then submitMember(), memberData.profileImageURL will be undefined.
+      const userData = { ...memberData, profileImageURL: profileImageURL };
+      await submitMember(userData);
       setIsLoading(false);
     } else {
       alert("IGN, Name, Profile Picture, Address are Required");
@@ -150,7 +154,9 @@ const ManageMembers = () => {
                 type="text"
                 id="name"
                 name="name"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, name: e.target.value })
+                }
               />
 
               {/* IGN */}
@@ -159,7 +165,9 @@ const ManageMembers = () => {
                 type="text"
                 id="ign"
                 name="ign"
-                onChange={(e) => setIGN(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, IGN: e.target.value })
+                }
                 placeholder="IGN"
               />
               {/* Profile Type */}
@@ -168,7 +176,9 @@ const ManageMembers = () => {
               <select
                 id="profileType"
                 name="profileType"
-                onChange={(e) => setProfileType(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, profileType: e.target.value })
+                }
               >
                 <option value="player">Player</option>
                 <option value="coach">Coach</option>
@@ -182,7 +192,9 @@ const ManageMembers = () => {
                 type="text"
                 id="address"
                 name="address"
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, address: e.target.value })
+                }
               />
 
               {/* Social Links */}
@@ -192,19 +204,25 @@ const ManageMembers = () => {
                 type="text"
                 placeholder="Discord"
                 name="discord"
-                onChange={(e) => setDiscord(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, discord: e.target.value })
+                }
               />
               <input
                 type="text"
                 placeholder="Facebook"
                 name="facebook"
-                onChange={(e) => setFacebook(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, facebook: e.target.value })
+                }
               />
               <input
                 type="text"
                 placeholder="Twitch"
                 name="twitch"
-                onChange={(e) => setTwitch(e.target.value)}
+                onChange={(e) =>
+                  setMemberData({ ...memberData, twitch: e.target.value })
+                }
               />
 
               {/* Submit Button */}
