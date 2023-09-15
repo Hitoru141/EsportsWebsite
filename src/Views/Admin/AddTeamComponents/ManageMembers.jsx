@@ -11,7 +11,6 @@ import { appSettings } from "../../../Appdata/appdata";
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
-
   const [profileFile, setProfileFile] = useState(null);
 
   const [memberData, setMemberData] = useState({
@@ -74,12 +73,7 @@ const ManageMembers = () => {
   };
 
   const submitData = async () => {
-    if (
-      memberData.IGN &&
-      profileFile &&
-      memberData.name &&
-      memberData.address
-    ) {
+    if (memberData) {
       setIsLoading(true);
       const profileImageURL = await UploadHandler(profileFile, "profileImage");
       // IF I setMemberData({...memberData, profileImageURL: profileImageURL})
@@ -93,6 +87,12 @@ const ManageMembers = () => {
   };
 
   // CODE BELOW WILL PUT ALL THE VARIABLES IN THE RQUEST BODY
+
+  const onChangeMember = (e) => {
+    const newMember = { ...memberData };
+    newMember[e.target.id] = e.target.value;
+    setMemberData(newMember);
+  };
 
   return (
     <>
@@ -139,105 +139,97 @@ const ManageMembers = () => {
                 />
               </div>
               <label htmlFor="profileImage">Profile Image</label>
-              <input
-                type="file"
-                id="profileImage"
-                name="profileImage"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
-
-              {/* Name Input */}
-
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, name: e.target.value })
-                }
-              />
-
-              {/* IGN */}
-              <label htmlFor="ign">IGN</label>
-              <input
-                type="text"
-                id="ign"
-                name="ign"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, IGN: e.target.value })
-                }
-                placeholder="IGN"
-              />
-              {/* Profile Type */}
-
-              <label htmlFor="profileType">Profile Type</label>
-              <select
-                id="profileType"
-                name="profileType"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, profileType: e.target.value })
-                }
+              <form
+                onSubmit={submitData}
+                style={{ display: "flex", flexDirection: "column" }}
               >
-                <option value="player">Player</option>
-                <option value="coach">Coach</option>
-                <option value="manager">Manager</option>
-              </select>
+                <input
+                  type="file"
+                  id="profileImage"
+                  name="profileImage"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                />
 
-              {/* Address Input */}
+                {/* Name Input */}
 
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, address: e.target.value })
-                }
-              />
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  onChange={(e) => onChangeMember(e)}
+                />
 
-              {/* Social Links */}
+                {/* IGN */}
+                <label htmlFor="ign">IGN</label>
+                <input
+                  type="text"
+                  id="IGN"
+                  name="ign"
+                  onChange={(e) => onChangeMember(e)}
+                  placeholder="IGN"
+                  required
+                />
+                {/* Profile Type */}
 
-              <label>Social Links</label>
-              <input
-                type="text"
-                placeholder="Discord"
-                name="discord"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, discord: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Facebook"
-                name="facebook"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, facebook: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                placeholder="Twitch"
-                name="twitch"
-                onChange={(e) =>
-                  setMemberData({ ...memberData, twitch: e.target.value })
-                }
-              />
+                <label htmlFor="profileType">Profile Type</label>
+                <select
+                  id="profileType"
+                  name="profileType"
+                  onChange={(e) => onChangeMember(e)}
+                >
+                  <option value="player">Player</option>
+                  <option value="coach">Coach</option>
+                  <option value="manager">Manager</option>
+                </select>
 
-              {/* Submit Button */}
+                {/* Address Input */}
 
-              <button
-                className="admemberbtn"
-                type="submit"
-                disabled={isLoading}
-                onClick={submitData}
-              >
-                {isLoading ? "Loading" : "Add Member"}
-              </button>
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  onChange={(e) => onChangeMember(e)}
+                />
+
+                {/* Social Links */}
+
+                <label>Social Links</label>
+                <input
+                  type="text"
+                  placeholder="Discord"
+                  name="discord"
+                  onChange={(e) => onChangeMember(e)}
+                />
+                <input
+                  type="text"
+                  placeholder="Facebook"
+                  name="facebook"
+                  onChange={(e) => onChangeMember(e)}
+                />
+                <input
+                  type="text"
+                  placeholder="Twitch"
+                  name="twitch"
+                  onChange={(e) => onChangeMember(e)}
+                />
+
+                {/* Submit Button */}
+
+                <button
+                  className="admemberbtn"
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Loading" : "Add Member"}
+                </button>
+              </form>
             </div>
           </div>
         )}
+
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
           {membersArray.map((member, index) => (
