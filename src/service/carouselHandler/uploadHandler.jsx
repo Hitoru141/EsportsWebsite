@@ -1,53 +1,33 @@
-import { useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../firebase";
 import { v4 } from "uuid";
-import axios from "axios";
-import { appSettings } from "../../Appdata/appdata";
 import { toast } from "react-toastify";
+import postCarouselAPI from "src/API/carouselAPI/postCarouselAPI";
 
-const uploadHandler = () => {
-  const [imageUpload, setImageUpload] = useState(null);
-  const [description, setDescription] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const uploadFile = () => {
-    setIsLoading(true);
+const uploadHandler = async (imageUpload) => {
+  try {
     if (imageUpload == null) return;
-
     const imageRef = ref(storage, `carousel/${imageUpload.name + v4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        axios
-          .post(appSettings.carousel, {
+    const uploadedData = await uploadBytes(imageRef, imageUpload).then(
+      (snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (url) => {
+          const data = {
             img_link: url,
             name: imageUpload.name,
             path: imageRef.fullPath,
-          })
-          .then(() => {
+          };
+          await postCarouselAPI(data).then(() => {
             toast.success("Image uploaded successfully!");
-            setTimeout(() => {
-              window.location.reload();
-            }, 3000);
-            setIsLoading(false);
-          })
-          .catch((error) => {
-            console.error(error);
-            setIsLoading(false);
           });
-      });
-    });
-  };
+        });
+      }
+    );
+    //Upload the data
 
-  return {
-    imageUpload,
-    setImageUpload,
-    uploadFile,
-    description,
-    setDescription,
-    isLoading,
-    setIsLoading,
-  };
+    return uploadedData;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export default uploadHandler;

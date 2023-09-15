@@ -7,21 +7,11 @@ import AdCarousel from "./Carousel/AdCarousel";
 
 const Admindash = (data) => {
   const [activeComponent, setActiveComponent] = useState("carousel");
-  const nav = useNavigate();
-  const token = sessionStorage.getItem("userToken");
 
   const handleButtonClick = (component) => {
     setActiveComponent(component);
   };
 
-  // useEffect(() => {
-  //   const tokenChecker = async () => {
-  //     if (!token) {
-  //       nav("/astraadmin787");
-  //     }
-  //   };
-  //   tokenChecker();
-  // }, [activeComponent]);
   return (
     <div className="Adminwrapper2">
       <nav className="nav">

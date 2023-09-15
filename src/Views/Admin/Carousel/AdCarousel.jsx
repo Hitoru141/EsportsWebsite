@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CarouselCards from "./Components/CarouselCards";
-import uploadHandler from "../../../service/carouselHandler/uploadHandler";
+import uploadHandler from "src/service/carouselHandler/uploadHandler";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import getCarouselAPI from "../../../API/carouselAPI/getCarouselAPI";
-import deleteCarouselAPI from "../../../API/carouselAPI/deleteCarouselAPI";
+import getCarouselAPI from "src/API/carouselAPI/getCarouselAPI";
+import deleteCarouselAPI from "src/API/carouselAPI/deleteCarouselAPI";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import postCarouselAPI from "src/API/carouselAPI/postCarouselAPI";
 
 const AdCarousel = () => {
-  const { setImageUpload, uploadFile, isLoading } = uploadHandler();
-
   const [images, setImages] = useState([]);
   const [fileCheck, setFileCheck] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
+  const [imageUpload, setImageUpload] = useState("");
   const queryClient = useQueryClient();
 
   const handleFileChange = (event) => {
@@ -24,6 +25,20 @@ const AdCarousel = () => {
     setImageUpload(file);
   };
 
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    const data = await uploadHandler(imageUpload);
+
+    //Upload the data
+    const uploadMutation = useMutation({
+      mutationFn: postCarouselAPI,
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: "carousel" });
+      },
+    });
+    uploadMutation();
+  };
+
   // fetching the data
   const carouselQuery = useQuery({
     queryKey: ["carousel"],
@@ -31,10 +46,9 @@ const AdCarousel = () => {
   });
 
   const carousel = carouselQuery?.data;
-  console.log(carousel);
 
   //Deleting the data
-  const mutation = useMutation({
+  const deleteMutation = useMutation({
     mutationFn: deleteCarouselAPI,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: "carousel" });
@@ -66,7 +80,7 @@ const AdCarousel = () => {
         </label>
         <button
           className="carousel_upldbtn"
-          onClick={uploadFile}
+          onClick={uploadImage}
           disabled={isLoading || !fileCheck}
         >
           {carousel && carousel.length > 4
