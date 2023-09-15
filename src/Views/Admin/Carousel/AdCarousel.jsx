@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import CarouselCards from "./CarouselCards";
-import uploadHandler from "../../service/carouselHandler/uploadHandler";
-import { appSettings } from "../../Appdata/appdata";
+import CarouselCards from "./Components/CarouselCards";
+import uploadHandler from "../../../service/carouselHandler/uploadHandler";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import getCarouselAPI from "../../../API/carouselAPI/getCarouselAPI";
+import deleteCarouselAPI from "../../../API/carouselAPI/deleteCarouselAPI";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const AdCarousel = () => {
-  const { setImageUpload, setIsLoading, uploadFile, isLoading } =
-    uploadHandler();
+  const { setImageUpload, uploadFile, isLoading } = uploadHandler();
+
   const [images, setImages] = useState([]);
   const [fileCheck, setFileCheck] = useState(false);
-  const [carouselLength, setCarouselLength] = useState(0);
+  const queryClient = useQueryClient();
 
   const handleFileChange = (event) => {
     setFileCheck(true);
@@ -18,39 +20,41 @@ const AdCarousel = () => {
     const selectedImage = {
       img_link: URL.createObjectURL(file),
     };
-
     setImages((prevImages) => [selectedImage, ...prevImages]);
     setImageUpload(file);
   };
 
-  // FETCHES THE CAROUSEL IMAGES FROM DB
-  useEffect(() => {
-    fetch(appSettings.carousel)
-      .then((response) => response.json())
-      .then((data) => {
-        setImages(data);
-        setIsLoading(data.length > 4);
-        setCarouselLength(data.length);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+  // fetching the data
+  const carouselQuery = useQuery({
+    queryKey: ["carousel"],
+    queryFn: getCarouselAPI,
+  });
+
+  const carousel = carouselQuery?.data;
+  console.log(carousel);
+
+  //Deleting the data
+  const mutation = useMutation({
+    mutationFn: deleteCarouselAPI,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: "carousel" });
+    },
+  });
 
   return (
     <div className="adcarousel-wrap">
       <form className="form1">
-        <span className="form-title">
-          Maximum {images.length} carousel images
-        </span>
+        <span className="form-title">Maximum 5 carousel images</span>
         <p className="form-paragraph">File should be an image</p>
         <label htmlFor="file-input" className="drop-container">
           <span className="drop-title">
-            {carouselLength > 4
+            {carousel && carousel.length > 4
               ? "Carousel Full"
               : isLoading
               ? "Uploading..."
               : "Drop Files Here"}
           </span>
-          {/* or */}
+
           <input
             type="file"
             accept="image/*"
@@ -65,7 +69,7 @@ const AdCarousel = () => {
           onClick={uploadFile}
           disabled={isLoading || !fileCheck}
         >
-          {carouselLength > 4
+          {carousel && carousel.length > 4
             ? "Max of 5 Images"
             : isLoading
             ? "Uploading"
@@ -73,11 +77,16 @@ const AdCarousel = () => {
         </button>
       </form>
       <ToastContainer />
-      <div className="previmg-wrap" style={{ overflowX: "hidden" }}>
-        {[...Array(images.length)].map((_, index) => (
-          <CarouselCards key={index} carsel={images[index] || null} />
-        ))}
-      </div>
+
+      {carousel ? (
+        <div className="previmg-wrap">
+          {carousel.map((data) => (
+            <CarouselCards key={data.id} data={data} />
+          ))}
+        </div>
+      ) : (
+        <div>Loading carousel data...</div>
+      )}
     </div>
   );
 };
