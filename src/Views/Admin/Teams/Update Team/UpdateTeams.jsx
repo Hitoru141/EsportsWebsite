@@ -14,7 +14,7 @@ const UpdateTeams = ({ team }) => {
   };
 
   return (
-    <div className="adcarousel-wrap">
+    <div>
       <div>
         <button className="adteamcard_updtbtn" onClick={() => setIsModal(true)}>
           Update Team
@@ -31,7 +31,7 @@ const UpdateTeams = ({ team }) => {
               id="teamName"
               placeholder="Team Name"
               type="text"
-              required=""
+              required
               className="adtinput"
               value={teamInfo.teamName}
               onChange={(e) => handleNewData(e.target.value)}

@@ -1,155 +1,156 @@
-.Adminwrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+.Adminwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
 .form-container {
-    width: 400px;
-    padding: 2rem 2rem;
-    border-radius: 0.75rem;
-    background-color: rgba(17, 24, 39, 1);
-    padding: 2rem;
-    color: rgba(243, 244, 246, 1);
-  }
-  
-  .title {
-    text-align: center;
-    font-size: 3rem;
-    line-height: 2rem;
-    font-weight: 700;
-  }
-  #email{
-    width: 380px;
-  }
-  #password{
-    width: 380px;
-  }
-  
-  .form {
-    margin-top: 1.5rem;
-  }
-  
-  .input-group {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-  
-  .input-group label {
-    display: block;
-    color: rgba(156, 163, 175, 1);
-    margin: 1rem 1rem;
-  }
-  
-  .input-group input {
-    width: 100%;
-    border-radius: 0.375rem;
-    
-    border: 1px solid rgba(55, 65, 81, 1);
-    outline: 0;
-    background-color: rgba(17, 24, 39, 1);
-    padding: 0.75rem ;
-    color: rgba(243, 244, 246, 1);
-  }
-  
-  .input-group input:focus {
-    border-color: rgba(167, 139, 250);
-  }
-  
-  .forgot {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    color: rgba(156, 163, 175,1);
-    margin: 8px 0 14px 0;
-  }
-  
-  .forgot .a5,.signup .a5 {
-    color: rgba(243, 244, 246, 1);
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .forgot .a5:hover, .signup .a5:hover {
-    cursor: pointer;
-    text-decoration: underline rgba(167, 139, 250, 1);
+  width: 400px;
+  padding: 2rem 2rem;
+  border-radius: 0.75rem;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 2rem;
+  color: rgba(243, 244, 246, 1);
+}
 
-  }
-  
-  .sign {
-    display: block;
-    width: 100%;
-    font-size: 2rem;
-    background-color: rgba(167, 139, 250, 1);
-    padding: 0.75rem;
-    text-align: center;
-    color: rgba(17, 24, 39, 1);
-    border: none;
-    border-radius: 0.375rem;
-    font-weight: 600;
-  }
-  .signin-p{
-    font-size: 2rem;
-  }
-  .signin-p1{
-    font-size: 1.5rem;
-  }
-  .social-message {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-  }
-  
-  .line {
-    height: 1px;
-    flex: 1 1 0%;
-    background-color: rgba(55, 65, 81, 1);
-  }
-  
-  .social-message .message {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: rgba(156, 163, 175, 1);
-  }
-  
-  .social-icons {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .social-icons .icon {
-    border-radius: 0.125rem;
-    padding: 0.75rem;
-    border: none;
-    background-color: transparent;
-    margin-left: 8px;
-  }
-  
-  .social-icons .icon svg {
-    height: 1.25rem;
-    width: 1.25rem;
-    fill: #fff;
-  }
-  
-  .signup {
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1rem;
-    color: rgba(156, 163, 175, 1);
-  }
-  /* ADMIN DASHBOARD */
-  .Adminwrapper2{
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #150121;
+.title {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+#email {
+  width: 380px;
+}
+#password {
+  width: 380px;
+}
+
+.form {
+  margin-top: 1.5rem;
+}
+
+.input-group {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.input-group label {
+  display: block;
+  color: rgba(156, 163, 175, 1);
+  margin: 1rem 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  border-radius: 0.375rem;
+
+  border: 1px solid rgba(55, 65, 81, 1);
+  outline: 0;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.75rem;
+  color: rgba(243, 244, 246, 1);
+}
+
+.input-group input:focus {
+  border-color: rgba(167, 139, 250);
+}
+
+.forgot {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
+  margin: 8px 0 14px 0;
+}
+
+.forgot .a5,
+.signup .a5 {
+  color: rgba(243, 244, 246, 1);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot .a5:hover,
+.signup .a5:hover {
+  cursor: pointer;
+  text-decoration: underline rgba(167, 139, 250, 1);
+}
+
+.sign {
+  display: block;
+  width: 100%;
+  font-size: 2rem;
+  background-color: rgba(167, 139, 250, 1);
+  padding: 0.75rem;
+  text-align: center;
+  color: rgba(17, 24, 39, 1);
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+.signin-p {
+  font-size: 2rem;
+}
+.signin-p1 {
+  font-size: 1.5rem;
+}
+.social-message {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.line {
+  height: 1px;
+  flex: 1 1 0%;
+  background-color: rgba(55, 65, 81, 1);
+}
+
+.social-message .message {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(156, 163, 175, 1);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons .icon {
+  border-radius: 0.125rem;
+  padding: 0.75rem;
+  border: none;
+  background-color: transparent;
+  margin-left: 8px;
+}
+
+.social-icons .icon svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  fill: #fff;
+}
+
+.signup {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
+}
+/* ADMIN DASHBOARD */
+.Adminwrapper2 {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #150121;
 }
 .btn_uploadfile {
   cursor: pointer;
@@ -163,51 +164,56 @@
   background-color: rgb(11, 17, 171);
   border: none;
 }
-  .adbtn {
-    margin: 2rem 2rem;
-    font-size: 1.2rem;
-    padding: 1rem 2.5rem;
-    border: none;
-    outline: none;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    background-color: rgb(14, 14, 26);
-    color: rgb(234, 234, 234);
-    font-weight: 700;
-    transition: 0.6s;
-    box-shadow: 0px 0px 60px #1f4c65;
-    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-  }
-  
-  .adbtn:active {
-    scale: 0.92;
-  }
-  
-  .adbtn:hover {
-    background: rgb(2,29,78);
-    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-    color: rgb(4, 4, 38);
-  }
-  .adbtn-wrapper{
-    flex-direction: row;
-    position: absolute;
-    top: 7rem;
-  }
-  /* ADMIN CONTROLS */
-.optionsview-cont{
-    width: 99vw;
-    height: 700px;
-    display: flex;
-    z-index: 10;
-    margin-top: 15rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background-color: rgb(16, 14, 14);
+.adbtn {
+  margin: 2rem 2rem;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+.adbtn:active {
+  scale: 0.92;
+}
+
+.adbtn:hover {
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    rgba(2, 29, 78, 0.681) 0%,
+    rgba(31, 215, 232, 0.873) 60%
+  );
+  color: rgb(4, 4, 38);
+}
+.adbtn-wrapper {
+  flex-direction: row;
+  position: absolute;
+  top: 7rem;
+}
+/* ADMIN CONTROLS */
+.optionsview-cont {
+  width: 99vw;
+  height: 700px;
+  display: flex;
+  z-index: 10;
+  margin-top: 15rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgb(16, 14, 14);
 }
 /* ADD CAROUSEL IMG */
-.adcarousel-wrap{
+.adcarousel-wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -221,7 +227,7 @@
   background-color: #fff;
   border: 1px solid rgb(159, 159, 160);
   border-radius: 20px;
-  padding: 2rem .7rem .7rem .7rem;
+  padding: 2rem 0.7rem 0.7rem 0.7rem;
   text-align: center;
   font-size: 1.125rem;
   max-width: 300px;
@@ -254,7 +260,7 @@
   border: 2px dashed rgb(171, 202, 255);
   color: #444;
   cursor: pointer;
-  transition: background .2s ease-in-out, border .2s ease-in-out;
+  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 .drop-container:hover {
@@ -271,7 +277,7 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  transition: color .2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 #file-input {
@@ -292,13 +298,13 @@
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
-  transition: background .2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 #file-input::file-selector-button:hover {
   background: #0d45a5;
 }
-.previmg-wrap{
+.previmg-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,9 +315,8 @@
   background-color: rgb(29, 9, 47);
   border-radius: 10px;
   margin: 3rem;
-
 }
-.carousel_upldbtn{
+.carousel_upldbtn {
   z-index: 99;
   border: 2px solid #084cdf;
   margin: 10px;
@@ -380,7 +385,9 @@
   background-color: #3aa856;
 }
 
-.adtbutton, .adtbutton__icon, .adtbutton__text {
+.adtbutton,
+.adtbutton__icon,
+.adtbutton__text {
   transition: all 0.3s;
 }
 
@@ -426,7 +433,7 @@
 .adtbutton:active {
   border: 1px solid #2e8644;
 }
-.addteam-modal-overlay{
+.addteam-modal-overlay {
   position: fixed;
   background-color: #5f5d5d4d;
   z-index: 9999;
@@ -447,16 +454,16 @@
   border-radius: 10px;
   margin-bottom: 12rem;
 }
-.adtbanner_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:  800px;
-    height: 200px;
-    background-position: center;
-    background-color: rgba(137, 43, 226, 0.507);
-	  background-size:cover;
-    border-radius: 10px;
+.adtbanner_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: 200px;
+  background-position: center;
+  background-color: rgba(137, 43, 226, 0.507);
+  background-size: cover;
+  border-radius: 10px;
 }
 .adtmodal-content {
   background-color: white;
@@ -476,11 +483,11 @@
   background-color: transparent;
 }
 
-.adt-h2{
+.adt-h2 {
   color: rgb(255, 255, 255);
   font-size: 3rem;
 }
-.adtX{
+.adtX {
   cursor: pointer;
   width: 50p;
   font-size: 3rem;
@@ -491,7 +498,7 @@
 
 .adt-img {
   position: relative;
-  width:200px;
+  width: 200px;
   height: 200px;
   background-color: rgba(255, 255, 255, 0.698);
   border-radius: 5px;
@@ -515,7 +522,6 @@
   cursor: pointer;
 }
 
-
 .add-button input[type="file"] {
   display: none;
 }
@@ -525,68 +531,64 @@
   height: 100%;
   object-fit: cover; /* Maintain aspect ratio while covering the div */
 }
-.adtsavebtn{
-    position: relative;
-    margin-top: 1rem;
-    min-width: 65px;
-    width: fit-content;
-    height: 40px;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    background-color: #14910c;
-    justify-content: center;
-  }
-  .adtsavebtn:hover{
-    background-color: #16bd0a;
-  }
-.adtp1{
+.adtsavebtn {
+  position: relative;
+  margin-top: 1rem;
+  min-width: 65px;
+  width: fit-content;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #14910c;
+  justify-content: center;
+}
+.adtsavebtn:hover {
+  background-color: #16bd0a;
+}
+.adtp1 {
   font-size: 1.5rem;
- 
 }
-  .adteamcard_wrap{
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 85%;
-    height: 80%;
-  
-  }
-  /* MANAGE MEMBERS  */
-  .mteam_wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100vw;
-    height: fit-content;
- 
-  }
-  .adt_teambanner {
-    border-radius: 10px;
-    width: 1500px;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
-    background-position: center;
-    background-color: rgba(137, 43, 226, 0.507);
-	  background-size:cover;
+.adteamcard_wrap {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 80%;
 }
-.adt_teambanner-img{
+/* MANAGE MEMBERS  */
+.mteam_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: fit-content;
+}
+.adt_teambanner {
+  border-radius: 10px;
+  width: 1500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  background-position: center;
+  background-color: rgba(137, 43, 226, 0.507);
+  background-size: cover;
+}
+.adt_teambanner-img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
 
-
-.adt_addplayerwrap{
+.adt_addplayerwrap {
   display: grid;
-  grid-template-columns: repeat(3, minmax( 0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   padding: 2rem 2rem;
   grid-gap: 1em;
   margin: 2em 2em;
@@ -646,7 +648,7 @@
   100% {
   }
 }
-.addmember-modal_overlay{
+.addmember-modal_overlay {
   position: fixed;
   z-index: 9999;
   width: 700px;
@@ -654,9 +656,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
- z-index: 999;
+  z-index: 999;
 }
-.addmember-modal-form{
+.addmember-modal-form {
   width: 100%;
   height: 100%;
   background-color: rgba(67, 0, 100, 0.752);
@@ -666,37 +668,35 @@
   border-radius: 10px;
   margin-bottom: 35rem;
 }
-.exit_modal{
+.exit_modal {
   cursor: pointer;
-  width: 50px; 
+  width: 50px;
   font-size: 5rem;
   color: rgb(250, 3, 3);
   background-color: #00000000;
   margin-left: 68rem;
 }
-input{
+input {
   margin: 0.7rem;
 }
 .circle {
-	line-height: 0;		/* remove line-height */ 
-	display: inline-block;	/* circle wraps image */
-	margin: 5px;
-  border: 4px solid rgba(200,200,200,0.4);
-	border-radius: 50%;	/* relative value */
-	/*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
-	transition: linear 0.25s;
+  line-height: 0; /* remove line-height */
+  display: inline-block; /* circle wraps image */
+  margin: 5px;
+  border: 4px solid rgba(200, 200, 200, 0.4);
+  border-radius: 50%; /* relative value */
+  /*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
+  transition: linear 0.25s;
   height: 128px;
   width: 128px;
 }
 .circle-img {
-  border-radius: 50%;	
+  border-radius: 50%;
   height: 128px;
   width: 128px;
 }
 .circle:hover {
-	transition: ease-out 0.2s;
-  border: 4px solid rgba(0,0,0,0.2);
+  transition: ease-out 0.2s;
+  border: 4px solid rgba(0, 0, 0, 0.2);
   -webkit-transition: ease-out 0.2s;
 }
-
-

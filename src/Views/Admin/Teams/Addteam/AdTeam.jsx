@@ -76,6 +76,7 @@ const AdTeam = () => {
 
   return (
     <div className="adcarousel-wrap">
+      {/* Button Start*/}
       <div className="adtbutton" onClick={toggleModal}>
         <span className="adtbutton__text">New Team</span>
         <span className="adtbutton__icon">
@@ -96,6 +97,8 @@ const AdTeam = () => {
           </svg>
         </span>
       </div>
+      {/* Button End*/}
+
       {isModalOpen && (
         <div className="addteam-modal-overlay">
           <div className="addteam-modal ">
@@ -106,7 +109,7 @@ const AdTeam = () => {
             <input
               placeholder="Team Name"
               type="text"
-              required=""
+              required
               className="adtinput"
               value={teamName}
               onChange={(e) => setTeamName(e.target.value)}
