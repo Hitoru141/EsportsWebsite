@@ -19,6 +19,7 @@
   max-width: 1200px;
   padding: 30px;
 }
+
 @media screen and (max-width: 760px) {
   .l-container {
     grid-template-columns: repeat(2, 1fr);

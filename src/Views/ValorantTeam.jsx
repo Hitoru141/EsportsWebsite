@@ -33,7 +33,7 @@ const ValorantTeam = () => {
       <div className="l-container">
         {/* FOR MAP */}
         {teams.map((team) => (
-          <div className="l-container" key={team.teamLogoURL}>
+          <div key={team.teamLogoURL}>
             <Link to="/team">
               <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
             </Link>
