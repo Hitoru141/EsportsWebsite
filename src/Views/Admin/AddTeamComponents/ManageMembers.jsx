@@ -2,16 +2,13 @@ import { useState, useEffect } from "react";
 import sampleBanner from "../../../assets/MLNbanner.jpg";
 import "../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
-import UploadHandler from "../../../service/imageUploadService";
-import submitMember from "../../../service/memberHandler/postMember";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { appSettings } from "../../../Appdata/appdata";
+import AddMemberForm from "./AddMemberForm";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
-  const [profileFile, setProfileFile] = useState(null);
 
   const [memberData, setMemberData] = useState({
     name: "",
@@ -38,8 +35,6 @@ const ManageMembers = () => {
     fetchData();
   }, []);
 
-  const [isLoading, setIsLoading] = useState(false);
-
   // CODE ABOVE IS THE DATA TO BE SENT TO FIREBASE
 
   const toggleModal = () => {
@@ -55,43 +50,6 @@ const ManageMembers = () => {
     ) {
       setIsModalOpen(false);
     }
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setProfileImage(e.target.result);
-      };
-      reader.readAsDataURL(file);
-      setProfileFile(file);
-    } else {
-      setProfileImage("");
-    }
-  };
-
-  const submitData = async () => {
-    if (memberData) {
-      setIsLoading(true);
-      const profileImageURL = await UploadHandler(profileFile, "profileImage");
-      // IF I setMemberData({...memberData, profileImageURL: profileImageURL})
-      // then submitMember(), memberData.profileImageURL will be undefined.
-      const userData = { ...memberData, profileImageURL: profileImageURL };
-      await submitMember(userData);
-      setIsLoading(false);
-    } else {
-      alert("IGN, Name, Profile Picture, Address are Required");
-    }
-  };
-
-  // CODE BELOW WILL PUT ALL THE VARIABLES IN THE RQUEST BODY
-
-  const onChangeMember = (e) => {
-    const newMember = { ...memberData };
-    newMember[e.target.id] = e.target.value;
-    setMemberData(newMember);
   };
 
   return (
@@ -121,114 +79,7 @@ const ManageMembers = () => {
           </span>
           <span className="lable">Add Member</span>
         </button>
-        {isModalOpen && (
-          <div className="addmember-modal_overlay">
-            <div className="addmember-modal-form ">
-              <div className="exit_modal" onClick={closeModal}>
-                &times;
-              </div>
-              {/* File Upload for Profile Image */}
-              <div className="circle">
-                <img
-                  src={
-                    profileImage ||
-                    "http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128"
-                  }
-                  alt="Profile Img"
-                  className="circle-img"
-                />
-              </div>
-              <label htmlFor="profileImage">Profile Image</label>
-              <form
-                onSubmit={submitData}
-                style={{ display: "flex", flexDirection: "column" }}
-              >
-                <input
-                  type="file"
-                  id="profileImage"
-                  name="profileImage"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
-
-                {/* Name Input */}
-
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  onChange={(e) => onChangeMember(e)}
-                />
-
-                {/* IGN */}
-                <label htmlFor="ign">IGN</label>
-                <input
-                  type="text"
-                  id="IGN"
-                  name="ign"
-                  onChange={(e) => onChangeMember(e)}
-                  placeholder="IGN"
-                  required
-                />
-                {/* Profile Type */}
-
-                <label htmlFor="profileType">Profile Type</label>
-                <select
-                  id="profileType"
-                  name="profileType"
-                  onChange={(e) => onChangeMember(e)}
-                >
-                  <option value="player">Player</option>
-                  <option value="coach">Coach</option>
-                  <option value="manager">Manager</option>
-                </select>
-
-                {/* Address Input */}
-
-                <label htmlFor="address">Address</label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  onChange={(e) => onChangeMember(e)}
-                />
-
-                {/* Social Links */}
-
-                <label>Social Links</label>
-                <input
-                  type="text"
-                  placeholder="Discord"
-                  name="discord"
-                  onChange={(e) => onChangeMember(e)}
-                />
-                <input
-                  type="text"
-                  placeholder="Facebook"
-                  name="facebook"
-                  onChange={(e) => onChangeMember(e)}
-                />
-                <input
-                  type="text"
-                  placeholder="Twitch"
-                  name="twitch"
-                  onChange={(e) => onChangeMember(e)}
-                />
-
-                {/* Submit Button */}
-
-                <button
-                  className="admemberbtn"
-                  type="submit"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Loading" : "Add Member"}
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
+        {/* <AddMemberForm /> */}
 
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
