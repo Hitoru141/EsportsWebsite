@@ -128,9 +128,6 @@ const AdTeam = () => {
               onChange={(e) => setTeamName(e.target.value)}
             />
             <div className="adtbanner_container">
-              {/* This code is conditionally rendering either a "Reupload Team Banner" button and an
-              image preview of the uploaded banner, or an "Upload Team Banner" button, based on
-              whether `bannerImagePreview` has a value or not.  */}
               {bannerImagePreview && (
                 <img
                   src={bannerImagePreview}
@@ -151,10 +148,6 @@ const AdTeam = () => {
               </button>
             </div>
             <div className="adt-img">
-              {/* This code is conditionally rendering either a "Reupload Team Logo" button and an image
-             preview of the uploaded logo, or an "Upload Team Logo" button, based on whether
-             `imagePreview` has a value or not.  */}
-
               {imagePreview && (
                 <div className="image-preview">
                   <img
