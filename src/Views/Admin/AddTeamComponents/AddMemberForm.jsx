@@ -132,18 +132,21 @@ const AddMemberForm = ({ closeModal }) => {
             type="text"
             placeholder="Discord"
             name="discord"
+            id="discord"
             onChange={(e) => onChangeMember(e)}
           />
           <input
             type="text"
             placeholder="Facebook"
             name="facebook"
+            id="facebook"
             onChange={(e) => onChangeMember(e)}
           />
           <input
             type="text"
             placeholder="Twitch"
             name="twitch"
+            id="twitch"
             onChange={(e) => onChangeMember(e)}
           />
 
