@@ -2,10 +2,21 @@ import { useState, useEffect } from "react";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
 
-const AddMemberForm = () => {
+const AddMemberForm = ({ closeModal, toggleModal }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [memberData, setMemberData] = useState({
+    name: "",
+    IGN: "",
+    profileType: "player",
+    address: "",
+    discord: "",
+    facebook: "",
+    twitch: "",
+    profileImageURL: "",
+  });
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];

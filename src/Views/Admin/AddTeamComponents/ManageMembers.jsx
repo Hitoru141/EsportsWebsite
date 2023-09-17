@@ -9,18 +9,6 @@ import AddMemberForm from "./AddMemberForm";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [memberData, setMemberData] = useState({
-    name: "",
-    IGN: "",
-    profileType: "player",
-    address: "",
-    discord: "",
-    facebook: "",
-    twitch: "",
-    profileImageURL: "",
-  });
-
   const [membersArray, setMembersArray] = useState([]);
 
   useEffect(() => {
@@ -79,7 +67,12 @@ const ManageMembers = () => {
           </span>
           <span className="lable">Add Member</span>
         </button>
-        {/* <AddMemberForm /> */}
+
+        <AddMemberForm
+          isModalOpen={isModalOpen}
+          closeModal={closeModal}
+          toggleModal={toggleModal}
+        />
 
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
