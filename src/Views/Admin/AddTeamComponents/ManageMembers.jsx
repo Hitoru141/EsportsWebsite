@@ -68,11 +68,9 @@ const ManageMembers = () => {
           <span className="lable">Add Member</span>
         </button>
 
-        <AddMemberForm
-          isModalOpen={isModalOpen}
-          closeModal={closeModal}
-          toggleModal={toggleModal}
-        />
+        {isModalOpen && (
+          <AddMemberForm closeModal={closeModal} toggleModal={toggleModal} />
+        )}
 
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">

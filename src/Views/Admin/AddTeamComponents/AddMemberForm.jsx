@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
 
-const AddMemberForm = ({ closeModal, isModalOpen }) => {
+const AddMemberForm = ({ closeModal }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
