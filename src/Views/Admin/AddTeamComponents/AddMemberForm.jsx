@@ -58,7 +58,7 @@ const AddMemberForm = ({ closeModal }) => {
   return (
     <div className="addmember-modal_overlay">
       <div className="addmember-modal-form ">
-        <div className="exit_modal" onClick={() => closeModal}>
+        <div className="exit_modal" onClick={closeModal}>
           &times;
         </div>
         {/* File Upload for Profile Image */}
