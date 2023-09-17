@@ -79,26 +79,32 @@ const AdTeam = () => {
 
   return (
     <div className="adcarousel-wrap">
-      <div className="adtbutton" onClick={toggleModal}>
-        <span className="adtbutton__text">New Team</span>
-        <span className="adtbutton__icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="currentColor"
-            height="24"
-            fill="none"
-            className="svg"
-          >
-            <line y2="19" y1="5" x2="12" x1="12"></line>
-            <line y2="12" y1="12" x2="19" x1="5"></line>
-          </svg>
-        </span>
+      <div className="adtbtn_wrap">
+        <div className="adtbutton" onClick={toggleModal}>
+          <span className="adtbutton__text">New Team</span>
+          <span className="adtbutton__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              stroke="currentColor"
+              height="24"
+              fill="none"
+              className="svg"
+            >
+              <line y2="19" y1="5" x2="12" x1="12"></line>
+              <line y2="12" y1="12" x2="19" x1="5"></line>
+            </svg>
+          </span>
+        </div>
+        <div className="adtbutton1">
+          <span className="adtbutton1-p">Content Creators</span>
+        </div>
       </div>
+
       {isModalOpen && (
         <div className="addteam-modal-overlay">
           <div className="addteam-modal ">

@@ -368,18 +368,45 @@
   cursor: pointer;
 }
 /* ADD TEAM */
+.adtbtn_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+ 
+  
+}
 .adtbutton {
-  position: absolute;
+  margin: 1rem 1rem;
   width: 150px;
   height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  top: 15.5rem;
+  position: relative;
   border: 1px solid #34974d;
   background-color: #3aa856;
 }
-
+.adtbutton1 {
+  margin: 1rem 1rem;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+ 
+}
+.adtbutton1:hover {
+  background: #1f5a2e;
+}
+.adtbutton1-p{
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+}
 .adtbutton, .adtbutton__icon, .adtbutton__text {
   transition: all 0.3s;
 }
