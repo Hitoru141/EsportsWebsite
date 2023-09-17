@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
 
@@ -73,10 +73,7 @@ const AddMemberForm = ({ closeModal }) => {
           />
         </div>
         <label htmlFor="profileImage">Profile Image</label>
-        <form
-          onSubmit={submitData}
-          style={{ display: "flex", flexDirection: "column" }}
-        >
+        <form style={{ display: "flex", flexDirection: "column" }}>
           <input
             type="file"
             id="profileImage"
@@ -152,7 +149,11 @@ const AddMemberForm = ({ closeModal }) => {
 
           {/* Submit Button */}
 
-          <button className="admemberbtn" type="submit" disabled={isLoading}>
+          <button
+            className="admemberbtn"
+            onClick={submitData}
+            disabled={isLoading}
+          >
             {isLoading ? "Loading" : "Add Member"}
           </button>
         </form>
