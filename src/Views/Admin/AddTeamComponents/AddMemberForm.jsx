@@ -129,22 +129,22 @@ const AddMemberForm = ({ closeModal }) => {
 
           <label>Social Links</label>
           <input
-            type="text"
-            placeholder="Discord"
+            type="url"
+            placeholder="Discord Link"
             name="discord"
             id="discord"
             onChange={(e) => onChangeMember(e)}
           />
           <input
-            type="text"
-            placeholder="Facebook"
+            type="url"
+            placeholder="Facebook Link"
             name="facebook"
             id="facebook"
             onChange={(e) => onChangeMember(e)}
           />
           <input
-            type="text"
-            placeholder="Twitch"
+            type="url"
+            placeholder="Twitch Link"
             name="twitch"
             id="twitch"
             onChange={(e) => onChangeMember(e)}
