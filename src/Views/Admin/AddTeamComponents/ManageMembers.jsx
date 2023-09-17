@@ -46,7 +46,7 @@ const ManageMembers = () => {
         <div className="adt_teambanner">
           <img src={sampleBanner} className="adt_teambanner-img" alt="Banner" />
         </div>
-        <button className="admemberbtn" onClick={toggleModal}>
+        <button className="admemberbtn" onClick={() => toggleModal}>
           <span className="span">
             <svg
               xmlns="http://www.w3.org/2000/svg"

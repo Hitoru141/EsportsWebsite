@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import UploadHandler from "../../../service/imageUploadService";
 import submitMember from "../../../service/memberHandler/postMember";
 
-const AddMemberForm = ({ closeModal, toggleModal }) => {
+const AddMemberForm = ({ closeModal, isModalOpen }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,7 +58,7 @@ const AddMemberForm = ({ closeModal, toggleModal }) => {
   return (
     <div className="addmember-modal_overlay">
       <div className="addmember-modal-form ">
-        <div className="exit_modal" onClick={closeModal}>
+        <div className="exit_modal" onClick={() => closeModal}>
           &times;
         </div>
         {/* File Upload for Profile Image */}
