@@ -360,7 +360,7 @@
   background-color: red;
   color: white;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   z-index: 10;
   border-radius: 5px;
   cursor: pointer;
@@ -587,12 +587,13 @@
 
 .adt_addplayerwrap{
   display: grid;
-  grid-template-columns: repeat(3, minmax( 0, 1fr));
-  padding: 2rem 2rem;
-  grid-gap: 1em;
-  margin: 2em 2em;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 300px)); 
+  justify-content: center;
+  padding: 1rem 1rem;
+  grid-gap: 2rem;
+  margin: 1rem em;
+  width: 60%;
 
-  width: 90%;
   min-height: 50rem;
 }
 .admemberbtn {
