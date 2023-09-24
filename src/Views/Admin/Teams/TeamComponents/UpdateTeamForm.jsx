@@ -1,6 +1,6 @@
 import { useState } from "react";
-import UploadHandler from "../../../service/imageUploadService";
-import submitTeam from "../Teams/Addteam/postTeam";
+import UploadHandler from "../../../../service/imageUploadService";
+import submitTeam from "../Addteam/postTeam";
 
 const UpdateTeamForm = ({ closeModal }) => {
   const [teamName, setTeamName] = useState("");
