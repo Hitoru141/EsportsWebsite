@@ -39,12 +39,6 @@ const ValorantTeam = () => {
             </Link>
           </div>
         ))}
-
-        {/* FOR UI OUTPUT REFERENCE ONLY */}
-        {/* <Astrateamcards teamlogo={teams[0].teamLogoURL} tname="Millennia" /> */}
-        {/* <Astrateamcards teamlogo={millen} tname="Millennia" />
-        <Astrateamcards teamlogo={hlx} tname="Millennia" />
-        <Astrateamcards teamlogo={prs} tname="Millennia" /> */}
       </div>
       <Footer />
     </div>
