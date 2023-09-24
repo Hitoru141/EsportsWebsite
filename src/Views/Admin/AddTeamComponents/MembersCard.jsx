@@ -13,6 +13,8 @@ const MembersCard = ({ member }) => {
     <div className="memb_mainwrapper">
       <div className="memb_profile-cont">
         <img src={member.profileImageURL} className="memb_profile-cont" />
+        <button className="update-button">Update</button>
+        <button className="delete-button">Delete</button>
       </div>
       <div className="memb_lower-info">
         <p className="mem-p">{member.name}</p>

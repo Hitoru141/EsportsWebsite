@@ -192,10 +192,45 @@
   flex-direction: column;
 }
 .memb_profile-cont{
+  position: relative;
   width: 300px;
   height: 300px;
   border-radius: 10px;
   background-color: white;
+}
+.memb_profile-cont:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px); /* Add blur effect */
+  pointer-events: none; /* Allows hover events to pass through */
+  z-index: 1;
+}
+.memb_profile-cont:hover .update-button {
+  display: block;
+}
+.memb_profile-cont:hover .delete-button {
+  display: block;
+}
+.update-button {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 20px;
+  background-color: rgb(52, 108, 238);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  z-index: 10;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .memb_lower-info{
   display: flex;
@@ -213,6 +248,7 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(14, 14, 14, 0.641);
+  z-index: 2;
 }
 
 .mem-p{

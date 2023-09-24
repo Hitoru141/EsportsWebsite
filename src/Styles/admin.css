@@ -326,9 +326,7 @@
   border-radius: 10px;
   background-position: no-repeat center;
   background-size: cover;
-  overflow: hidden; /* Ensure delete button is hidden when not hovered */
-
-  /* Add transition for smooth appearance */
+  overflow: hidden; 
   transition: all 0.3s ease;
 }
 .carousel-card:hover::before {
@@ -428,8 +426,11 @@
 }
 .addteam-modal-overlay{
   position: fixed;
-  background-color: #5f5d5d4d;
-  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #414141ad;
+  z-index: 20;
   width: 100%;
   height: 100%;
   display: flex;
@@ -438,14 +439,14 @@
 }
 .addteam-modal {
   width: 900px;
-  height: 750px;
+  height: fit-content;
   background-color: rgb(6, 6, 6);
   display: flex;
   align-items: center;
   padding: 2rem;
   flex-direction: column;
   border-radius: 10px;
-  margin-bottom: 12rem;
+ 
 }
 .adtbanner_container{
     display: flex;
