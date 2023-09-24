@@ -15,7 +15,7 @@ const UploadHandler = (imageUpload, path) => {
         getDownloadURL(snapshot.ref)
           .then((url) => {
             // WINDOW ALERT IF IMAGE UPLOAD IS SUCCESSFUL
-            console.log("Image Uploaded Successfully");
+            // console.log("Image Uploaded Successfully");
             resolve(url);
           })
           .catch((error) => {

@@ -38,10 +38,6 @@ const AdTeam = () => {
    * the upload of an image file and set the image preview accordingly.
    */
 
-  /** Code Above is the Handler for Banner Uploads.  It will return the Image File's downloadURL and put it into bannerURL.*/
-
-  // Code Above is for handling General File Uploads to Database.
-
   const handleBannerChange = (event) => {
     const file = event.target.files[0];
     if (file) {
