@@ -23,11 +23,9 @@ const Playerpage = () => {
       <div className="player-wrap">
         <p className="pteam-header"> SOL ESPORTS</p>
         <div className="playercard-wrap">
-          <div className="adt_addplayerwrap">
-            {memberInfo.map((member, index) => (
-              <Playercard key={index} member={member} />
-            ))}
-          </div>
+          {memberInfo.map((member, index) => (
+            <Playercard key={index} member={member} />
+          ))}
         </div>
       </div>
       <Footer />

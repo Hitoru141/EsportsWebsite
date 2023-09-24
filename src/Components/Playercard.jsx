@@ -12,15 +12,13 @@ const Playercard = ({ member }) => {
 
   return (
     <div className="img-card">
-      <img src={samp} className="img-card-prof" />
+      <img src={samp} className="img-card" />
       <div className="hover-content">
-        <div className="text-container">
-          <p className="player-name">{member.memberName}</p>
-          <div className="player-type-box">
-            <p className="player-type">{member.memberProfileType}</p>
-          </div>
-          <p className="player-type">{member.memberAddress}</p>
+        <p className="player-name">{member.memberName}</p>
+        <div className="player-type-box">
+          <p className="player-type">{member.memberProfileType}</p>
         </div>
+        <p className="player-type">{member.memberAddress}</p>
 
         <div className="button-container">
           <a
