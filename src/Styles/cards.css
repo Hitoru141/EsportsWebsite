@@ -13,19 +13,14 @@
 
 .l-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 300px)); 
+  grid-template-columns: repeat(auto-fit, minmax(180px, 280px)); 
   justify-content: center;
-  grid-gap: 30px;
+  grid-gap: 2rem;
   width: 100%;
   max-width: 1200px;
   padding: 30px;
 }
 
-@media screen and (max-width: 760px) {
-  .l-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .b-game-card {
   position: relative;

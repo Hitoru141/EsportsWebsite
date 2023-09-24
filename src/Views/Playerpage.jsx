@@ -15,6 +15,30 @@ const Playerpage = () => {
       fbLink: "https://fb.com",
       twitchLink: "https://twitch.com",
     },
+    {
+      memberName: "JANNELA CUNANAN",
+      memberProfileType: "PLAYER",
+      memberAddress: "MANILA, PHL",
+      discordLink: "https://discord.com",
+      fbLink: "https://fb.com",
+      twitchLink: "https://twitch.com",
+    },
+    {
+      memberName: "JANNELA CUNANAN",
+      memberProfileType: "PLAYER",
+      memberAddress: "MANILA, PHL",
+      discordLink: "https://discord.com",
+      fbLink: "https://fb.com",
+      twitchLink: "https://twitch.com",
+    },
+    {
+      memberName: "JANNELA CUNANAN",
+      memberProfileType: "PLAYER",
+      memberAddress: "MANILA, PHL",
+      discordLink: "https://discord.com",
+      fbLink: "https://fb.com",
+      twitchLink: "https://twitch.com",
+    },
   ];
 
   return (
