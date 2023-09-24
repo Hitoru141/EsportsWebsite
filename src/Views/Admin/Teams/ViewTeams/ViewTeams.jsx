@@ -4,7 +4,7 @@ import { appSettings } from "../../../../Appdata/appdata";
 import { useQuery } from "@tanstack/react-query";
 import DeleteTeam from "../Delete Team/DeleteTeam";
 import { Link } from "react-router-dom";
-import UpdateTeamForm from "../../AddTeamComponents/UpdateTeamForm";
+import UpdateTeamForm from "../TeamComponents/UpdateTeamForm";
 
 const ViewTeams = () => {
   const [teams, setTeams] = useState([]);

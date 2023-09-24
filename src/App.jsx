@@ -13,7 +13,7 @@ import Playerpage from "./Views/Playerpage";
 import AdminSignIn from "./Views/Admin/Auth/AdminSignIn";
 import Admindash from "./Views/Admin/Admindash";
 import About from "./Views/About";
-import ManageMembers from "./Views/Admin/AddTeamComponents/ManageMembers";
+import ManageMembers from "./Views/Admin/Teams/TeamComponents/ManageMembers";
 import { useRecoilValue } from "recoil";
 import Token from "./Recoil/token";
 

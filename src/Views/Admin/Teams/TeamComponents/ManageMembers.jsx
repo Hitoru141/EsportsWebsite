@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import sampleBanner from "../../../assets/MLNbanner.jpg";
-import "../../../Styles/admin.css";
+import sampleBanner from "../../../../assets/MLNbanner.jpg";
+import "../../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
-import { appSettings } from "../../../Appdata/appdata";
+import { appSettings } from "../../../../Appdata/appdata";
 import AddMemberForm from "./AddMemberForm";
 
 const ManageMembers = () => {

@@ -1,4 +1,3 @@
-import MemberProf from "../../../assets/MemProf.png";
 import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
