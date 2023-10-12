@@ -47,28 +47,12 @@ const UpdateTeamForm = ({ closeModal, team }) => {
         try {
           setUploading(true);
           const bannerURL = await UploadHandler(bannerFile, "teamBanner");
-          console.log(`Banner uploaded`);
           const logoURL = await UploadHandler(logoFile, "teamLogo");
-          console.log(`Logo uploaded`);
-          console.log(team.id);
           const data = await axios.put(`${appSettings.teams}/${team.id}`, {
             teamName: teamName,
-            bannerURL: bannerURL,
-            logoURL: logoURL,
-            id: team.id,
+            teamBannerURL: bannerURL,
+            teamLogoURL: logoURL,
           });
-          // const data = await axios.put(
-          //   `http://localhost:3001/teams/${team.id}`,
-          //   {
-          //     teamName: teamName,
-          //     bannerURL: bannerURL,
-          //     logoURL: logoURL,
-          //     id: team.id,
-          //   }
-          // );
-          console.log(`Data Uploaded`);
-
-          console.log(data);
           setUploading(false);
         } catch (error) {
           console.error(error);
