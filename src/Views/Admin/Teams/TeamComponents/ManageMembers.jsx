@@ -13,8 +13,6 @@ const ManageMembers = () => {
   const [membersArray, setMembersArray] = useState([]);
   const { teamName } = useParams();
 
-  console.log(teamName);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,7 +76,9 @@ const ManageMembers = () => {
           <span className="lable">Add Member</span>
         </button>
 
-        {isModalOpen && <AddMemberForm closeModal={closeModal} />}
+        {isModalOpen && (
+          <AddMemberForm closeModal={closeModal} teamName={teamName} />
+        )}
 
         {/* MAP  MEMBERCARDS INSIDE THIS DIV CONTAINER  */}
         <div className="adt_addplayerwrap">
