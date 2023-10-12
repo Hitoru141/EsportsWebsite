@@ -3,10 +3,6 @@ import Astrateamcards from "../Components/Astrateamcards";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/footer";
 import "../Styles/cards.css";
-import millen from "../assets/millennia.png";
-import sol from "../assets/SOL.png";
-import hlx from "../assets/helix.png";
-import prs from "../assets/polaris.png";
 import tbanner from "../assets/Astraeus.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -18,7 +14,6 @@ const ValorantTeam = () => {
   useEffect(() => {
     const group = async () => {
       const data = await axios.get(`${appSettings.teams}`);
-      // console.log(data.data);
       setTeams(data.data);
     };
     group();
@@ -34,7 +29,7 @@ const ValorantTeam = () => {
         {/* FOR MAP */}
         {teams.map((team) => (
           <div key={team.teamLogoURL}>
-            <Link to={`/team/${team.teamName}`}>
+            <Link to={`/team/${team.teamName}`} team={{ team }}>
               <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
             </Link>
           </div>

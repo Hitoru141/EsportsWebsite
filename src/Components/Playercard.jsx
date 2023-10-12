@@ -12,16 +12,16 @@ const Playercard = ({ member }) => {
 
   return (
     <div className="img-card">
-      <img src={member.profileImageURL} className="img-card" />
+      <img src={member?.profileImageURL} className="img-card" />
       <div className="hover-content">
-        <p className="player-name">{member.name}</p>
+        <p className="player-name">{member?.name}</p>
         <div className="player-type-box">
           <p className="player-type">Player</p>
         </div>
-        <p className="player-type">{member.address}</p>
+        <p className="player-type">{member?.address}</p>
 
         <div className="button-container">
-          {member.discord && (
+          {member?.discord && (
             <a
               href={member.discord}
               target="_blank"
@@ -31,9 +31,9 @@ const Playercard = ({ member }) => {
               <BsDiscord className="socials-btn " />
             </a>
           )}
-          {member.facebook && (
+          {member?.facebook && (
             <a
-              href={member.facebook}
+              href={member?.facebook}
               target="_blank"
               rel="noopener noreferrer"
               style={anchorStyle}
@@ -41,9 +41,9 @@ const Playercard = ({ member }) => {
               <BsFacebook className="socials-btn " />
             </a>
           )}
-          {member.twitch && (
+          {member?.twitch && (
             <a
-              href={member.twitch}
+              href={member?.twitch}
               target="_blank"
               rel="noopener noreferrer"
               style={anchorStyle}
