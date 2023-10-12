@@ -1,6 +1,6 @@
 import { useState } from "react";
-import UploadHandler from "../../../service/imageUploadService";
-import submitMember from "../../../service/memberHandler/postMember";
+import UploadHandler from "../../../../service/imageUploadService";
+import submitMember from "../../../../service/memberHandler/postMember";
 
 const AddMemberForm = ({ closeModal }) => {
   const [profileImage, setProfileImage] = useState(null);

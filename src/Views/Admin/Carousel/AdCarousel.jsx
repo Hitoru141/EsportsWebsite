@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CarouselCards from "./CarouselCards";
-import uploadHandler from "../../service/carouselHandler/uploadHandler";
-import { appSettings } from "../../Appdata/appdata";
+import uploadHandler from "../../../service/imageUploadService";
+import { appSettings } from "../../../Appdata/appdata";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -34,17 +34,11 @@ const ValorantTeam = () => {
         {/* FOR MAP */}
         {teams.map((team) => (
           <div key={team.teamLogoURL}>
-            <Link to="/team">
+            <Link to={`/team/${team.teamName}`}>
               <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
             </Link>
           </div>
         ))}
-
-        {/* FOR UI OUTPUT REFERENCE ONLY */}
-        {/* <Astrateamcards teamlogo={teams[0].teamLogoURL} tname="Millennia" /> */}
-        {/* <Astrateamcards teamlogo={millen} tname="Millennia" />
-        <Astrateamcards teamlogo={hlx} tname="Millennia" />
-        <Astrateamcards teamlogo={prs} tname="Millennia" /> */}
       </div>
       <Footer />
     </div>

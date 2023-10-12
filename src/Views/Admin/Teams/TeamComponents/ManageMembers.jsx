@@ -1,27 +1,37 @@
 import { useState, useEffect } from "react";
-import sampleBanner from "../../../assets/MLNbanner.jpg";
-import "../../../Styles/admin.css";
+import sampleBanner from "../../../../assets/MLNbanner.jpg";
+import "../../../../Styles/admin.css";
 import MembersCard from "./MembersCard";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
-import { appSettings } from "../../../Appdata/appdata";
+import { appSettings } from "../../../../Appdata/appdata";
 import AddMemberForm from "./AddMemberForm";
+import { useParams } from "react-router-dom";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [membersArray, setMembersArray] = useState([]);
+  const { teamName } = useParams();
+
+  console.log(teamName);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${appSettings.member}s`);
-        setMembersArray(response.data);
+        const members = [];
+        response.data.forEach((data) => {
+          if (data.teamName === teamName) {
+            members.push(data);
+          }
+        });
+        setMembersArray(members);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, []);
+  }, [teamName]);
 
   // CODE ABOVE IS THE DATA TO BE SENT TO FIREBASE
 

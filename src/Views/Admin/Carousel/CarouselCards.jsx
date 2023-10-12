@@ -1,5 +1,5 @@
-import "../../Styles/admin.css";
-import deleteCarousel from "../../service/carouselHandler/deleteHandler";
+import "../../../Styles/admin.css";
+import deleteCarousel from "../../../service/deleteImageService";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
