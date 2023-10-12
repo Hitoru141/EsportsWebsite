@@ -9,9 +9,26 @@ import axios from "axios";
 
 import tbanner from "../assets/SOLbanner.jpg";
 
-const Playerpage = () => {
-  const [membersArray, setMembersArray] = useState([]);
+//Atom
+import { useRecoilState } from "recoil";
+import SelectedTeamAtom from "../Recoil/SelectedTeamAtom";
+
+const Playerpage = ({ team }) => {
+  const [membersArray, setMembersArray] = useState([""]);
+  const [filteredTeam, setFilteredTeam] = useRecoilState(SelectedTeamAtom);
   const { teamName } = useParams();
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      const teams = await axios.get(`${appSettings?.teams}`);
+      const teamArray = teams?.data;
+      const filteredTeam = teamArray?.filter(
+        (team) => team?.teamName === teamName
+      );
+      setFilteredTeam(filteredTeam[0].teamBannerURL);
+    };
+    fetchTeams();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +41,6 @@ const Playerpage = () => {
           }
         });
         setMembersArray(members);
-        console.table(membersArray);
       } catch (error) {
         console.log(error);
       }
@@ -34,9 +50,9 @@ const Playerpage = () => {
 
   return (
     <div className="Mainwrapper">
-      <Navbar banner={tbanner} />
+      <Navbar banner={filteredTeam} />
       <div className="player-wrap">
-        <p className="pteam-header"> SOL ESPORTS</p>
+        <p className="pteam-header">{membersArray[0].teamName}</p>
         <div className="playercard-wrap">
           {membersArray.map((member, index) => (
             <Playercard key={index} member={member} />

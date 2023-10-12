@@ -2,7 +2,7 @@ import { useState } from "react";
 import UploadHandler from "../../../../service/imageUploadService";
 import submitMember from "../../../../service/memberHandler/postMember";
 
-const AddMemberForm = ({ closeModal }) => {
+const AddMemberForm = ({ closeModal, teamName }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileFile, setProfileFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,6 +16,7 @@ const AddMemberForm = ({ closeModal }) => {
     facebook: "",
     twitch: "",
     profileImageURL: "",
+    teamName: teamName,
   });
 
   const handleImageChange = (e) => {

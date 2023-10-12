@@ -50,7 +50,7 @@ const ViewTeams = () => {
           </button>
 
           {activeTeamIndex === index && (
-            <UpdateTeamForm closeModal={closeModal} />
+            <UpdateTeamForm closeModal={closeModal} team={team}/>
           )}
 
           <Link to={`/astraadmin787/${team.teamName}/manageTeam`}>

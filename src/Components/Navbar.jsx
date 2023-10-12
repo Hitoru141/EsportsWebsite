@@ -10,7 +10,6 @@ const Navbar = ({ banner }) => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         document.querySelector(".nav").classList.add("affix");
-        console.log("OK");
       } else {
         document.querySelector(".nav").classList.remove("affix");
       }
