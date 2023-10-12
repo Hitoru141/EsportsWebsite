@@ -1,13 +1,17 @@
 import { useState } from "react";
 import UploadHandler from "../../../../service/imageUploadService";
 import submitTeam from "../Addteam/postTeam";
+import { appSettings } from "../../../../Appdata/appdata";
+import axios from "axios";
 
-const UpdateTeamForm = ({ closeModal }) => {
-  const [teamName, setTeamName] = useState("");
-  const [imagePreview, setImagePreview] = useState(null);
-  const [bannerImagePreview, setBannerImagePreview] = useState(null);
-  const [bannerFile, setBannerFile] = useState(null);
-  const [logoFile, setLogoFile] = useState(null);
+const UpdateTeamForm = ({ closeModal, team }) => {
+  const [teamName, setTeamName] = useState(team.teamName);
+  const [imagePreview, setImagePreview] = useState(team.teamLogoURL);
+  const [bannerImagePreview, setBannerImagePreview] = useState(
+    team.teamBannerURL
+  );
+  const [bannerFile, setBannerFile] = useState(bannerImagePreview);
+  const [logoFile, setLogoFile] = useState(imagePreview);
   const [uploading, setUploading] = useState(false);
 
   const handleBannerChange = (event) => {
@@ -34,6 +38,8 @@ const UpdateTeamForm = ({ closeModal }) => {
     setLogoFile(file);
   };
 
+  // https://astraeus-firebase-endpoints.onrender.com/teams/IdmFEq8kCVMUzirR9zbZ
+
   // FUNCTION BELOW WILL WAIT FOR FILE UPLOADS TO RETURN DOWNLOAD URL, THEN AXIOS.POST THE TEAM DATA TO THE DATABASE
   const submitTeamData = async () => {
     if (!uploading) {
@@ -41,11 +47,29 @@ const UpdateTeamForm = ({ closeModal }) => {
         try {
           setUploading(true);
           const bannerURL = await UploadHandler(bannerFile, "teamBanner");
+          console.log(`Banner uploaded`);
           const logoURL = await UploadHandler(logoFile, "teamLogo");
+          console.log(`Logo uploaded`);
+          console.log(team.id);
+          const data = await axios.put(`${appSettings.teams}/${team.id}`, {
+            teamName: teamName,
+            bannerURL: bannerURL,
+            logoURL: logoURL,
+            id: team.id,
+          });
+          // const data = await axios.put(
+          //   `http://localhost:3001/teams/${team.id}`,
+          //   {
+          //     teamName: teamName,
+          //     bannerURL: bannerURL,
+          //     logoURL: logoURL,
+          //     id: team.id,
+          //   }
+          // );
+          console.log(`Data Uploaded`);
 
-          submitTeam(teamName, bannerURL, logoURL);
+          console.log(data);
           setUploading(false);
-          //
         } catch (error) {
           console.error(error);
         }
@@ -65,7 +89,7 @@ const UpdateTeamForm = ({ closeModal }) => {
         </div>
         <h2 className="adt-h2">Update Team</h2>
         <input
-          placeholder="Team Name"
+          placeholder={`${team.teamName}`}
           type="text"
           required=""
           className="adtinput"
