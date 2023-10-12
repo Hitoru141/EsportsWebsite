@@ -5,7 +5,7 @@
     justify-content: center;
     min-height: 70vh;
     width: 100vw;
-    background-color: rgb(0, 0, 0);    
+   
 }
 .playercard-wrap{
   display: grid;
@@ -18,7 +18,7 @@
 
 .pteam-header{
     font-size: 6em;
-    color: hsl(40, 90%, 52%);
+    color: hsl(0, 0%, 100%);
 }
 
 /* PLAYER CARD */
