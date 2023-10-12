@@ -9,7 +9,7 @@ import ceo from "../assets/CEOprof3.jpg";
 
 const About = () => {
   return (
-    <div className="Mainwrapper">
+    <div className="glbwrapper">
       <div id="background">
         <div id="circle">
           <div id="circle-glow" />
