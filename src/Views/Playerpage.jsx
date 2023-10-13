@@ -33,7 +33,7 @@ const Playerpage = ({ team }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${appSettings.member}s`);
+        const response = await axios.get(`${appSettings.member}`);
         const members = [];
         response.data.forEach((data) => {
           if (data.teamName === teamName) {
