@@ -4,6 +4,8 @@ import { BsDiscord } from "react-icons/bs";
 import { useState } from "react";
 
 import UpdateMemberForm from "./UpdateMemberForm";
+import deleteMemberAPI from "../../../../API/teamsAPI/deleteMemberAPI";
+import deleteImageHandler from "../../../../service/deleteImageService";
 
 const anchorStyle = {
   textDecoration: "none",
@@ -28,6 +30,12 @@ const MembersCard = ({ member }) => {
     }
   };
 
+  const deleteMember = async () => {
+    await deleteImageHandler(member.profileImageURL);
+    await deleteMemberAPI(member.id);
+    window.location.reload();
+  };
+
   return (
     <div className="memb_mainwrapper">
       <div className="memb_profile-cont">
@@ -39,7 +47,9 @@ const MembersCard = ({ member }) => {
         {isModalOpen && (
           <UpdateMemberForm closeModal={closeModal} member={member} />
         )}
-        <button className="delete-button">Delete</button>
+        <button className="delete-button" onClick={deleteMember}>
+          Delete
+        </button>
       </div>
       <div className="memb_lower-info">
         <p className="mem-p">{member.name}</p>
