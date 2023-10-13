@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UploadHandler from "../../../../service/imageUploadService";
 import updateMemberAPI from "../../../../API/teamsAPI/updateMemberAPI";
+import deleteImageHandler from "../../../../service/deleteImageService";
 
 const AddMemberForm = ({ closeModal, member }) => {
   const [profileImage, setProfileImage] = useState(member.profileImageURL); //This is for the profile preview
@@ -42,6 +43,7 @@ const AddMemberForm = ({ closeModal, member }) => {
           profileFile,
           "profileImage"
         ); //Firebase Upload Handler
+        deleteImageHandler(member.profileImageURL);
 
         const data = await updateMemberAPI(
           member.id,
@@ -57,6 +59,7 @@ const AddMemberForm = ({ closeModal, member }) => {
         console.log(data);
         setIsLoading(false);
       }
+      window.location.reload();
     } else {
       alert("IGN, Name, Profile Picture, Address are Required");
     }
