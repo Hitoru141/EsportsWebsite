@@ -1,6 +1,9 @@
 import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
+import { useState } from "react";
+
+import UpdateMemberForm from "./UpdateMemberForm";
 
 const anchorStyle = {
   textDecoration: "none",
@@ -8,11 +11,32 @@ const anchorStyle = {
 };
 
 const MembersCard = ({ member }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const closeModal = () => {
+    if (
+      !isModalOpen ||
+      window.confirm(
+        "Are you sure you want to close? Unsaved changes will be lost."
+      )
+    ) {
+      setIsModalOpen(false);
+    }
+  };
+
   return (
     <div className="memb_mainwrapper">
       <div className="memb_profile-cont">
         <img src={member.profileImageURL} className="memb_profile-cont" />
-        <button className="update-button">Update</button>
+        <button className="update-button" onClick={toggleModal}>
+          Update
+        </button>
+
+        {isModalOpen && <UpdateMemberForm closeModal={closeModal} />}
         <button className="delete-button">Delete</button>
       </div>
       <div className="memb_lower-info">
