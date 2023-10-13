@@ -6,7 +6,7 @@ const UploadHandler = (imageUpload, path) => {
   return new Promise((resolve, reject) => {
     if (imageUpload == null) {
       reject("No image selected");
-      return;
+      return false;
     }
 
     const imageRef = ref(storage, `${path}/${imageUpload.name + v4()}`);

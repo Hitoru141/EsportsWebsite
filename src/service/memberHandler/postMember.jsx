@@ -5,7 +5,7 @@ import deleteImageHandler from "../deleteImageService";
 
 export default async function submitMember(memberData) {
   try {
-    const response = await axios.post(`${appSettings.member}s`, memberData);
+    const response = await axios.post(`${appSettings.member}`, memberData);
     if (response.status === 201) {
       // Member Added Successfully
       toast.success("Member Added Successfully");

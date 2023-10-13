@@ -36,7 +36,9 @@ const MembersCard = ({ member }) => {
           Update
         </button>
 
-        {isModalOpen && <UpdateMemberForm closeModal={closeModal} />}
+        {isModalOpen && (
+          <UpdateMemberForm closeModal={closeModal} member={member} />
+        )}
         <button className="delete-button">Delete</button>
       </div>
       <div className="memb_lower-info">
