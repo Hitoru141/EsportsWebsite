@@ -1,11 +1,12 @@
 import axios from "axios";
 import { appSettings } from "../../Appdata/appdata";
 
-const updateMemberAPI = async (id, userData) => {
-  const { data: response } = await axios.put(
-    `${appSettings.member}/${id}`,
-    userData
-  );
+const updateMemberAPI = async (id, memberData, image) => {
+  const { data: response } = await axios.put(`${appSettings.member}/${id}`, {
+    ...memberData,
+    profileImageURL: image,
+  });
+  console.log(image);
   return response;
 };
 

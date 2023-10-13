@@ -19,8 +19,6 @@ const AddMemberForm = ({ closeModal, member }) => {
     profileImageURL: member.profileImageURL,
   });
 
-  console.log(member.profileImageURL);
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -40,17 +38,16 @@ const AddMemberForm = ({ closeModal, member }) => {
     if (memberData) {
       try {
         setIsLoading(true);
-        const profileImageURL = await UploadHandler(
+        const newProfileImageURL = await UploadHandler(
           profileFile,
           "profileImage"
         ); //Firebase Upload Handler
-        console.log(profileImageURL);
-        setMemberData({
-          ...memberData,
-          profileImageURL: profileImageURL,
-        });
-        const data = await updateMemberAPI(member.id, memberData); //Update Member API
-        console.log(data);
+
+        const data = await updateMemberAPI(
+          member.id,
+          memberData,
+          newProfileImageURL
+        ); //Update Member API
         setIsLoading(false);
       } catch (err) {
         setMemberData({
@@ -60,13 +57,6 @@ const AddMemberForm = ({ closeModal, member }) => {
         console.log(data);
         setIsLoading(false);
       }
-
-      //Set the new data for axios
-
-      // try {
-      // } catch (err) {
-      //   console.log(err);
-      // }
     } else {
       alert("IGN, Name, Profile Picture, Address are Required");
     }
