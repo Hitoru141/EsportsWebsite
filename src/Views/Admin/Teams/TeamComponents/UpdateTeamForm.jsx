@@ -50,13 +50,14 @@ const UpdateTeamForm = ({ closeModal, team }) => {
           const logoURL = await UploadHandler(logoFile, "teamLogo");
           const data = await axios.put(`${appSettings.teams}/${team.id}`, {
             teamName: teamName,
-            teamBannerURL: bannerURL,
-            teamLogoURL: logoURL,
+            teamBannerURL: bannerURL ? bannerURL : team.teamBannerURL,
+            teamLogoURL: logoURL ? logoURL : team.teamLogoURL,
           });
           setUploading(false);
         } catch (error) {
           console.error(error);
         }
+        window.location.reload();
       } else {
         alert("Please fill all the fields");
       }
