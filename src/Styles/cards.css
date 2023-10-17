@@ -3,6 +3,21 @@
  align-items: center;
  justify-content: center;
  flex-direction: column;
+ position: relative; /* Set relative positioning to create a stacking context */
+}
+
+.Vwrapper::before {
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113)),  url(../assets/cosmos.gif) no-repeat center;
+  background-size: cover;
+  filter: blur(10px); /* Adjust the blur amount as needed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the pseudo-element behind the content */
+  pointer-events: none; /* Allow interactions with child elements */
 }
 .ast-header-cont{
     display: flex;
@@ -39,7 +54,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: linear-gradient(120deg, #d765f6 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #1c181f 0%, #211f1f 100%);
   background-size: cover;
   perspective-origin: 50% 50%;
   transform-style: preserve-3d;
