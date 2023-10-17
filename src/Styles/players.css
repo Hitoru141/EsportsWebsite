@@ -26,12 +26,12 @@
   box-sizing: border-box;
   position: relative;
   width: 300px;
-  height: 450px;
+  height: 400px;
   background-size: cover;
-  background-color: white;
+  /* background-color: rgb(0, 0, 0); */
   overflow: hidden;
   border-radius: 17px;
-  border: 1px solid white;
+  /* border: 2px solid rgb(0, 0, 0); */
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(6px);
   transition: all 0.5s;
@@ -59,25 +59,34 @@
  
 }
 .img-card:hover{
-  border: 3px solid rgb(106, 12, 199);  
+  border: 1px solid rgb(128, 0, 255);  
   transform: scale(1.05);
 }
 
 .img-card:hover .hover-content {
   opacity: 1;
-  background-color: hsla(0, 0%, 100%, 0.632);
+  margin: 0;
+  background-color: hsla(0, 0%, 0%, 0.414);
   width: 100%;
   height: 100%;
+  backdrop-filter: blur(6px);
   
 }
 
 .player-name{
   font-size: 2rem;
   font-weight: 700;
+  color: white;
+  margin: 0;
 }
 .player-type{
   font-size: 1.5rem;
   font-weight: 600;
+}
+.player-address{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
 }
 .player-type-box{
   display: flex;
@@ -87,8 +96,8 @@
   height: 25px;
   border-radius: 5px;
   padding: 0 0.5rem;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .hover-content {
@@ -106,11 +115,11 @@
 }
 
 .button-container {
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  margin-left: 2rem;
   gap: 3rem;
   margin-top: 20px;
-  color: rgb(0, 0, 0);
+  color: white;
 }
 
 .socials-btn {
