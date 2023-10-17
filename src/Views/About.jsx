@@ -1,11 +1,17 @@
 import Footer from "../Components/Footer";
 import ManagementCards from "../Components/ManagementCards";
 import Navbar from "../Components/Navbar";
+import SponsorCards from "../Components/SponsorCards";
+
+// Assets
+import designer from "../assets/KWATRO.jpg";
 import tbanner from "../assets/Astraeus.jpg";
 import Pres from "../assets/PresidentTestPic.jpg";
 import coo from "../assets/CEOprof.jpg";
 import heo from "../assets/CEOprof1.jpg";
 import ceo from "../assets/CEOprof3.jpg";
+import ava from "../assets/AvaLogo.png";
+import kwatro from "../assets/KwatroLogo.png";
 
 const About = () => {
   return (
@@ -69,16 +75,21 @@ const About = () => {
             imageProf={heo}
           />
           <ManagementCards
-            name="?????-?????-"
-            nickname=" 'Noir' "
+            name="Kwatro Creatives"
+            nickname=" 'Kwatro' "
             designation="Creative Designer "
-            imageProf={Pres}
+            imageProf={designer}
           />
         </div>
       </div>
       <p className="team-header">
-        OUR <span className="h-esport">SPONSORS</span>
+        OUR <span className="h-esport">PARTNERS </span>
       </p>
+      <div className="sponsor_wrapper">
+        <SponsorCards logo={ava} name="Ava Entertainment" />
+        <SponsorCards logo={kwatro} name="Kwatro Creatives" />
+        <SponsorCards logo={ava} name="Eury Cart" />
+      </div>
       <Footer />
     </div>
   );

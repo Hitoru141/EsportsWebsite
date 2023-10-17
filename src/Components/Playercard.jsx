@@ -18,7 +18,7 @@ const Playercard = ({ member }) => {
         <p className="player-name">{member?.IGN}</p>
         <p className="player-address">{member?.name}</p>
         <div className="player-type-box">
-          <p className="player-type">Player</p>
+          <p className="player-type">{member?.profileType}</p>
         </div>
         <p className="player-address">{member?.address}</p>
 

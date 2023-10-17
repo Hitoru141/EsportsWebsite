@@ -132,9 +132,10 @@ const AddMemberForm = ({ closeModal, member }) => {
             onChange={(e) => onChangeMember(e)}
             defaultValue={member.profileType}
           >
-            <option value="player">Player</option>
-            <option value="coach">Coach</option>
-            <option value="manager">Manager</option>
+            <option value="Player">Player</option>
+            <option value="Coach">Coach</option>
+            <option value="Manager">Manager</option>
+            <option value="Content Creator">Content Creator</option>
           </select>
 
           {/* Address Input */}

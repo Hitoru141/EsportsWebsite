@@ -38,9 +38,10 @@ const AddMemberForm = ({ closeModal, teamName }) => {
     if (memberData) {
       setIsLoading(true);
       const profileImageURL = await UploadHandler(profileFile, "profileImage");
-      // IF I setMemberData({...memberData, profileImageURL: profileImageURL})
-      // then submitMember(), memberData.profileImageURL will be undefined.
-      const userData = { ...memberData, profileImageURL: profileImageURL };
+      const userData = {
+        ...memberData,
+        profileImageURL: profileImageURL,
+      };
       await submitMember(userData);
       setIsLoading(false);
     } else {
@@ -111,9 +112,10 @@ const AddMemberForm = ({ closeModal, teamName }) => {
             name="profileType"
             onChange={(e) => onChangeMember(e)}
           >
-            <option value="player">Player</option>
-            <option value="coach">Coach</option>
-            <option value="manager">Manager</option>
+            <option value="Player">Player</option>
+            <option value="Coach">Coach</option>
+            <option value="Manager">Manager</option>
+            <option value="Content Creator">Content Creator</option>
           </select>
 
           {/* Address Input */}
