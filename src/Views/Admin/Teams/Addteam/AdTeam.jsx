@@ -109,7 +109,7 @@ const AdTeam = () => {
           </svg>
         </span>
       </div>
-      <Link>
+      <Link to={`/astraadmin787/dashboard/contentcreators`}>
         <button className="add_button">Add Content Creators</button>
       </Link>
 

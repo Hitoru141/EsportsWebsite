@@ -465,8 +465,8 @@ body {
 .about_banner{
     z-index: 10;
     margin: 2rem;
-    width: 95vw;
-    height: 50vh;
+    width: 80vw;
+    aspect-ratio: 9 / 3; 
     background:   url("../assets/ASTBanner.jpg") no-repeat center;  
     background-position: center;
     background-color: rgba(137, 43, 226, 0.507);
@@ -478,11 +478,12 @@ body {
 
 .about_section{
     z-index: 11;
-    width: 80vw;
+    width: fit-content;
+    margin: 10rem;
+    margin-top: -7rem;
     height: fit-content;
     border-radius: 10px;
     position: relative;
-    bottom: 6.5rem;
     background: rgba(9, 9, 9, 0.773);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -491,11 +492,24 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .about_p{
-    font-size: 2rem;
+    font-size: 2.2rem;
     line-height: normal;
-    text-align: center;
-    margin: 5rem 5rem;
+    opacity: 0;
+    text-align: justified;
+    margin: 5rem 5rem;  
 }
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 /* MANAGEMENT STYLES */
 #background {
     display: grid;

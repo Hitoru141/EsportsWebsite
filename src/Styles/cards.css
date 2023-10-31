@@ -54,7 +54,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: linear-gradient(120deg, #1c181f 0%, #211f1f 100%);
+  background-color: black;
   background-size: cover;
   perspective-origin: 50% 50%;
   transform-style: preserve-3d;
