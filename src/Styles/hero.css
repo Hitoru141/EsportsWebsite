@@ -158,6 +158,12 @@
     font-weight: bold;
     line-height: 1.5;
   }
+  .title5 {
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 20rem;
+  }
   @media   (max-width: 1222px) {
     .page-content{
       flex-direction: column;

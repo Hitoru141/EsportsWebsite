@@ -21,6 +21,14 @@ body {
       var(--dark-blue)
     );
   }
+  .errorwrap{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .glbwrapper{
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -500,7 +508,7 @@ body {
 }
 .fade-in {
     opacity: 0;
-    animation: fadeIn 2s ease-in forwards;
+    animation: fadeIn 1.5s ease-in forwards;
   }
   @keyframes fadeIn {
     0% {

@@ -12,6 +12,11 @@ const ValorantTeam = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const handleNavLinkClick = () => {
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,8 +49,12 @@ const ValorantTeam = () => {
         ) : (
           teams.map((team) => (
             <div key={team.teamLogoURL}>
-              <Link to={`/team/${team.teamName}`} team={{ team }}>
-                <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
+              <Link
+                to={`/team/${team.teamName}`}
+                team={{ team }}
+                onClick={handleNavLinkClick}
+              >
+                <Astrateamcards teamlogo={team.teamLogoURL} />
               </Link>
             </div>
           ))

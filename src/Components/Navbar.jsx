@@ -1,11 +1,21 @@
-/* eslint-disable react/prop-types */
-import { useEffect } from "react";
-import "../Styles/main.css";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// import appLogo from "../assets/white star.png";
-
 const Navbar = ({ banner }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavLinkClick = () => {
+    // Close the mobile menu
+    setIsMobileMenuOpen(false);
+
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -23,40 +33,46 @@ const Navbar = ({ banner }) => {
   }, []);
 
   useEffect(() => {
-    const handleClick = () => {
-      document.querySelector(".navTrigger").classList.toggle("active");
-      console.log("Clicked menu");
-      document.querySelector("#mainListDiv").classList.toggle("show_list");
-      document.querySelector("#mainListDiv").style.display = "block";
-    };
-
     document
       .querySelector(".navTrigger")
-      .addEventListener("click", handleClick);
+      .addEventListener("click", handleMobileMenuToggle);
 
+    // Clean up the event listener
     return () => {
       document
         .querySelector(".navTrigger")
-        .removeEventListener("click", handleClick);
+        .removeEventListener("click", handleMobileMenuToggle);
     };
   }, []);
+
   return (
     <div className="navbar">
       <nav className="nav">
         <div className="container">
           <div className="logo">
-            <Link to="/#">ASTRAEUS ESPORTS</Link>
+            <Link to="/#" onClick={handleNavLinkClick}>
+              ASTRAEUS ESPORTS
+            </Link>
           </div>
-          <div id="mainListDiv" className="main_list">
+          <div
+            id="mainListDiv"
+            className={`main_list ${isMobileMenuOpen ? "show_list" : ""}`}
+          >
             <ul className="navlinks">
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" onClick={handleNavLinkClick}>
+                  About
+                </Link>
               </li>
               <li>
-                <Link to="/community"> Community</Link>
+                <Link to="/community" onClick={handleNavLinkClick}>
+                  Community
+                </Link>
               </li>
               <li>
-                <Link to="/"> Careers</Link>
+                <Link to="/" onClick={handleNavLinkClick}>
+                  Careers
+                </Link>
               </li>
             </ul>
           </div>
@@ -68,7 +84,7 @@ const Navbar = ({ banner }) => {
         </div>
       </nav>
       <section className="home">
-        <img src={banner} className="home" />
+        <img src={banner} className="home" alt="Banner" />
       </section>
     </div>
   );
