@@ -66,8 +66,8 @@ const About = () => {
           a partner eager to be part of the esports revolution.
         </p>
       </section>
-      <p className="team-header">
-        ASTRAEUS <span className="h-esport">MANAGEMENT</span>
+      <p className="about-h1">
+        ASTRAEUS <span className="h-span">MANAGEMENT</span>
       </p>
       <div id="app">
         <div id="profiles">
@@ -109,7 +109,7 @@ const About = () => {
           />
         </div>
       </div>
-      <p className="team-header">
+      <p className="about-h1">
         OUR <span className="h-esport">PARTNERS </span>
       </p>
       <div className="sponsor_wrapper">

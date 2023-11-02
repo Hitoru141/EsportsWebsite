@@ -67,9 +67,14 @@
     font-size: 2em;
     z-index: 3;
 }
-.h-esport{
+.h-esport{  
     color: blueviolet;
+    font-size: 1em;
+   text-shadow: -1px 0 #c38df6, 0 1px #c38df6, 1px 0 #c38df6, 0 -1px #c38df6;
 }
+.h-span{
+  color: blueviolet;
+  font-size: 1em;}
 .section-wrap{
   display: flex;
   align-items: center;
@@ -220,6 +225,9 @@
   
   .card {
     width: 20rem;
+  }
+    .sub-header{
+      font-size: 1.5em;
   }
   .card:before{
     height: 50%;

@@ -10,7 +10,7 @@ const Playercard = ({ member }) => {
     color: "inherit",
   };
 
-  console.log(member);
+  // console.log(member);
   return (
     <div className="img-card">
       <img src={member?.profileImageURL} className="img-card" />
