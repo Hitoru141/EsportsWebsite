@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import "../Styles/main.css";
 import { Link } from "react-router-dom";
 
+// import appLogo from "../assets/white star.png";
+
 const Navbar = ({ banner }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const handleNavLinkClick = () => {
-    // Close the mobile menu
-    setIsMobileMenuOpen(false);
-
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -33,18 +22,27 @@ const Navbar = ({ banner }) => {
   }, []);
 
   useEffect(() => {
+    const handleClick = () => {
+      document.querySelector(".navTrigger").classList.toggle("active");
+      console.log("Clicked menu");
+      document.querySelector("#mainListDiv").classList.toggle("show_list");
+      document.querySelector("#mainListDiv").style.display = "block";
+    };
+
     document
       .querySelector(".navTrigger")
-      .addEventListener("click", handleMobileMenuToggle);
+      .addEventListener("click", handleClick);
 
-    // Clean up the event listener
     return () => {
       document
         .querySelector(".navTrigger")
-        .removeEventListener("click", handleMobileMenuToggle);
+        .removeEventListener("click", handleClick);
     };
   }, []);
 
+  const handleNavLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="navbar">
       <nav className="nav">
@@ -54,10 +52,7 @@ const Navbar = ({ banner }) => {
               ASTRAEUS ESPORTS
             </Link>
           </div>
-          <div
-            id="mainListDiv"
-            className={`main_list ${isMobileMenuOpen ? "show_list" : ""}`}
-          >
+          <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
               <li>
                 <Link to="/about" onClick={handleNavLinkClick}>
@@ -84,7 +79,7 @@ const Navbar = ({ banner }) => {
         </div>
       </nav>
       <section className="home">
-        <img src={banner} className="home" alt="Banner" />
+        <img src={banner} className="home" />
       </section>
     </div>
   );

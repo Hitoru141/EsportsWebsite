@@ -15,12 +15,14 @@ const Playercard = ({ member }) => {
     <div className="img-card">
       <img src={member?.profileImageURL} className="img-card" />
       <div className="hover-content">
-        <p className="player-name">{member?.IGN}</p>
-        <p className="player-address">{member?.name}</p>
-        <div className="player-type-box">
-          <p className="player-type">{member?.profileType}</p>
+        <div className="player-details-wrap">
+          <p className="player-name">{member?.IGN}</p>
+          <p className="player-address">{member?.name}</p>
+          <div className="player-type-box">
+            <p className="player-type">{member?.profileType}</p>
+          </div>
+          <p className="player-address">{member?.address}</p>
         </div>
-        <p className="player-address">{member?.address}</p>
 
         <div className="button-container">
           {member?.discord && (

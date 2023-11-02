@@ -28,12 +28,22 @@
 
 .l-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 280px)); 
+  grid-template-columns: repeat(auto-fit, minmax(130px, 300px)); 
   justify-content: center;
   grid-gap: 2rem;
   width: 100%;
-  max-width: 1200px;
   padding: 30px;
+}
+
+@media (max-width: 776px) {
+  .l-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 230px));
+  }
+}
+@media (max-width: 400px) {
+  .l-container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 130px));
+  }
 }
 
 
