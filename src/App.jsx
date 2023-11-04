@@ -18,6 +18,7 @@ import { useRecoilValue } from "recoil";
 import Token from "./Recoil/token";
 import Community from "./Views/Community";
 import AddContentCreators from "./Views/Admin/Teams/TeamComponents/AddContentCreators";
+import Careers from "./Views/Careers";
 
 function App() {
   const userToken = useRecoilValue(Token);
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/valoteam" element={<ValorantTeam />} />
         <Route path="/contentcreators" element={<ContentCreators />} />
         <Route path="/team/:teamName" element={<Playerpage />} />

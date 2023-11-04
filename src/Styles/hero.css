@@ -26,15 +26,6 @@
   transition: opacity 0.5s ease-in-out;
  
 }
-@media   (max-width: 320px) {
-  .carousel-container{
-   
-  }
- .carousel{
-  
- }
-}
-
 .carousel-image.active {
   opacity: 1;
   transition-delay: 0.2s; /* Delay the transition effect */
@@ -328,6 +319,11 @@
   }
   .loader:before {
     content: "ASTRAEUS ESPORTS";
+  }
+  @media (max-width: 425px) {
+    .loader{
+      font-size: 24px;
+    }
   }
 
   @keyframes smokeOut {
