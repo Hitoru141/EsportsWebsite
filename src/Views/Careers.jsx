@@ -17,12 +17,15 @@ const Careers = () => {
             fontWeight: 500,
             fontSize: "1.5em",
           }}
-          startDelay={2000}
+          startDelay={1000}
           cursorColor="#8a2be2"
           multiText={["{Under Construction}"]}
           multiTextDelay={1000}
-          typeSpeed={30}
+          typeSpeed={100}
         />
+        {/* <p className="about-h1">
+          ASTRAEUS <span className="h-esport">&#123;Under Construction&#125;</span>
+        </p> */}
       </p>
       <Footer />
     </div>
