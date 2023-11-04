@@ -6,7 +6,7 @@ import tbanner from "../assets/Astraeus.jpg";
 import weekly from "../assets/weekly.jpg";
 import discord from "../assets/discord.jpg";
 import fb from "../assets/fb.png";
-import x from "../assets/twitterX.avif";
+import x from "../assets/tweet.png";
 import WeeklyModal from "../Components/WeeklyModal";
 // import x from "../assets/twittergif.gif";
 const Community = () => {
