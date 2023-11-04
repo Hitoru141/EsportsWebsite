@@ -26,7 +26,7 @@ const WeeklyModal = ({ closeModal }) => {
         <div className="exit_btn" onClick={closeModal}>
           X
         </div>
-        <h2>Copy link or scan using the QR code below</h2>
+        <h2 className="h2-weekly">Copy link or scan using the QR code below</h2>
         <div className="input-group-weekly">
           <input
             type="text"

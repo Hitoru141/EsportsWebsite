@@ -307,12 +307,9 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
-  /* background-color: red; */
   margin: 5rem 2rem;
 }
 .weekly-cards{
-  /* width: 800px; */
-  /* height: 600px; */
   width: 50vw;
   aspect-ratio: 1.5/1;
   background-color: white;
@@ -341,24 +338,6 @@
   background-color: rgba(0, 0, 0, 0.407);
   z-index: 100;
 }
-.weekly-qr{
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-}
-.exit_btn{
-  position: relative;
-  top: -5rem;
-  right: -35rem;
-  font-size: 4em;
-  color: white;
-  cursor: pointer;
-  transition: transform ease-in-out 0.2s;
-}
-.exit_btn:hover{
-  color: red;
-  transform: scale(1.1);
-}
 .weekly-modal {
   display: flex;
   align-items: center;
@@ -366,10 +345,27 @@
   flex-direction: column;
   color: white;
   width: 40%;
-  height: 50%;     
+  padding: 2rem;
+ 
+  height: fit-content;     
   background-color: blueviolet;
   border-radius: 10px;
  
+}
+.weekly-qr{
+  width: 11vw;
+  aspect-ratio: 4/4;
+  border-radius: 10px;
+}
+.exit_btn{
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+  transition: transform ease-in-out 0.2s;
+}
+.exit_btn:hover{
+  color: red;
+  transform: scale(1.1);
 }
 
 .social-cards{
@@ -393,8 +389,9 @@
   align-items: center;
 }
 .weekly-input {
-  min-height: 50px;
-  max-width: 150px;
+ 
+  width: 8vw;
+  height: 5vh;
   padding: 0 1rem;
   color: #fff;
   font-size: 15px;
@@ -404,19 +401,21 @@
 }
 
 .weeklybtn-submit {
-  min-height: 50px;
-  padding: .5em 1em;
+  width: 6vw;
+  height: 5vh;
+  /* padding: .5em 1em; */
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: #5e4dcd;
   color: #fff;
-  font-size: 15px;
+  font-size: 1.2em;
   cursor: pointer;
   transition: background-color .3s ease-in-out;
 }
 
 .weeklybtn-submit:hover {
   background-color: #5e5dcd;
+  outline: none;
 }
 .weekly-input:focus, .weekly-input:focus-visible {
   border: 2px solid #3898EC;
@@ -462,24 +461,52 @@
   transform: translate(-50%, -50%) rotateZ(45deg);
 }
 .h1-weekly{
-  font-size: 3.5em  ;
+  font-size: 3.5em ;
+}
+.h2-weekly{
+  font-size: 2em;
 }
 @media (max-width: 768px){
   .h1-weekly{
     font-size: 2em;
   }
+  .h2-weekly{
+    font-size: 1.3em;
+  }
   .arrow:before, .arrow:after{
     width: 2px;
   height: 30px;
+  }
+  .weeklybtn-submit{
+    font-size: 1em;
+    width: 10vw;
+    height: 4vh;
+  }
+  .weekly-input{
+    width: 10vw;
+    height: 4vh;
+    font-size: 1em;
   }
 }
 @media (max-width: 425px){
   .h1-weekly{
     font-size: 1em;
   }
+  .h2-weekly{
+    font-size: 0.7em;
+  }
+  .weekly-input{
+    font-size: 0.5em;
+  }
+  .weeklybtn-submit{
+    font-size: 0.5em;
+  }
+  .exit_btn{
+    font-size: 1.5em;
+  }
   .arrow:before, .arrow:after{
     width: 2px;
-  height: 20px;
+   height: 20px;
   }
 }
 
