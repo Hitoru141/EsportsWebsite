@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import "../Styles/main.css";
 import { Link } from "react-router-dom";
@@ -10,7 +9,6 @@ const Navbar = ({ banner }) => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         document.querySelector(".nav").classList.add("affix");
-        console.log("OK");
       } else {
         document.querySelector(".nav").classList.remove("affix");
       }
@@ -41,23 +39,35 @@ const Navbar = ({ banner }) => {
         .removeEventListener("click", handleClick);
     };
   }, []);
+
+  const handleNavLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className="navbar">
       <nav className="nav">
         <div className="container">
           <div className="logo">
-            <Link to="/#">ASTRAEUS ESPORTS</Link>
+            <Link to="/#" onClick={handleNavLinkClick}>
+              ASTRAEUS ESPORTS
+            </Link>
           </div>
           <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about" onClick={handleNavLinkClick}>
+                  About
+                </Link>
               </li>
               <li>
-                <Link to="/"> Community</Link>
+                <Link to="/community" onClick={handleNavLinkClick}>
+                  Community
+                </Link>
               </li>
               <li>
-                <Link to="/"> Careers</Link>
+                <Link to="/careers" onClick={handleNavLinkClick}>
+                  Careers
+                </Link>
               </li>
             </ul>
           </div>

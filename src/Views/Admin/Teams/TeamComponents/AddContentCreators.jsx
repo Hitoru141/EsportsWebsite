@@ -8,7 +8,7 @@ import { appSettings } from "../../../../Appdata/appdata";
 import AddMemberForm from "./AddMemberForm";
 import { useParams } from "react-router-dom";
 
-const ManageMembers = () => {
+const AddContentCreators = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [membersArray, setMembersArray] = useState([]);
   const { teamName } = useParams();
@@ -92,4 +92,4 @@ const ManageMembers = () => {
   );
 };
 
-export default ManageMembers;
+export default AddContentCreators;

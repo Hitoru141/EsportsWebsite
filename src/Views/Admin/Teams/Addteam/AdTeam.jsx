@@ -6,6 +6,7 @@ import submitTeam from "./postTeam";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const AdTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -108,6 +109,10 @@ const AdTeam = () => {
           </svg>
         </span>
       </div>
+      <Link to={`/astraadmin787/dashboard/contentcreators`}>
+        <button className="add_button">Add Content Creators</button>
+      </Link>
+
       {isModalOpen && (
         <div className="addteam-modal-overlay">
           <div className="addteam-modal ">

@@ -21,6 +21,15 @@ body {
       var(--dark-blue)
     );
   }
+  .errorwrap{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   .glbwrapper{
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -33,7 +42,7 @@ body {
   }
   .Mainwrapper::before {
     content: "";
-    background: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.113)),  url(../assets/cosmos.gif) no-repeat center;
+    background: linear-gradient(rgba(0, 0, 0, 0.305), rgba(0, 0, 0, 0.396)),  url(../assets/cosmos.gif) no-repeat center;
     background-size: cover;
     filter: blur(10px); /* Adjust the blur amount as needed */
     position: absolute;
@@ -124,6 +133,7 @@ body {
     aspect-ratio: 9/3;
     background-position: center;
 	background-size:cover;
+   
 }
 .navTrigger {
     display: none;
@@ -424,14 +434,15 @@ body {
 .footerwrapper{
     z-index: 13;
     width: 100vw;
-    height: 25rem;
+    height: 30vh;
     display: flex;
+   
     align-items: center;
     flex-direction: column;
 }
 .astra-logo{
-    width: 100px;
-    height: 90px;
+    width: 10rem;
+    height: 10rem;
 }
 .socials-cont{
     margin-top: 2.5rem;
@@ -447,14 +458,24 @@ body {
 .footer-p{
     font-size: 1.5rem;
 }
+@media   (max-width: 320px) {
+    .astra-logo{
+        width: 5rem;
+        height: 5rem;
+    }
+    .socials-cont{
+        font-size: 1.5rem;   
+    }
+   
+  }
 
 /* ABOUT */
 
 .about_banner{
     z-index: 10;
     margin: 2rem;
-    width: 95vw;
-    height: 50vh;
+    width: 80vw;
+    aspect-ratio: 9 / 3; 
     background:   url("../assets/ASTBanner.jpg") no-repeat center;  
     background-position: center;
     background-color: rgba(137, 43, 226, 0.507);
@@ -466,11 +487,12 @@ body {
 
 .about_section{
     z-index: 11;
-    width: 80vw;
-    height: fit-content;
+    width: fit-content;
+    aspect-ratio: 4/0;
+    margin: 10rem;
+    margin-top: -7rem;
     border-radius: 10px;
     position: relative;
-    bottom: 6.5rem;
     background: rgba(9, 9, 9, 0.773);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -479,11 +501,54 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .about_p{
-    font-size: 2rem;
+    font-size: 2.2rem;
     line-height: normal;
-    text-align: center;
-    margin: 5rem 5rem;
+    opacity: 0;
+    text-align: justified;
+    margin: 5rem 5rem;  
 }
+@media (max-width: 1220px) {
+    .about_p{
+        font-size: 1.5rem; 
+    }
+    .about_section{
+        margin-top: -5rem;
+    }       
+  }
+@media (max-width: 1000px) {
+    .about_p{
+        font-size: 1rem;  
+        margin: 2.5rem 2.5rem;  
+       
+    }
+    .about_section{
+        margin-top: -4rem;
+    }
+  }
+  @media (max-width: 425px) {
+    .about_p{
+        font-size: 0.8rem;  
+        margin: 1.3rem 1.3rem;  
+       
+    }
+    .about_section{
+        margin-top: -4rem;
+     
+    }
+  }
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 /* MANAGEMENT STYLES */
 #background {
     display: grid;
@@ -540,45 +605,39 @@ body {
     z-index: 3;
   }
   
-  
-  
   #app {
     z-index: 2;
   }
   
   #profiles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 300px)); ;
-    gap: 5rem;
-    align-items: center;
+    grid-template-columns: repeat(3, minmax(180px, 300px)); 
     justify-content: center;
-    /* margin-bottom: 1rem ; */
-    width: clamp(600px, 60vw, 1400px);
-  
+    grid-gap: 2rem;
+    /* width: clamp(600px, 60vw, 1400px); */
+    width: 70vw;
   }
-  
 .profile {
     background-color: rgba(52, 8, 109, 0.122);
     border-radius: 1vw;
     cursor: pointer;
     transition: background-color 250ms;
-    width: 300px;
-    height:350px;
+    width: 100%;
+    height: fit-content;
+    transition:  background-color 0.75s ease; 
   }
   
 .profile:hover {
     backdrop-filter: blur(1vw);
-    background-color: rgba(53, 5, 92, 0.394);
+    background-color: rgba(53, 5, 92, 0.693);
   }
   
  .profile-content {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 300px;
     justify-content: center;
     padding: 3rem 2rem;
- 
   }
  .profile-pic {
     aspect-ratio: 1;
@@ -624,9 +683,120 @@ body {
     #nav {
       width: 80px;
     }
-  
-    
   }
-  
+
+.sponsor_wrapper {
+    z-index: 2;
+    width: 100vw;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 300px)); 
+    display: grid;
+    grid-gap: 2rem;
+    align-items: center;
+    height: fit-content;
+    justify-content: center;
+   
+}
+.sponsor_container {
+    width: 100%;
+    aspect-ratio: 9/8;
+    background-color: rgba(35, 5, 81, 0.27);
+    border-radius: 10px;
+    margin: 0;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    margin-bottom: 10rem;
+    transition:  background-color 0.75s ease; 
+}
+.sponsor_container:hover{
+    backdrop-filter: blur(1vw);
+    background-color: rgba(53, 5, 92, 0.693);
+}
+.sponsor_logo{
+    width: 100%;
+    height: 100%;
+}
+.about-h1{
+    z-index: 1;
+    font-size: 6em;
+    
+}
+@media (max-width: 1024px){
+    #profiles {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 240px)); 
+      }
+      .profile-name{
+        font-size: 1.8rem;
+      }
+      .profile-pic{
+        height: 60%;
+      }
+      .about-h1{
+        font-size: 5em;
+      }
+      .profile-content {
+        padding: 1rem 2rem;
+      }
+}
+@media (max-width: 768px){
+    #profiles {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 200px)); 
+        /* grid-gap: 2rem;
+        width: clamp(600px, 60vw, 1400px); */
+      }
+      .sponsor_wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 200px)); 
+      }
+      .about-h1{
+        font-size: 3.5em;
+      }
+      .profile-nick{
+        font-size: 1.5em;
+      }
+      .profile-name{
+        font-size: 1.4rem;
+      }
+}
+@media (max-width: 590px){
+    #profiles {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 180px)); 
+      }
+    
+      .profile-name{
+        font-size: 1em;
+      }
+      .profile-nick{
+        font-size: 1em;
+      }
+      .profile-pic{
+        height: 30%;
+      }
+      .profile-designation{
+        font-size: 1em;
+      }
+      .sponsor_wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 180px)); 
+      }
+      .about-h1{
+        font-size: 3em;
+      }
+}
+@media (max-width: 425px){
+    #profiles {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 130px)); 
+      }
+    .profile-pic{
+        height: 30%;
+      }
+      .about_section{
+        margin-top: -3rem;
+      }
+      .about-h1{
+        font-size: 2em;
+      }
+      .sponsor_wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(120px, 120px)); 
+      }
+}
   
 

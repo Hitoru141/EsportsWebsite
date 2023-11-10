@@ -4,7 +4,7 @@ function Astrateamcards({ teamlogo, tname }) {
     <div className="b-game-card">
       <div className="b-game-card__cover">
         <img src={teamlogo} className="b-game-card__cover" />
-        <p>{tname}</p>
+        {/* <p>{tname}</p> */}
       </div>
     </div>
   );

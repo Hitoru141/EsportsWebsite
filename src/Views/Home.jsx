@@ -14,7 +14,7 @@ const Home = () => {
       <Navbar banner={tbanner} />
       <Carousel />
       <section className="section-wrap">
-        <p className="team-header">
+        <p className="about-h1">
           ASTRAEUS <span className="h-esport">ESPORTS</span>
         </p>
         <p className="sub-header">Meet our team</p>

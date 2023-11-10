@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 import Astrateamcards from "../Components/Astrateamcards";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/footer";
+import Footer from "../Components/Footer";
 import "../Styles/cards.css";
-import millen from "../assets/millennia.png";
-import sol from "../assets/SOL.png";
-import hlx from "../assets/helix.png";
-import prs from "../assets/polaris.png";
 import tbanner from "../assets/Astraeus.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -14,34 +10,59 @@ import { appSettings } from "../Appdata/appdata";
 
 const ValorantTeam = () => {
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const handleNavLinkClick = () => {
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
-    const group = async () => {
-      const data = await axios.get(`${appSettings.teams}`);
-      // console.log(data.data);
-      setTeams(data.data);
+    const fetchData = async () => {
+      try {
+        const data = await axios.get(`${appSettings.teams}`);
+        // Delay setting the loading state to false for a minimum of 2 seconds
+        setTimeout(() => {
+          setTeams(data.data);
+          setLoading(false);
+        }, 2000);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Handle the error and set loading to false
+      }
     };
-    group();
+    fetchData();
   }, []);
 
   return (
     <div className="Vwrapper">
       <Navbar banner={tbanner} />
       <div className="ast-header-cont">
-        <p className="team-header"> AST TEAMS</p>
+        <p className="team-header">AST TEAMS</p>
       </div>
+
       <div className="l-container">
-        {/* FOR MAP */}
-        {teams.map((team) => (
-          <div key={team.teamLogoURL}>
-            <Link to={`/team/${team.teamName}`}>
-              <Astrateamcards teamlogo={team.teamLogoURL} tname="Millennia" />
-            </Link>
+        {loading ? (
+          <div className="loaderbg">
+            <div className="loader"></div>
           </div>
-        ))}
+        ) : (
+          teams.map((team) => (
+            <div key={team.teamLogoURL}>
+              <Link
+                to={`/team/${team.teamName}`}
+                team={{ team }}
+                onClick={handleNavLinkClick}
+              >
+                <Astrateamcards teamlogo={team.teamLogoURL} />
+              </Link>
+            </div>
+          ))
+        )}
       </div>
       <Footer />
     </div>
   );
 };
+
 export default ValorantTeam;

@@ -1,6 +1,8 @@
+import "../Styles/players.css";
+
 function Errorpage() {
   return (
-    <div className="ast-header-cont">
+    <div className="errorwrap">
       <div className="title">ERROR 404! PAGE NOT FOUND</div>
     </div>
   );
