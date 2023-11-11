@@ -131,6 +131,7 @@ const AddMemberForm = ({ closeModal, teamName }) => {
           {/* Social Links */}
 
           <label>Social Links</label>
+          <label>(Please select only up to 3 socials)</label>
           <input
             type="url"
             placeholder="Discord Link"
@@ -150,6 +151,13 @@ const AddMemberForm = ({ closeModal, teamName }) => {
             placeholder="Twitch Link"
             name="twitch"
             id="twitch"
+            onChange={(e) => onChangeMember(e)}
+          />
+          <input
+            type="url"
+            placeholder="Twitter Link"
+            name="twitter"
+            id="twitter"
             onChange={(e) => onChangeMember(e)}
           />
 

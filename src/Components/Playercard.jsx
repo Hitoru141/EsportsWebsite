@@ -1,5 +1,6 @@
 import "../Styles/players.css";
 import samp from "../assets/CEOprof3.jpg";
+import { BsTwitter } from "react-icons/bs";
 import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
@@ -53,6 +54,16 @@ const Playercard = ({ member }) => {
               style={anchorStyle}
             >
               <BsTwitch className="socials-btn " />
+            </a>
+          )}
+          {member.twitter && (
+            <a
+              href={member.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={anchorStyle}
+            >
+              <BsTwitter className="socials-btn" />
             </a>
           )}
         </div>

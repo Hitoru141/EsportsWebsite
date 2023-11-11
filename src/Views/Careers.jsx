@@ -9,24 +9,25 @@ const Careers = () => {
   return (
     <div className="glbwrapper">
       <Navbar banner={tbanner} />
-      <p className="about-h1">
-        Coming soon!{" "}
-        <TypeWriterEffect
-          textStyle={{
-            color: "#8a2be2",
-            fontWeight: 500,
-            fontSize: "1.5em",
-          }}
-          startDelay={1000}
-          cursorColor="#8a2be2"
-          multiText={["{Under Construction}"]}
-          multiTextDelay={1000}
-          typeSpeed={100}
-        />
-        {/* <p className="about-h1">
-          ASTRAEUS <span className="h-esport">&#123;Under Construction&#125;</span>
-        </p> */}
-      </p>
+
+      <div className="career-card">
+        {" "}
+        <p className="h1-weekly">
+          Nothing to see here for now...
+          <TypeWriterEffect
+            textStyle={{
+              color: "#8a2be2",
+              fontWeight: 500,
+              fontSize: "1.5em",
+            }}
+            startDelay={1000}
+            cursorColor="#8a2be2"
+            multiText={["{Under Development}"]}
+            multiTextDelay={1000}
+            typeSpeed={100}
+          />
+        </p>
+      </div>
       <Footer />
     </div>
   );

@@ -5,14 +5,15 @@ import Navbar from "../Components/Navbar";
 import SponsorCards from "../Components/SponsorCards";
 
 // Assets
+import qmark from "../assets/qmark.png";
 import designer from "../assets/KWATRO.jpg";
 import tbanner from "../assets/Astraeus.jpg";
 import Pres from "../assets/PresidentTestPic.jpg";
 import coo from "../assets/CEOprof.jpg";
 import heo from "../assets/CEOprof1.jpg";
 import ceo from "../assets/CEOprof3.jpg";
-import ava from "../assets/AvaLogo.png";
 import kwatro from "../assets/KwatroLogo.png";
+import ramen from "../assets/ramen.jpg";
 
 const About = () => {
   const [isFaded, setIsFaded] = useState(false);
@@ -40,6 +41,70 @@ const About = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isFaded]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    });
+
+    const aboutH1s = document.querySelectorAll(".about-h1");
+    aboutH1s.forEach((aboutH1) => {
+      if (aboutH1) {
+        observer.observe(aboutH1);
+      }
+    });
+
+    return () => {
+      aboutH1s.forEach((aboutH1) => {
+        if (aboutH1) {
+          observer.unobserve(aboutH1);
+        }
+      });
+    };
+  }, []);
+
+  const managementCardsData = [
+    {
+      name: "Breth Mark Villaraza",
+      nickname: " 'Noir' ",
+      designation: "Owner ",
+      imageProf: Pres,
+    },
+    {
+      name: "Jannela Cunanan",
+      nickname: " 'Cielastrae' ",
+      designation: "CEO ",
+      imageProf: ceo,
+    },
+    {
+      name: "Luisa Therese Singson",
+      nickname: " 'Lu' ",
+      designation: "COO ",
+      imageProf: coo,
+    },
+    {
+      name: "Eyara Jadyn Reyes ",
+      nickname: " 'Ramen' ",
+      designation: "Board of Director ",
+      imageProf: ramen,
+    },
+    {
+      name: "Melissa Robin Ramos",
+      nickname: " 'Meru' ",
+      designation: "Head of Operations ",
+      imageProf: heo,
+    },
+    {
+      name: "Kwatro Creatives",
+      nickname: " 'Kwatro' ",
+      designation: "Creative Designer ",
+      imageProf: designer,
+    },
+  ];
 
   return (
     <div className="glbwrapper">
@@ -71,51 +136,24 @@ const About = () => {
       </p>
       <div id="app">
         <div id="profiles">
-          <ManagementCards
-            name="Breth Mark Villaraza"
-            nickname=" 'Noir' "
-            designation="Owner "
-            imageProf={Pres}
-          />
-          <ManagementCards
-            name="Jannela Cunanan"
-            nickname=" 'Cielastrae' "
-            designation="CEO "
-            imageProf={ceo}
-          />
-          <ManagementCards
-            name="Luisa Therese Singson"
-            nickname=" 'Lu' "
-            designation="COO "
-            imageProf={coo}
-          />
-          <ManagementCards
-            name="?????-?????-"
-            nickname=" 'Noir' "
-            designation="Board of Directors "
-            imageProf={ceo}
-          />
-          <ManagementCards
-            name="Melissa Robin Ramos"
-            nickname=" 'Meru' "
-            designation="Head of Operations "
-            imageProf={heo}
-          />
-          <ManagementCards
-            name="Kwatro Creatives"
-            nickname=" 'Kwatro' "
-            designation="Creative Designer "
-            imageProf={designer}
-          />
+          {managementCardsData.map((data, index) => (
+            <ManagementCards
+              key={index}
+              name={data.name}
+              nickname={data.nickname}
+              designation={data.designation}
+              imageProf={data.imageProf}
+            />
+          ))}
         </div>
       </div>
       <p className="about-h1">
         OUR <span className="h-esport">PARTNERS </span>
       </p>
       <div className="sponsor_wrapper">
-        <SponsorCards logo={ava} name="Ava Entertainment" />
-        <SponsorCards logo={kwatro} name="Kwatro Creatives" />
-        <SponsorCards logo={ava} name="Eury Cart" />
+        <SponsorCards logo={kwatro} name="Kwatro Clothing" />
+        <SponsorCards logo={qmark} name="Kwatro Creatives" />
+        <SponsorCards logo={qmark} name="Eury Cart" />
       </div>
       <Footer />
     </div>

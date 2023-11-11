@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import AdCarousel from "./Carousel/AdCarousel";
 
 const Admindash = (data) => {
-  const [activeComponent, setActiveComponent] = useState("carousel");
+  const [activeComponent, setActiveComponent] = useState("team");
   const nav = useNavigate();
   const token = sessionStorage.getItem("userToken");
 
@@ -14,14 +14,6 @@ const Admindash = (data) => {
     setActiveComponent(component);
   };
 
-  // useEffect(() => {
-  //   const tokenChecker = async () => {
-  //     if (!token) {
-  //       nav("/astraadmin787");
-  //     }
-  //   };
-  //   tokenChecker();
-  // }, [activeComponent]);
   return (
     <div className="Adminwrapper2">
       <nav className="nav">
@@ -51,21 +43,21 @@ const Admindash = (data) => {
       </nav>
       <div className="adbtn-wrapper">
         <button
-          className={activeComponent === "carousel" ? "adbtn active" : "adbtn"}
-          onClick={() => handleButtonClick("carousel")}
-        >
-          Carousel
-        </button>
-        <button
           className={activeComponent === "team" ? "adbtn active" : "adbtn"}
           onClick={() => handleButtonClick("team")}
         >
           Add Team
         </button>
+        <button
+          className={activeComponent === "carousel" ? "adbtn active" : "adbtn"}
+          onClick={() => handleButtonClick("carousel")}
+        >
+          Carousel
+        </button>
       </div>
       <div className="optionsview-cont">
-        {activeComponent === "carousel" && <AdCarousel />}
         {activeComponent === "team" && <AdTeam />}
+        {activeComponent === "carousel" && <AdCarousel />}
       </div>
     </div>
   );

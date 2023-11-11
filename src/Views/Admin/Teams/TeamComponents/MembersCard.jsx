@@ -1,6 +1,7 @@
 import { BsTwitch } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { BsDiscord } from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
 import { useState } from "react";
 
 import UpdateMemberForm from "./UpdateMemberForm";
@@ -84,6 +85,16 @@ const MembersCard = ({ member }) => {
               style={anchorStyle}
             >
               <BsTwitch className="mem_socials-btn" />
+            </a>
+          )}
+          {member.twitter && (
+            <a
+              href={member.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={anchorStyle}
+            >
+              <BsTwitter className="mem_socials-btn" />
             </a>
           )}
         </div>

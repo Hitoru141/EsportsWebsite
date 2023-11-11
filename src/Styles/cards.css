@@ -119,11 +119,11 @@
   width: 320px;
   height: 254px;
   border-radius: 10px;
-  color: rgb(73, 7, 97);
+  color: white;
   background-position: no-repeat center;
   background-size: cover;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: blueviolet;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,8 +131,19 @@
   transition: all 1s ease;
   /* overflow: hidden; */
 }
+.adteam_card-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
 .adteam_name{
-  font-size: 1.5rem;
+  margin: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.742);
+  padding: 1rem 1rem;
+  font-size: 2rem;
 }
 
 .adteam_card:hover::before{
@@ -219,7 +230,7 @@
   width: 250px;
   height: 250px;
   border-radius: 10px;
-  background-color: white;
+  background-color: black;
 }
 .memb_profile-cont:hover::before {
   content: "";
@@ -377,12 +388,12 @@
   background-size: cover;
   overflow: hidden;
   margin: 2rem 2rem;
-  
-  transition: transform  ease-in-out 0.2s;
+  border: 2px solid blueviolet;
+  transition: transform  ease-in-out 0.4s;
 }
 .social-cards:hover{
   transform: scale(1.1);
-  border: 2px solid blueviolet;
+
 }
 
 .input-group-weekly {
@@ -462,7 +473,7 @@
   transform: translate(-50%, -50%) rotateZ(45deg);
 }
 .h1-weekly{
-  font-size: 3.5em ;
+  font-size: 5em ;
 }
 .h2-weekly{
   font-size: 2em;
@@ -511,5 +522,20 @@
   }
 }
 
+.career-card{
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2/1;
+  margin: 2rem 1rem;
+  border-radius: 10px;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 50px;
+
+/* box-shadow:  20px 20px 60px #26013d,
+             -20px -20px 60px #26013d; */
+}
 
 

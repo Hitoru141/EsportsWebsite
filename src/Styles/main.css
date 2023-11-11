@@ -29,7 +29,6 @@ body {
     justify-content: center;
     flex-direction: column;
   }
-
   .glbwrapper{
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -721,6 +720,18 @@ body {
     font-size: 6em;
     
 }
+.about-h1 {
+    transform: translateX(-100%);
+    opacity: 0;
+    z-index: 1;
+    font-size: 6em;
+    /* Add other styles as needed */
+    transition: transform 1s, opacity 1s;
+   } 
+   .about-h1.animate {
+    transform: translateX(0);
+    opacity: 1;
+   }   
 @media (max-width: 1024px){
     #profiles {
         grid-template-columns: repeat(auto-fit, minmax(180px, 240px)); 

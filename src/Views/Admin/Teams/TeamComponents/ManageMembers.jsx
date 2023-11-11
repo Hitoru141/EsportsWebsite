@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { appSettings } from "../../../../Appdata/appdata";
 import AddMemberForm from "./AddMemberForm";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ManageMembers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,6 +52,9 @@ const ManageMembers = () => {
     <>
       <div className="mteam_wrapper">
         <div className="adt_teambanner">
+          <Link to="/astraadmin787/dashboard">
+            <div className="back-btn">&#8592; Back to dashboard</div>
+          </Link>
           <img src={sampleBanner} className="adt_teambanner-img" alt="Banner" />
         </div>
         <button className="admemberbtn" onClick={toggleModal}>

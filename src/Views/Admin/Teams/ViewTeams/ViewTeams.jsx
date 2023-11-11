@@ -37,7 +37,7 @@ const ViewTeams = () => {
         <div key={index} className="adteam_card">
           <img
             src={team.teamLogoURL}
-            className="adteam_card"
+            className="adteam_card-img"
             alt={`${team.name} Logo`}
           />
           <p className="adteam_name">{team.teamName}</p>
@@ -50,7 +50,7 @@ const ViewTeams = () => {
           </button>
 
           {activeTeamIndex === index && (
-            <UpdateTeamForm closeModal={closeModal} team={team}/>
+            <UpdateTeamForm closeModal={closeModal} team={team} />
           )}
 
           <Link to={`/astraadmin787/${team.teamName}/manageTeam`}>
