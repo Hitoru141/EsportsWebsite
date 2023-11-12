@@ -65,7 +65,7 @@ const Navbar = ({ banner }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/#" onClick={handleNavLinkClick}>
+                <Link to="/careers" onClick={handleNavLinkClick}>
                   Careers
                 </Link>
               </li>

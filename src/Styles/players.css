@@ -26,6 +26,7 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
+  image-rendering: optimizeSpeed;
   aspect-ratio: 4/5.5;
   background-size: cover;
   overflow: hidden;
