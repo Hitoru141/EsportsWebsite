@@ -174,18 +174,21 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background-color: aqua; */
 }
 
 @media (max-width: 1023px) {
   .img-card {
     border: 1.5px solid rgb(240, 240, 240);  
   }
+  .img-card:hover{
+    border: none;
+    transform: none;
+  }
   .img-card .hover-content {
     opacity: 1;
     background-color: hsla(0, 0%, 0%, 0);
     backdrop-filter: blur(0px); 
-    /* clip-path: polygon(0% 51%, 100% 50.8%, 100% 100%, 0% 100%); */
+ 
   }
  .player-details-wrap{
   background-color: hsla(0, 0%, 0%, 0.414);
