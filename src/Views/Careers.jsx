@@ -3,14 +3,14 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import tbanner from "../assets/Astraeus.jpg";
 
-import TypeWriterEffect from "react-typewriter-effect";
+// import TypeWriterEffect from "react-typewriter-effect";
 
 const Careers = () => {
   return (
     <div className="glbwrapper">
       <Navbar banner={tbanner} />
 
-      <div className="h1-weekly">
+      {/* <div className="h1-weekly">
         Nothing to see here for now...
         <TypeWriterEffect
           textStyle={{
@@ -24,7 +24,7 @@ const Careers = () => {
           multiTextDelay={1000}
           typeSpeed={100}
         />
-      </div>
+      </div> */}
 
       <Footer />
     </div>
