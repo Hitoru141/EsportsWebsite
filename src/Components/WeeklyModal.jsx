@@ -20,6 +20,10 @@ const WeeklyModal = ({ closeModal }) => {
     }
   };
 
+  const handleInputChange = (e) => {
+    setLink(e.target.value);
+  };
+
   return (
     <div className="weekly-modal-overlay">
       <div className="weekly-modal">
@@ -33,7 +37,8 @@ const WeeklyModal = ({ closeModal }) => {
             className="weekly-input"
             placeholder="uiverse@verse.io"
             value={link}
-          ></input>
+            onChange={handleInputChange}
+          />
           <button className="weeklybtn-submit" onClick={copyToClipboard}>
             Copy link
           </button>
