@@ -7,7 +7,7 @@ import weekly from "../assets/weekly.jpg";
 import discord from "../assets/discord.jpg";
 import fb from "../assets/bf.jpeg";
 import x from "../assets/tweet.png";
-// import WeeklyModal from "../Components/WeeklyModal";
+import WeeklyModal from "../Components/WeeklyModal";
 // import x from "../assets/twittergif.gif";
 const Community = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +31,7 @@ const Community = () => {
           <div className="weekly-cards" onClick={toggleModal}>
             <img src={weekly} className="weekly-img" />
           </div>
-          {/* {isModalOpen && <WeeklyModal closeModal={closeModal} />} */}
+          {isModalOpen && <WeeklyModal closeModal={closeModal} />}
 
           <h1 className="h1-weekly">Visit our socials</h1>
           <a
